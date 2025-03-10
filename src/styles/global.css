@@ -35,7 +35,7 @@ h4 {
 /* Social Link Styles */
 .social-link {
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-heading);
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
@@ -43,7 +43,7 @@ h4 {
   text-decoration-line: underline;
   text-decoration-style: wavy;
   text-decoration-color: var(--color-accent);
-  color: var(--color-heading);
+  color: var(--color-accent);
   text-decoration-skip-ink: none;
 }
 
