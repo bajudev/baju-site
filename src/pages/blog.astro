@@ -1,0 +1,21 @@
+---
+// src/pages/blog.astro
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Blog">
+  <section class="space-y-6">
+    <h2 class="text-2xl font-semibold text-blue-400">Latest Posts</h2>
+    <ul class="list-disc pl-5 space-y-2">
+      <li>
+        <a href="/blog/post-1" class="hover:text-pink-400">
+          Post Title 1
+        </a>
+      </li>
+      <li>
+        <a href="/blog/post-2" class="hover:text-pink-400">
+          Post Title 2
+        </a>
+      </li>
+    </ul>
+  </section>
+</Layout>

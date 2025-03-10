@@ -1,1 +1,53 @@
+@import './colors.css';
 @import "tailwindcss";
+
+/* Custom Heading Styles */
+h1 {
+  @apply text-4xl font-bold lowercase;
+  color: var(--color-heading);
+}
+
+h2 {
+  @apply text-2xl font-semibold lowercase;
+  color: var(--color-heading);
+}
+
+h3 {
+  @apply text-xl font-medium lowercase;
+  color: var(--color-text);
+}
+
+h4 {
+  @apply text-lg font-medium lowercase;
+  color: var(--color-text);
+}
+
+/* Navigation Link Styles */
+.nav-link {
+  color: var(--color-heading);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+/* Social Link Styles */
+.social-link {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.social-link:hover {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--color-accent);
+  color: var(--color-heading);
+  text-decoration-skip-ink: none;
+}
+
+/* Append external link symbol via pseudo-element */
+.social-link::after {
+  content: " ↗"; /* Leading space ensures proper spacing */
+}
