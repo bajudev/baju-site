@@ -3,22 +3,22 @@
 
 /* Custom Heading Styles */
 h1 {
-  @apply text-4xl font-bold lowercase;
+  @apply text-4xl font-bold ;
   color: var(--color-heading);
 }
 
 h2 {
-  @apply text-2xl font-semibold lowercase;
+  @apply text-2xl font-semibold ;
   color: var(--color-heading);
 }
 
 h3 {
-  @apply text-xl font-medium lowercase;
+  @apply text-xl font-medium ;
   color: var(--color-text);
 }
 
 h4 {
-  @apply text-lg font-medium lowercase;
+  @apply text-lg font-medium ;
   color: var(--color-text);
 }
 
@@ -61,4 +61,18 @@ h4 {
 .kaomoji-animation {
   display: inline-block;
   animation: wiggle 2s infinite;
+}
+
+/* Highlight styles */
+.highlight {
+  @apply font-semibold;
+}
+.highlight-blue {
+  @apply text-blue-500;
+}
+.highlight-pink {
+  @apply text-pink-500;
+}
+.highlight-green {
+  @apply text-green-500;
 }

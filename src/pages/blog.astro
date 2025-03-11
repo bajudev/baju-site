@@ -16,13 +16,17 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
 
 <Layout title="Blog">
   <section class="space-y-6">
+    <h1> blog </h1>
+      <p> uh, I guess this section is supposed to be a bit more professional but don't 
+        take it too seriously
+      </p>
     <h2 class="text-2xl font-semibold text-blue-400">Tags</h2>
     <ul class="flex flex-wrap gap-2">
       {uniqueTags.map((tag) => (
         <li>
           <a 
             href={`/tags/${tag}`} 
-            class="inline-block bg-blue-200 text-blue-800 hover:bg-pink-400 hover:text-white rounded-full px-3 py-1 text-sm transition-colors"
+            class="inline-block bg-blue-200 text-blue-950 hover:bg-pink-400 hover:text-white rounded-full px-3 py-1 text-sm transition-colors"
           >
             #{tag}
           </a>
