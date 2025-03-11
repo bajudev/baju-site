@@ -1,21 +1,26 @@
 ---
-// src/pages/blog.astro
 import Layout from '../layouts/Layout.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+// Dynamically import markdown blog posts
+const allPosts = Object.values(await import.meta.glob('./posts/*.md', { eager: true }));
+
+// Sort posts by date, newest first
+allPosts.sort((a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate));
 ---
+
 <Layout title="Blog">
   <section class="space-y-6">
     <h2 class="text-2xl font-semibold text-blue-400">Latest Posts</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li>
-        <a href="/blog/post-1" class="hover:text-pink-400">
-          Post Title 1
-        </a>
-      </li>
-      <li>
-        <a href="/blog/post-2" class="hover:text-pink-400">
-          Post Title 2
-        </a>
-      </li>
+    <ul class="space-y-4">
+      {allPosts.map((post) => (
+        <BlogPost
+          url={post.url}
+          title={post.frontmatter.title}
+          description={post.frontmatter.description}
+          pubDate={post.frontmatter.pubDate}
+        />
+      ))}
     </ul>
   </section>
 </Layout>

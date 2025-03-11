@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPost from '../../components/BlogPost.astro';
+
+// Load all posts dynamically
+const posts = Object.entries(import.meta.glob('../posts/*.md', { eager: true }))
+  .map(([path, post]) => ({ url: path.replace('../', '/').replace('.md', ''), ...post.frontmatter }));
+
+// Generate dynamic tag pages
+export async function getStaticPaths() {
+  const uniqueTags = [...new Set(posts.flatMap(post => post.tags))];
+
+  return uniqueTags.map(tag => ({
+    params: { tag },
+    props: { posts: posts.filter(post => post.tags.includes(tag)) },
+  }));
+}
+
+const { tag } = Astro.params;
+const { posts: filteredPosts } = Astro.props;
+---
+
+<Layout title={`Posts tagged "${tag}"`}>
+  <section class="space-y-6">
+    <h2 class="text-2xl font-semibold text-blue-400">Posts tagged "{tag}"</h2>
+    <ul class="space-y-4">
+      {filteredPosts.map((post) => (
+        <BlogPost
+          url={post.url}
+          title={post.frontmatter.title}
+          description={post.frontmatter.description}
+          pubDate={post.frontmatter.pubDate}
+        />
+      ))}
+  </section>
+</Layout>
