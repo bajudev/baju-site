@@ -2,25 +2,43 @@
 import Layout from '../layouts/Layout.astro';
 import BlogPost from '../components/BlogPost.astro';
 
-// Dynamically import markdown blog posts
-const allPosts = Object.values(await import.meta.glob('./posts/*.md', { eager: true }));
+// Dynamically import markdown posts
+const allPosts = Object.entries(import.meta.glob('./posts/*.md', { eager: true }))
+  .map(([path, post]) => ({
+    url: path.replace('./', '/').replace('.md', ''),
+    ...post.frontmatter
+  }))
+  .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-// Sort posts by date, newest first
-allPosts.sort((a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate));
+// Get unique tags
+const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
 ---
 
 <Layout title="Blog">
   <section class="space-y-6">
+    <h2 class="text-2xl font-semibold text-blue-400">Tags</h2>
+    <ul class="flex flex-wrap gap-2">
+      {uniqueTags.map((tag) => (
+        <li>
+          <a 
+            href={`/tags/${tag}`} 
+            class="inline-block bg-blue-200 text-blue-800 hover:bg-pink-400 hover:text-white rounded-full px-3 py-1 text-sm transition-colors"
+          >
+            #{tag}
+          </a>
+        </li>
+      ))}
+    </ul>
+
     <h2 class="text-2xl font-semibold text-blue-400">Latest Posts</h2>
     <ul class="space-y-4">
       {allPosts.map((post) => (
         <BlogPost
           url={post.url}
-          title={post.frontmatter.title}
-          description={post.frontmatter.description}
-          pubDate={post.frontmatter.pubDate}
+          title={post.title}
+          description={post.description}
+          pubDate={post.pubDate}
         />
       ))}
-    </ul>
   </section>
 </Layout>

@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "My Fourth Blog Post"
-pubDate: 2024-03-11
-description: "Today I learned how to dynamically create blog posts in Astro!"
-tags: ["astro", "tutorial"]
+title: "Applications of different algorithms."
+pubDate: 03-11-2025
+description: "In this blog, I explore the different uses of sorting and optimisation algorithms."
+tags: []
 ---
 
 Here is the **content** of your new post.
