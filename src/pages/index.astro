@@ -1,34 +1,54 @@
 ---
-// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="R">
-  <section class="space-y-6">
-    <h1 class="kaomoji-animation"> hi(„• ֊ •„)੭ </h1>
-    <p class="text-lg">
-      I’m Rohan, a comp sci student with an interest in maths and technology. 
-      if i'm not doing something useful, you’ll probably find me practising the violin or
-      researching something i'm intereested in. i like to turn some of my ideas into 
-      reality through technology. thanks for reading :)
+
+<Layout title="my portfolio">
+  <section class="space-y-10">
+
+    <h1 class="kaomoji-animation text-3xl font-bold">hi(„• ֊ •„)੭</h1>
+    <p class="text-lg text-gray-400">
+      I’m Rohan, a computer science student exploring technology, math, and creative coding. This site is where I learn in public, build cool things, and write about ideas I find interesting.
     </p>
-    <h2 class="text-2xl font-semibold" style="color: var(--color-heading);">
-		Skills (i don't have any)
-	</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li>python</li>
-      <li>swift (wip)</li>
-      <li>html / css</li>
-    </ul>
-    <h2 class="text-2xl font-semibold" style="color: var(--color-heading);">
-		Contact
-	</h2>
-    <ul class="flex space-x-4">
-      <li>
-        <a href="https://github.com/rohxn-o" class="social-link " target="_blank">
-          github
-        </a>
-      </li>
-      <!-- Add more social links as needed -->
-    </ul>
+
+    <section>
+      <h2 class="text-xl font-semibold mb-2">📍 Currently</h2>
+      <ul class="list-disc list-inside text-gray-300 space-y-1">
+        <li>Learning Rust and systems programming</li>
+        <li>Writing about computer graphics & math</li>
+        <li>Building this site with Astro!</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold mb-2">🔗 Jump to</h2>
+      <ul class="list-inside space-y-1">
+        <li><a href="/blog" class="text-accent hover:underline">Blog</a></li>
+        <li><a href="/projects" class="text-accent hover:underline">Projects</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold">Skills</h2>
+      <ul class="list-none flex gap-4 items-center">
+        <li class="flex gap-2 items-center">
+          <span class="si si-python text-lg"></span> Python
+        </li>
+        <li class="flex gap-2 items-center">
+          <span class="si si-swift text-lg"></span> Swift (wip)
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold">Contact</h2>
+      <ul class="flex space-x-4">
+        <li>
+          <a href="https://github.com/rohxn-o" class="social-link hover:text-pink-400" target="_blank">
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </section>
+
   </section>
 </Layout>

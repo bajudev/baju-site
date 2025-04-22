@@ -8,18 +8,22 @@ h1 {
 }
 
 h2 {
-  @apply text-2xl font-semibold ;
+  @apply text-2xl font-semibold;
   color: var(--color-heading);
 }
 
 h3 {
-  @apply text-xl font-medium ;
+  @apply text-xl font-medium;
   color: var(--color-text);
 }
 
 h4 {
-  @apply text-lg font-medium ;
+  @apply text-lg font-medium;
   color: var(--color-text);
+}
+
+p {
+  @apply text-base;
 }
 
 /* Navigation Link Styles */
@@ -60,19 +64,10 @@ h4 {
 
 .kaomoji-animation {
   display: inline-block;
-  animation: wiggle 2s infinite;
+  transition: transform 0.3s ease;
+  /* animation: wiggle 2s infinite; */
 }
 
-/* Highlight styles */
-.highlight {
-  @apply font-semibold;
-}
-.highlight-blue {
-  @apply text-blue-500;
-}
-.highlight-pink {
-  @apply text-pink-500;
-}
-.highlight-green {
-  @apply text-green-500;
+.kaomoji-animation:hover {
+  transform: scale(1.2) rotate(-3deg);
 }

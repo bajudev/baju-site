@@ -26,15 +26,18 @@ const { posts } = Astro.props;
 
 <Layout title={`Posts tagged "${tag}"`}>
   <section class="space-y-6">
-    <h2 class="text-2xl font-semibold text-blue-400">Posts tagged "{tag}"</h2>
-    <ul class="space-y-4">
+    <h2 class="text-2xl font-semibold text-indigo">Posts tagged "{tag}"</h2>
+    <ul class="space-y-8">
       {posts.map((post) => (
-        <BlogPost
-          url={post.url}
-          title={post.title}
-          description={post.description}
-          pubDate={post.pubDate}
-        />
+        <li class="transform transition-transform duration-300 ease-in-out hover:scale-105">
+          <article class="bg-[var(--color-bg)] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4 hover:text-[var(--color-accent)]">
+              <a href={post.url}>{post.title}</a>
+            </h3>
+            <p class="text-[var(--color-text)] mb-4">{post.description}</p>
+            <time class="text-sm text-[var(--color-border)]">{new Date(post.pubDate).toLocaleDateString()}</time>
+          </article>
+        </li>
       ))}
     </ul>
   </section>

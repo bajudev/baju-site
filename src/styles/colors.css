@@ -1,9 +1,9 @@
 
 :root {
-  --color-bg: #1F2544;         /* dark background */
-  --color-heading: #94affb;      /* very light headings */
-  --color-text: #F8f8f8;         /* off‑white text for content */
-  --color-accent: #4e5d85;       /* accent for hover states */
-  --color-border: #474F7A;       /* border color */
-  /* Optional secondary accent: --color-secondary: #497D74; */
+  --color-bg: #001028;           /* deep dark background */
+  --color-heading: #b5e2fa;      /* soft highlight heading */
+  --color-text: #F8f8f8;         /* keep off-white for readability */
+  --color-accent: #5046c1;       /* soft violet for links and buttons */
+  --color-border: #1f057b;       /* deep indigo border */
+  --color-primary: #001bdd;      /* bright accent blue */
 }

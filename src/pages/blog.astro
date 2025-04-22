@@ -15,34 +15,43 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
 ---
 
 <Layout title="Blog">
-  <section class="space-y-6">
-    <h1> blog </h1>
-      <p> uh, I guess this section is supposed to be a bit more professional but don't 
-        take it too seriously
-      </p>
-    <h2 class="text-2xl font-semibold text-blue-400">Tags</h2>
-    <ul class="flex flex-wrap gap-2">
+  <section class="space-y-10">
+    <h1 class="text-3xl font-bold">Blog</h1>
+    <p class="text-lg text-[var(--color-text)]">
+      This is where I share things that I'm working on, find interesting, 
+      want to learn more about, or whatever else I feel like writing.
+      <br /><br />
+      If for whatever reason you want to see more, you can follow the
+      <a href="/rss.xml" class="text-accent hover:underline">RSS feed</a>.
+    </p>
+
+    <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Latest Posts</h2>
+    <ul class="space-y-8">
+      {allPosts.map((post) => (
+        <li class="transform transition-transform duration-300 ease-in-out hover:scale-105">
+          <article class="bg-[var(--color-bg)] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4 hover:text-[var(--color-accent)]">
+              <a href={post.url}>{post.title}</a>
+            </h3>
+            <p class="text-[var(--color-text)] mb-4">{post.description}</p>
+            <time class="text-sm text-[var(--color-accent)]">{new Date(post.pubDate).toLocaleDateString()}</time>
+          </article>
+        </li>
+      ))}
+    </ul>
+
+    <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Tags</h2>
+    <ul class="flex flex-wrap gap-4">
       {uniqueTags.map((tag) => (
         <li>
           <a 
             href={`/tags/${tag}`} 
-            class="inline-block bg-blue-200 text-blue-950 hover:bg-pink-400 hover:text-white rounded-full px-3 py-1 text-sm transition-colors"
+            class="px-5 py-2 rounded-full bg-[var(--color-border)] text-[var(--color-text)] font-semibold transition-transform duration-300 hover:scale-110 hover:bg-[var(--color-accent)]"
           >
             #{tag}
           </a>
         </li>
       ))}
     </ul>
-
-    <h2 class="text-2xl font-semibold text-blue-400">Latest Posts</h2>
-    <ul class="space-y-4">
-      {allPosts.map((post) => (
-        <BlogPost
-          url={post.url}
-          title={post.title}
-          description={post.description}
-          pubDate={post.pubDate}
-        />
-      ))}
   </section>
 </Layout>
