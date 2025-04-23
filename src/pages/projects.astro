@@ -3,19 +3,24 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Projects">
-  <section class="space-y-6">
-    <h2 class="text-2xl font-semibold text-blue-400">Projects</h2>
-    <ul class="list-disc pl-5 space-y-2">
-      <li>
-        <a href="https://github.com/yourusername/project1" target="_blank" class="hover:text-pink-400">
-          Project 1
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/yourusername/project2" target="_blank" class="hover:text-pink-400">
-          Project 2
-        </a>
-      </li>
-    </ul>
+  <section class="space-y-12">
+    <h2 class="text-3xl font-bold text-[var(--color-heading)] drop-shadow-[0_0_10px_var(--color-accent)]">Projects</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <a href="https://github.com/yourusername/project1" target="_blank" class="block p-6 bg-[var(--color-bg)] rounded-xl border border-[var(--color-border)] hover:border-[var(--color-accent)] shadow-lg transition-all duration-300 hover:shadow-[0_0_15px_var(--color-accent)]">
+        <h3 class="text-xl font-semibold text-[var(--color-text)] mb-2 hover:text-[var(--color-accent)] transition-colors">Project 1</h3>
+        <img src="/images/project1.png" alt="Project 1 preview" class="w-full h-40 object-cover rounded-md mb-4 border border-[var(--color-border)]" />
+        <p class="text-[var(--color-text)] text-sm">Short description of Project 1 that explains what it's about and what you learned or built.</p>
+      </a>
+      <a href="https://github.com/yourusername/project2" target="_blank" class="block p-6 bg-[var(--color-bg)] rounded-xl border border-[var(--color-border)] hover:border-[var(--color-accent)] shadow-lg transition-all duration-300 hover:shadow-[0_0_15px_var(--color-accent)]">
+        <h3 class="text-xl font-semibold text-[var(--color-text)] mb-2 hover:text-[var(--color-accent)] transition-colors">Project 2</h3>
+        <img src="/images/project2.png" alt="Project 2 preview" class="w-full h-40 object-cover rounded-md mb-4 border border-[var(--color-border)]" />
+        <p class="text-[var(--color-text)] text-sm">Short description of Project 2 that explains what it's about and what you learned or built.</p>
+      </a>
+      <a href="https://github.com/yourusername/project3" target="_blank" class="block p-6 bg-[var(--color-bg)] rounded-xl border border-[var(--color-border)] hover:border-[var(--color-accent)] shadow-lg transition-all duration-300 hover:shadow-[0_0_15px_var(--color-accent)]">
+        <h3 class="text-xl font-semibold text-[var(--color-text)] mb-2 hover:text-[var(--color-accent)] transition-colors">Project 3</h3>
+        <img src="/images/project3.png" alt="Project 3 preview" class="w-full h-40 object-cover rounded-md mb-4 border border-[var(--color-border)]" />
+        <p class="text-[var(--color-text)] text-sm">Short description of Project 3 that explains what it's about and what you learned or built.</p>
+      </a>
+    </div>
   </section>
 </Layout>

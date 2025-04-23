@@ -30,11 +30,11 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
       {allPosts.map((post) => (
         <li class="transform transition-transform duration-300 ease-in-out hover:scale-105">
           <article class="bg-[var(--color-bg)] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            <h3 class="text-2xl font-bold text-[var(--color-text)] mb-4 hover:text-[var(--color-accent)]">
+            <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-[var(--color-accent)]">
               <a href={post.url}>{post.title}</a>
             </h3>
             <p class="text-[var(--color-text)] mb-4">{post.description}</p>
-            <time class="text-sm text-[var(--color-accent)]">{new Date(post.pubDate).toLocaleDateString()}</time>
+            <time class="text-sm text-gray-400">{new Date(post.pubDate).toLocaleDateString()}</time>
           </article>
         </li>
       ))}
@@ -46,7 +46,7 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
         <li>
           <a 
             href={`/tags/${tag}`} 
-            class="px-5 py-2 rounded-full bg-[var(--color-border)] text-[var(--color-text)] font-semibold transition-transform duration-300 hover:scale-110 hover:bg-[var(--color-accent)]"
+            class="px-5 py-2 rounded-full bg-gradient-to-r from-[var(--color-border)] to-[var(--color-accent)] text-[var(--color-text)] font-semibold transition-all duration-300 hover:from-[var(--color-accent)] hover:to-[var(--color-primary)] hover:scale-105"
           >
             #{tag}
           </a>

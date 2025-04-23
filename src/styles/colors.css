@@ -1,9 +1,8 @@
-
 :root {
-  --color-bg: #001028;           /* deep dark background */
-  --color-heading: #b5e2fa;      /* soft highlight heading */
-  --color-text: #F8f8f8;         /* keep off-white for readability */
-  --color-accent: #5046c1;       /* soft violet for links and buttons */
-  --color-border: #1f057b;       /* deep indigo border */
-  --color-primary: #001bdd;      /* bright accent blue */
+  --color-bg: #0a0e1a;           /* very deep midnight blue */
+  --color-heading: #87bafc;      /* soft, cool blue for headings */
+  --color-text: #e6e9ef;         /* soft light gray for better contrast */
+  --color-accent: #4a56d2;       /* muted violet-blue for accents */
+  --color-border: #2b2f77;       /* slightly lighter indigo for subtle borders */
+  --color-primary: #3d5afe;      /* vibrant blue for strong accents */
 }

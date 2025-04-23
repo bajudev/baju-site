@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props;
 <Layout title={frontmatter.title}>
   <article class="prose prose-lg dark:prose-invert max-w-none">
     <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
-    <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+    <p class="text-sm text-gray-400 mb-4">
       Posted on {new Date(frontmatter.pubDate).toLocaleDateString()}
     </p>
 
@@ -15,7 +15,7 @@ const { frontmatter } = Astro.props;
         {frontmatter.tags.map((tag) => (
           <a 
             href={`/tags/${tag}`} 
-            class="inline-block bg-blue-200 text-blue-950 hover:bg-pink-400 hover:text-white rounded-full px-3 py-1 text-sm transition-colors"
+            class="inline-block bg-gradient-to-r from-[var(--color-border)] to-[var(--color-accent)] text-[var(--color-text)] hover:from-[var(--color-accent)] hover:to-[var(--color-primary)] rounded-full px-3 py-1 text-sm font-semibold transition-all duration-300 hover:scale-105"
           >
             #{tag}
           </a>

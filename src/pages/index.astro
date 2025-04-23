@@ -3,16 +3,16 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="my portfolio">
-  <section class="space-y-10">
+  <section class="space-y-12">
 
-    <h1 class="kaomoji-animation text-3xl font-bold">hi(„• ֊ •„)੭</h1>
-    <p class="text-lg text-gray-400">
+    <h1 class="kaomoji-animation text-5xl font-bold text-[var(--color-heading)] drop-shadow-[0_0_15px_var(--color-accent)] animate-bounce transition-all duration-500">hi(„• ֊ •„)੭</h1>
+    <p class="text-[var(--color-text)] text-lg max-w-2xl">
       I’m Rohan, a computer science student exploring technology, math, and creative coding. This site is where I learn in public, build cool things, and write about ideas I find interesting.
     </p>
 
     <section>
-      <h2 class="text-xl font-semibold mb-2">📍 Currently</h2>
-      <ul class="list-disc list-inside text-gray-300 space-y-1">
+      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Currently</h2>
+      <ul class="list-disc list-inside text-lg space-y-1">
         <li>Learning Rust and systems programming</li>
         <li>Writing about computer graphics & math</li>
         <li>Building this site with Astro!</li>
@@ -20,15 +20,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold mb-2">🔗 Jump to</h2>
-      <ul class="list-inside space-y-1">
-        <li><a href="/blog" class="text-accent hover:underline">Blog</a></li>
-        <li><a href="/projects" class="text-accent hover:underline">Projects</a></li>
-      </ul>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-semibold">Skills</h2>
+      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Skills</h2>
       <ul class="list-none flex gap-4 items-center">
         <li class="flex gap-2 items-center">
           <span class="si si-python text-lg"></span> Python
@@ -40,10 +32,10 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold">Contact</h2>
+      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Contact</h2>
       <ul class="flex space-x-4">
         <li>
-          <a href="https://github.com/rohxn-o" class="social-link hover:text-pink-400" target="_blank">
+          <a href="https://github.com/rohxn-o" class="social-link hover:text-[var(--color-accent)]" target="_blank">
             GitHub
           </a>
         </li>
