@@ -6,6 +6,4 @@ description: "I will explore the different applications of sorting and optimisat
 tags: ["algorithms","learning"]
 ---
 
-Here is the **content** of your new post.
-
-Enjoy writing with Markdown!
+nothing here yet 

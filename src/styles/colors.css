@@ -1,8 +1,68 @@
-:root {
-  --color-bg: #0a0e1a;           /* very deep midnight blue */
-  --color-heading: #87bafc;      /* soft, cool blue for headings */
-  --color-text: #e6e9ef;         /* soft light gray for better contrast */
-  --color-accent: #4a56d2;       /* muted violet-blue for accents */
-  --color-border: #2b2f77;       /* slightly lighter indigo for subtle borders */
-  --color-primary: #3d5afe;      /* vibrant blue for strong accents */
+.matrix-name-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'STIX Two Math', serif;
+  color: #00ff00;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.matrix-bracket {
+  display: inline-block;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  animation-fill-mode: forwards;
+}
+
+.left-bracket {
+  transform-origin: right;
+  animation: bracketExpandLeft 0.7s ease forwards;
+}
+
+.right-bracket {
+  transform-origin: left;
+  animation: bracketExpandRight 0.7s ease forwards;
+  animation-delay: 0.1s;
+}
+
+.matrix-name {
+  margin: 0 0.5rem;
+  opacity: 0;
+  animation: fadeInText 0.5s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes bracketExpandLeft {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes bracketExpandRight {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
