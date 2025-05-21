@@ -30,13 +30,15 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
     <ul class="space-y-8">
       {allPosts.map((post) => (
         <li class="transform transition-transform duration-300 ease-in-out hover:scale-105">
-          <article class="bg-[var(--color-bg)] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-            <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-[var(--color-accent)]">
-              <a href={post.url}>{post.title}</a>
-            </h3>
-            <p class="text-[var(--color-text)] mb-4">{post.description}</p>
-            <time class="text-sm text-gray-400">{new Date(post.pubDate).toLocaleDateString()}</time>
-          </article>
+          <a href={post.url} class="block">
+            <article class="bg-[var(--color-border)] border border-[var(--color-accent)] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-[var(--color-accent)]">
+                {post.title}
+              </h3>
+              <p class="text-[var(--color-text)] mb-4">{post.description}</p>
+              <time class="text-sm text-gray-400">{new Date(post.pubDate).toLocaleDateString()}</time>
+            </article>
+          </a>
         </li>
       ))}
     </ul>
