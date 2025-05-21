@@ -54,6 +54,24 @@ p {
   content: " ↗";
 }
 
+/* Social Link Styles */
+.email-link {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.email-link:hover {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--color-accent);
+  color: var(--color-accent);
+  text-decoration-skip-ink: none;
+}
+
+.email-link::after {
+  content: " ⌘";
+}
+
 @keyframes slideLeft {
   0% { transform: translateX(0); }
   100% { transform: translateX(-7rem); }
