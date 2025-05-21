@@ -39,7 +39,7 @@ p {
 /* Social Link Styles */
 .social-link {
   text-decoration: none;
-  color: var(--color-heading);
+  color: var(--color-text);
 }
 
 .social-link:hover {
@@ -54,19 +54,39 @@ p {
   content: " ↗";
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(2deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-2deg); }
+@keyframes slideLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-8.5rem); }
+}
+@keyframes slideRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(8.5rem); }
+}
+@keyframes fadeInText {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-.kaomoji-animation {
-  display: inline-block;
-  transition: transform 0.3s ease;
-  /* animation: wiggle 2s infinite; */
+.bracket-left {
+  animation: slideLeft 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+.bracket-right {
+  animation: slideRight 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+.portfolio-text {
+  opacity: 0;
+  animation: fadeInText 1.5s ease forwards;
+  animation-delay: 1s;
+  pointer-events: none; 
 }
 
-.kaomoji-animation:hover {
-  transform: scale(1.2) rotate(-3deg);
+.portfolio-text[style*="opacity: 1"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.font-stix {
+  font-family: 'STIX Two Math', serif;
 }

@@ -3,21 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 ---
 
-<Layout title="my portfolio">
+<Layout title="setofr">
+  <div class="relative flex items-center justify-center select-none text-8xl font-stix text-white mb-6">
+    <span class="bracket-left inline-block z-10">[</span>
+    <span class="portfolio-text absolute left-1/2 transform -translate-x-1/2 opacity-0 font-normal">setofR</span>
+    <span class="bracket-right inline-block z-10">]</span>
+  </div>
   <section class="space-y-12">
-
-    <div class="matrix-name-wrapper">
-      <span class="matrix-bracket left-bracket">[</span>
-      <span class="matrix-name">setofr</span>
-      <span class="matrix-bracket right-bracket">]</span>
-    </div>
-    <p class="text-[var(--color-text)] text-lg max-w-2xl">
-      welcoem 
-    </p>
-
     <section>
       <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Currently</h2>
-      <ul class="list-disc list-inside text-lg space-y-1">
+      <ul class="list-disc list-inside text-lg space-y-1 text-[var(--color-text)]">
         <li>Focusing on studies</li>
         <li>Trying to learn more</li>
       </ul>
@@ -25,11 +20,11 @@ import '../styles/global.css';
 
     <section>
       <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Skills</h2>
-      <ul class="list-none flex gap-4 items-center">
-        <li class="flex gap-2 items-center">
+      <ul class="list-none flex gap-4 items-center text-[var(--color-text)]">
+        <li class="flex gap-2 items-center text-[var(--color-text)]">
           <span class="si si-python text-lg"></span> Python
         </li>
-        <li class="flex gap-2 items-center">
+        <li class="flex gap-2 items-center text-[var(--color-text)]">
           <span class="si si-swift text-lg"></span> Swift (wip)
         </li>
       </ul>
@@ -37,8 +32,8 @@ import '../styles/global.css';
 
     <section>
       <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Contact</h2>
-      <ul class="flex space-x-4">
-        <li>
+      <ul class="flex space-x-4 text-[var(--color-text)]">
+        <li class="text-[var(--color-text)]">
           <a href="https://github.com/setofr" class="social-link hover:text-[var(--color-accent)]" target="_blank">
             GitHub
           </a>
