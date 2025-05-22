@@ -6,9 +6,9 @@ import '../styles/global.css';
 const allPosts = Object.entries(import.meta.glob('./posts/*.md', { eager: true }))
   .map(([path, post]) => ({
     url: path.replace('./', '/').replace('.md', ''),
-    ...post.frontmatter
+    ...(post as any).frontmatter
   }))
-  .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+  .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 
 const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
 ---

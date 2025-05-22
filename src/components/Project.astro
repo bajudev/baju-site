@@ -2,44 +2,25 @@
 const { title, description, url, technologies, image, status } = Astro.props;
 ---
 
-<article class="bg-[var(--color-border)] border border-[var(--color-accent)] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105">
+<article class="card">
   <div class="flex justify-between items-start mb-4">
-    <h3 class="text-xl font-semibold text-[var(--color-heading)] hover:text-[var(--color-accent)] transition-colors">
-      {title}
-    </h3>
-    {status && (
-      <span class="px-2 py-1 text-xs rounded-full bg-[var(--color-accent)] text-white">
-        {status}
-      </span>
-    )}
+    <h3 class="text-xl font-semibold text-[var(--color-heading)] hover:text-[var(--color-accent)] transition-colors">{title}</h3>
+    {status && <span class="badge">{status}</span>}
   </div>
-  
+
   {image && (
-    <img 
-      src={image} 
-      alt={`${title} preview`} 
-      class="w-full h-40 object-cover rounded-md mb-4 border border-[var(--color-border)]" 
-    />
+    <img src={image} alt={`${title} preview`} class="card-img mb-4" />
   )}
-  
+
   <p class="text-[var(--color-text)] mb-4">{description}</p>
-  
+
   {technologies && (
     <div class="flex flex-wrap gap-2 mb-4">
-      {technologies.map((tech) => (
-        <span class="px-2 py-1 text-xs rounded bg-[var(--color-primary)] text-white">
-          {tech}
-        </span>
+      {technologies.map((tech: unknown) => (
+        <span class="tech-pill">{tech}</span>
       ))}
     </div>
   )}
-  
-  <a 
-    href={url} 
-    target="_blank" 
-    class="inline-flex items-center text-[var(--color-accent)] hover:text-[var(--color-primary)] font-medium transition-colors"
-  >
-    View Project
-    <span class="ml-1">↗</span>
-  </a>
+
+  <a href={url} target="_blank" class="link-arrow">View Project <span class="ml-1">↗</span></a>
 </article>
