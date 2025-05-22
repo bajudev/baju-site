@@ -2,18 +2,13 @@
 
 My attempt at a personal website. Built with Astro and Tailwind CSS.
 
-## 🌟 Features
+## Features
 
-- **Responsive Design**: Mobile-first approach with clean, minimalist aesthetics
-- **Dark Theme**: Elegant dark color scheme with CSS custom properties
-- **Blog System**: Markdown-based blog with tag filtering and categorization
-- **Project Showcase**: Dynamic project cards with status indicators and technology tags
-- **Animated Branding**: Mathematical notation-inspired logo animation on homepage
-- **Social Links**: Dedicated links page for social media presence
-- **SEO Friendly**: Proper meta tags and semantic HTML structure
-- **Fast Performance**: Built with Astro for optimal loading speeds
+- Home Page
+- Blog
+- Projects
 
-## 🚀 Tech Stack
+## Tech Stack
 
 - **Framework**: [Astro](https://astro.build/) - Static site generator
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
@@ -21,23 +16,23 @@ My attempt at a personal website. Built with Astro and Tailwind CSS.
 - **Typography**: STIX Two Math font for mathematical aesthetics
 - **Deployment**: Ready for deployment on any static hosting platform
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 /
 ├── components/
-│   ├── BlogPost.astro       # Blog post preview component
-│   └── Project.astro        # Project card component
+│   ├── BlogPost.astro       
+│   └── Project.astro        
 ├── data/
-│   └── projects.js          # Project data configuration
+│   └── projects.js          
 ├── layouts/
-│   ├── Layout.astro         # Base layout template
-│   └── MarkdownPostLayout.astro # Layout for blog posts
+│   ├── Layout.astro         # base layout
+│   └── MarkdownPostLayout.astro
 ├── pages/
-│   ├── blog.astro          # Blog listing page
-│   ├── index.astro         # Homepage
-│   ├── links.astro         # Social links page
-│   ├── projects.astro      # Projects showcase
+│   ├── blog.astro          
+│   ├── index.astro         # home page
+│   ├── links.astro         # basically a linktree
+│   ├── projects.astro      
 │   ├── posts/             # Markdown blog posts
 │   └── tags/              # Dynamic tag pages
 └── styles/
