@@ -1,6 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
+
+const currentActivities = [
+  "Focusing on studies",
+  "Trying to learn more", 
+  "Failing maths"
+];
+
+const skills = [
+  { name: "Python", icon: "si-python" },
+  { name: "Swift (wip)", icon: "si-swift" }
+];
+
+const socialLinks = [
+  { url: "https://github.com/setofr", name: "GitHub", class: "social-link" },
+  { url: "https://www.youtube.com/@setofR", name: "YouTube", class: "social-link" },
+  { url: "https://mastodon.social/@setofR", name: "Mastodon", class: "social-link" },
+  { url: "https://bsky.app/profile/setofr.bsky.social", name: "Bluesky", class: "social-link" },
+  { url: "mailto:contact@setofr.me", name: "contact@setofr.me", class: "email-link" }
+];
 ---
 
 <Layout title="setofr | home">
@@ -9,53 +28,40 @@ import '../styles/global.css';
     <span class="portfolio-text absolute left-1/2 transform -translate-x-1/2 opacity-0 font-normal">setofℝ</span>
     <span class="bracket-right inline-block z-10">]</span>
   </div>
+  
   <section class="space-y-12">
     <section>
       <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Currently</h2>
       <ul class="list-disc list-inside text-lg space-y-1 text-[var(--color-text)]">
-        <li>Focusing on studies</li>
-        <li>Trying to learn more</li>
-        <li>Failing maths</li>
+        {currentActivities.map((activity) => (
+          <li>{activity}</li>
+        ))}
       </ul>
     </section>
+    
     <section>
       <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Skills</h2>
       <ul class="list-none flex gap-4 items-center text-[var(--color-text)]">
-        <li class="flex gap-2 items-center text-[var(--color-text)]">
-          <span class="si si-python text-lg"></span> Python
-        </li>
-        <li class="flex gap-2 items-center text-[var(--color-text)]">
-          <span class="si si-swift text-lg"></span> Swift (wip)
-        </li>
+        {skills.map((skill) => (
+          <li class="flex gap-2 items-center text-[var(--color-text)]">
+            <span class={`si ${skill.icon} text-lg`}></span>
+            {skill.name}
+          </li>
+        ))}
       </ul>
     </section>
 
     <section>
       <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Contact</h2>
-      <ul class="flex space-x-4 text-[var(--color-text)]">
-        <li class="text-[var(--color-text)]">
-          <a href="https://github.com/setofr" class="social-link hover:text-[var(--color-accent)]" target="_blank">
-            GitHub
-          </a>
-        </br>
-          <a href="https://www.youtube.com/@setofR" class="social-link hover:text-[var(--color-accent)]" target="_blank">
-            YouTube
-          </a>
-        </br>
-          <a href="https://mastodon.social/@setofR" class="social-link hover:text-[var(--color-accent)]" target="_blank">
-            Mastodon
-          </a>
-        </br>
-          <a href="https://bsky.app/profile/setofr.bsky.social" class="social-link hover:text-[var(--color-accent)]" target="_blank">
-            Bluesky
-          </a>
-        </br>
-          <a href="mailto:contact@setofr.me" class="email-link hover:text-[var(--color-accent)]" target="_blank">
-            contact@setofr.me
-          </a>
-        </li>
+      <ul class="flex flex-col space-y-2 text-[var(--color-text)]">
+        {socialLinks.map((link) => (
+          <li>
+            <a href={link.url} class={`${link.class} hover:text-[var(--color-accent)]`} target="_blank">
+              {link.name}
+            </a>
+          </li>
+        ))}
       </ul>
     </section>
-
   </section>
 </Layout>

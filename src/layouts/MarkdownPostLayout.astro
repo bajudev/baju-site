@@ -1,15 +1,15 @@
 ---
 import Layout from './Layout.astro';
-const { frontmatter } = Astro.props;
 import '../styles/global.css';
+
+const { frontmatter } = Astro.props;
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString();
 ---
 
 <Layout title={frontmatter.title}>
   <article class="prose prose-lg dark:prose-invert max-w-none">
     <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
-    <p class="text-sm text-gray-400 mb-4">
-      Posted on {new Date(frontmatter.pubDate).toLocaleDateString()}
-    </p>
+    <p class="text-sm text-gray-400 mb-4">Posted on {formattedDate}</p>
 
     {frontmatter.tags && (
       <div class="flex flex-wrap gap-2 mb-4">

@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import BlogPost from '../components/BlogPost.astro';
 import '../styles/global.css';
 
-// Dynamically import markdown posts
 const allPosts = Object.entries(import.meta.glob('./posts/*.md', { eager: true }))
   .map(([path, post]) => ({
     url: path.replace('./', '/').replace('.md', ''),
@@ -11,7 +10,6 @@ const allPosts = Object.entries(import.meta.glob('./posts/*.md', { eager: true }
   }))
   .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-// Get unique tags
 const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
 ---
 
@@ -23,35 +21,39 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
       want to learn more about, or whatever else I feel like writing.
     </p>
 
-    <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Latest Posts</h2>
-    <ul class="space-y-8">
-      {allPosts.map((post) => (
-        <li class="transform transition-transform duration-300 ease-in-out hover:scale-105">
-          <a href={post.url} class="block">
-            <article class="bg-[var(--color-border)] border border-[var(--color-accent)] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-[var(--color-accent)]">
-                {post.title}
-              </h3>
-              <p class="text-[var(--color-text)] mb-4">{post.description}</p>
-              <time class="text-sm text-gray-400">{new Date(post.pubDate).toLocaleDateString()}</time>
-            </article>
-          </a>
-        </li>
-      ))}
-    </ul>
+    <section>
+      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Latest Posts</h2>
+      <ul class="space-y-8">
+        {allPosts.map((post) => (
+          <li class="transform transition-transform duration-300 ease-in-out hover:scale-105">
+            <a href={post.url} class="block">
+              <article class="bg-[var(--color-border)] border border-[var(--color-accent)] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-[var(--color-accent)]">
+                  {post.title}
+                </h3>
+                <p class="text-[var(--color-text)] mb-4">{post.description}</p>
+                <time class="text-sm text-gray-400">{new Date(post.pubDate).toLocaleDateString()}</time>
+              </article>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
 
-    <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Tags</h2>
-    <ul class="flex flex-wrap gap-4">
-      {uniqueTags.map((tag) => (
-        <li>
-          <a 
-            href={`/tags/${tag}`} 
-            class="px-5 py-2 rounded-full bg-gradient-to-r from-[var(--color-border)] to-[var(--color-accent)] text-[var(--color-text)] font-semibold transition-all duration-300 hover:from-[var(--color-accent)] hover:to-[var(--color-primary)] hover:scale-105"
-          >
-            #{tag}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <section>
+      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Tags</h2>
+      <ul class="flex flex-wrap gap-4">
+        {uniqueTags.map((tag) => (
+          <li>
+            <a 
+              href={`/tags/${tag}`} 
+              class="px-5 py-2 rounded-full bg-gradient-to-r from-[var(--color-border)] to-[var(--color-accent)] text-[var(--color-text)] font-semibold transition-all duration-300 hover:from-[var(--color-accent)] hover:to-[var(--color-primary)] hover:scale-105"
+            >
+              #{tag}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
   </section>
 </Layout>

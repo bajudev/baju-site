@@ -1,5 +1,14 @@
 ---
 import '../styles/global.css';
+
+const links = [
+  { url: "https://bsky.app/profile/setofr.bsky.social", name: "Bluesky", icon: "/bluesky.svg", type: "image" },
+  { url: "https://mastodon.social/@setofr", name: "Mastodon", icon: "/mastodon.svg", type: "image", rel: "me" },
+  { url: "https://github.com/setofr", name: "GitHub", icon: "fab fa-github", type: "fontawesome" },
+  { url: "https://setofr.me/blog", name: "Blog", icon: "fas fa-blog", type: "fontawesome" },
+  { url: "https://youtube.com/setofr", name: "Watch on YouTube", icon: "fab fa-youtube", type: "fontawesome" },
+  { url: "mailto:contact@setofr.me", name: "Contact Me", icon: "fas fa-envelope", type: "fontawesome" }
+];
 ---
 
 <html title="setofr | links">
@@ -7,38 +16,22 @@ import '../styles/global.css';
     <meta charset="UTF-8" />
     <title>setofr | links</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   </head>
   <body class="links-page">
-    <img src="../../public/set-of-R-profile-inverted.png" alt="Profile Image" class="profile-img" />
+    <img src="/set-of-R-profile-inverted.png" alt="Profile Image" class="profile-img" />
     <h1 class="links-title">@setofR</h1>
     <div class="links">
-      <a href="https://bsky.app/profile/setofr.bsky.social">
-        <img src="../../public/bluesky.svg" alt="Bluesky" style="width: 1.2em; vertical-align: middle; margin-right: 0.5rem;" />
-        Bluesky
-      </a>
-      <a href="https://mastodon.social/@setofr" rel="me">
-        <img src="../../public/mastodon.svg" alt="Mastodon" style="width: 1.2em; vertical-align: middle; margin-right: 0.5rem;" />
-        Mastodon
-      </a>
-      <a href="https://github.com/setofr">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a href="https://setofr.me/blog">
-        <i class="fas fa-bluesky     "></i> Bluesky
-      </a>
-      <a href="https://youtube.com/setofr">
-        <i class="fab fa-youtube"></i> Watch on YouTube
-      </a>
-      <a href="https://yourshop.com">
-        <i class="fas fa-store"></i> Shop Now
-      </a>
-      <a href="mailto:@example.com">
-        <i class="fas fa-envelope"></i> Contact Me
-      </a>
+      {links.map((link) => (
+        <a href={link.url} {...(link.rel && { rel: link.rel })}>
+          {link.type === "image" ? (
+            <img src={link.icon} alt={link.name} style="width: 1.2em; vertical-align: middle; margin-right: 0.5rem;" />
+          ) : (
+            <i class={link.icon}></i>
+          )}
+          {link.name}
+        </a>
+      ))}
     </div>
   </body>
 </html>
