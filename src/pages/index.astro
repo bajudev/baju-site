@@ -49,18 +49,10 @@ import '../styles/global.css';
           <a href="https://bsky.app/profile/setofr.bsky.social" class="social-link hover:text-[var(--color-accent)]" target="_blank">
             Bluesky
           </a>
-        </br> 
-        <div class="relative inline-block">
-          <button
-            onclick="navigator.clipboard.writeText('contact@setofr.me'); const msg = this.nextElementSibling; msg.classList.remove('hidden'); setTimeout(() => msg.classList.add('hidden'), 2000);"
-            class="email-link hover:text-[var(--color-accent)]"
-          >
+        </br>
+          <a href="mailto:contact@setofr.me" class="email-link hover:text-[var(--color-accent)]" target="_blank">
             contact@setofr.me
-          </button>
-          <span class="absolute left-full ml-2 text-sm text-[var(--color-accent)] hidden">
-            copied:)
-          </span>
-        </div>
+          </a>
         </li>
       </ul>
     </section>
