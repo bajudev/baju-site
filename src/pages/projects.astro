@@ -5,8 +5,8 @@ import { projects } from '../data/projects.js';
 import '../styles/global.css';
 
 const sections = [
-  { title: "Featured Projects", items: projects.filter(p => p.featured), cols: "md:grid-cols-2" },
-  { title: "Other Projects", items: projects.filter(p => !p.featured), cols: "md:grid-cols-2 lg:grid-cols-3" }
+  { title: "Featured Projects", items: projects.filter(p => p.featured) },
+  { title: "Other Projects", items: projects.filter(p => !p.featured) }
 ];
 ---
 
