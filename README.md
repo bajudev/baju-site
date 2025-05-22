@@ -1,48 +1,184 @@
-# Astro Starter Kit: Basics
+# setofℝ - Personal Portfolio
 
-```sh
-npm create astro@latest -- --template basics
+A modern, minimalist portfolio website built with Astro and Tailwind CSS, featuring a blog, project showcase, and animated branding.
+
+## 🌟 Features
+
+- **Responsive Design**: Mobile-first approach with clean, minimalist aesthetics
+- **Dark Theme**: Elegant dark color scheme with CSS custom properties
+- **Blog System**: Markdown-based blog with tag filtering and categorization
+- **Project Showcase**: Dynamic project cards with status indicators and technology tags
+- **Animated Branding**: Mathematical notation-inspired logo animation on homepage
+- **Social Links**: Dedicated links page for social media presence
+- **SEO Friendly**: Proper meta tags and semantic HTML structure
+- **Fast Performance**: Built with Astro for optimal loading speeds
+
+## 🚀 Tech Stack
+
+- **Framework**: [Astro](https://astro.build/) - Static site generator
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- **Icons**: Simple Icons font and FontAwesome
+- **Typography**: STIX Two Math font for mathematical aesthetics
+- **Deployment**: Ready for deployment on any static hosting platform
+
+## 📁 Project Structure
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+├── components/
+│   ├── BlogPost.astro       # Blog post preview component
+│   └── Project.astro        # Project card component
+├── data/
+│   └── projects.js          # Project data configuration
+├── layouts/
+│   ├── Layout.astro         # Base layout template
+│   └── MarkdownPostLayout.astro # Layout for blog posts
+├── pages/
+│   ├── blog.astro          # Blog listing page
+│   ├── index.astro         # Homepage
+│   ├── links.astro         # Social links page
+│   ├── projects.astro      # Projects showcase
+│   ├── posts/             # Markdown blog posts
+│   └── tags/              # Dynamic tag pages
+└── styles/
+    ├── colors.css         # CSS custom properties for theming
+    └── global.css         # Global styles and animations
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠️ Installation
 
-## 🧞 Commands
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/setofr/portfolio.git
+   cd portfolio
+   ```
 
-All commands are run from the root of the project, from a terminal:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-## 👀 Want to learn more?
+4. **Open your browser**
+   Navigate to `http://localhost:4321` to see your site.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📝 Usage
+
+### Adding Blog Posts
+
+Create new markdown files in the `pages/posts/` directory with the following frontmatter:
+
+```markdown
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+title: "Your Post Title"
+pubDate: MM-DD-YYYY
+description: "Brief description of your post"
+tags: ["tag1", "tag2"]
+---
+
+Your content here...
+```
+
+### Adding Projects
+
+Edit the `data/projects.js` file to add new projects:
+
+```javascript
+{
+  title: "Project Name",
+  description: "Project description",
+  url: "https://github.com/username/repo",
+  technologies: ["Tech1", "Tech2"],
+  status: "Live", // or "In Progress", "Learning"
+  featured: true, // true for featured section
+  image: "/path/to/image.jpg" // optional
+}
+```
+
+### Customizing Content
+
+- **Homepage**: Edit `pages/index.astro` to update personal information, skills, and social links
+- **About sections**: Modify the activities, skills, and contact information in the index file
+- **Styling**: Adjust colors in `styles/colors.css` and global styles in `styles/global.css`
+
+## 🎨 Customization
+
+### Color Scheme
+
+The site uses CSS custom properties for easy theming. Edit `styles/colors.css`:
+
+```css
+:root {
+  --color-bg: #000000;           /* Background color */
+  --color-heading: #ffffff;      /* Heading text color */
+  --color-text: #cccccc;         /* Body text color */
+  --color-accent: #808080;       /* Accent color */
+  --color-border: #333333;       /* Border color */
+  --color-primary: #808080;      /* Primary action color */
+}
+```
+
+### Typography
+
+The site uses STIX Two Math font for the mathematical branding. You can change fonts by updating the Google Fonts import in `layouts/Layout.astro`.
+
+## 📦 Build & Deployment
+
+1. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+2. **Preview the build**
+   ```bash
+   npm run preview
+   ```
+
+3. **Deploy**
+   The site generates static files in the `dist/` directory, ready for deployment to:
+   - [Netlify](https://netlify.com)
+   - [Vercel](https://vercel.com)
+   - [GitHub Pages](https://pages.github.com)
+   - Any static hosting service
+
+## 🔧 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run astro` - Run Astro CLI commands
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [Astro](https://astro.build/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Icons from [Simple Icons](https://simpleicons.org/) and [FontAwesome](https://fontawesome.com/)
+- Typography using [STIX Two Math](https://fonts.google.com/specimen/STIX+Two+Math)
+
+## 📞 Contact
+
+- **Website**: [setofr.me](https://setofr.me)
+- **Email**: contact@setofr.me
+- **GitHub**: [@setofr](https://github.com/setofr)
+- **YouTube**: [@setofR](https://www.youtube.com/@setofR)
+
+---
+
+⭐ If you found this project helpful, please consider giving it a star!
