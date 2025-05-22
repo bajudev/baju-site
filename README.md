@@ -1,6 +1,6 @@
 # [ setofℝ ]
 
-A modern, minimalist portfolio website built with Astro and Tailwind CSS, featuring a blog, project showcase, and animated branding.
+My attempt at a personal website. Built with Astro and Tailwind CSS.
 
 ## 🌟 Features
 
