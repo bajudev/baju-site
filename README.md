@@ -1,5 +1,4 @@
-
-    # [ setofℝ ] 
+# [ setofℝ ] 
 
 My attempt at a personal website. Built with Astro and Tailwind CSS.
 
