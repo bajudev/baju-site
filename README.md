@@ -1,6 +1,6 @@
 <h1 style="text-align:center:">
     [ setofℝ ] 
-<\h1>
+</h1>
 
 My attempt at a personal website. Built with Astro and Tailwind CSS.
 
