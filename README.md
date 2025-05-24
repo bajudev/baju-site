@@ -43,8 +43,8 @@ My attempt at a personal website. Built with Astro and Tailwind CSS.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/setofr/portfolio.git
-   cd portfolio
+   git clone https://github.com/setofr/setofr-site.git/
+   cd setofr-site
    ```
 
 2. **Install dependencies**
@@ -75,7 +75,7 @@ description: "Brief description of your post"
 tags: ["tag1", "tag2"]
 ---
 
-Your content here...
+Your md content here...
 ```
 
 ### Adding Projects
