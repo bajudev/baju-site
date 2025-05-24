@@ -10,9 +10,9 @@ My attempt at a personal website. Built with Astro and Tailwind CSS.
 
 ## Tech Stack
 
-- **Framework**: [Astro](https://astro.build/) - Static site generator
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- **Icons**: Simple Icons font and FontAwesome
+- **Framework**: [Astro](https://astro.build/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: Simple Icons font, FontAwesome
 - **Typography**: STIX Two Math font for mathematical aesthetics
 - **Deployment**: Ready for deployment on any static hosting platform
 
