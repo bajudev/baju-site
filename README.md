@@ -8,13 +8,12 @@ My attempt at a personal website. Built with Astro and Tailwind CSS.
 - Blog
 - Projects
 
-## Tech Stack
+## Technologies
 
-- **Framework**: [Astro](https://astro.build/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: Simple Icons font, FontAwesome
-- **Typography**: STIX Two Math font for mathematical aesthetics
-- **Deployment**: Ready for deployment on any static hosting platform
+- [ ] [Astro](https://astro.build/) franework
+- [ ] [Tailwind CSS](https://tailwindcss.com/)
+- [ ] Simple Icons font, FontAwesome
+- [ ] Cloudflare Pages
 
 ## Project Structure
 
