@@ -1,10 +1,10 @@
 export const projects = [
     {
-      title: "Personal Website",
-      description: "A minimalist portfolio site built with Astro and Tailwind CSS, featuring a blog and project showcase.",
-      url: "https://github.com/setofr/portfolio",
+      title: "My Website",
+      description: "A portfolio website built with Astro and Tailwind CSS. Includes blog and project pages.",
+      url: "https://github.com/setofr/setofr-site",
       technologies: ["Astro", "Tailwind CSS", "JavaScript"],
-      status: "Live",
+      status: "Completed",
       featured: true
     },
     {
