@@ -10,10 +10,11 @@ My attempt at a personal website. Built with Astro and Tailwind CSS.
 
 ## Technologies
 
-- [ ] [Astro](https://astro.build/) franework
-- [ ] [Tailwind CSS](https://tailwindcss.com/)
-- [ ] Simple Icons font, FontAwesome
-- [ ] Cloudflare Pages
+- [ ] Astro Framework
+- [ ] Tailwind CSS
+- [ ] Cloudflare
+- [ ] JavaScript
+- [ ] Markdown
 
 ## Project Structure
 
