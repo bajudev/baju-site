@@ -91,12 +91,6 @@ Edit `styles/colors.css`
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- Built with [Astro](https://astro.build/)
-- Using [Tailwind CSS](https://tailwindcss.com/)
-- Icons from [Simple Icons](https://simpleicons.org/) and [FontAwesome](https://fontawesome.com/)
-
 ---
 
 ⭐ If you found this project helpful, please consider giving it a star!
