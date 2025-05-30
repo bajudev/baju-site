@@ -71,6 +71,8 @@ Edit `data/projects.js` to add a new project
   status: "Live", // or "In Progress", "Learning", etc.
   featured: true,
   image: "/path/to/image.jpg" // optional
+}
+```
 
 ### Color Scheme
 
