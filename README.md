@@ -33,11 +33,11 @@ My attempt at a personal website. Built with Astro and Tailwind CSS.
 │   ├── index.astro         # home page
 │   ├── links.astro         # basically a linktree
 │   ├── projects.astro      
-│   ├── posts/             # Markdown blog posts
-│   └── tags/              # Dynamic tag pages
+│   ├── posts/             # post using md file
+│   └── tags/              # tag pages
 └── styles/
-    ├── colors.css         # CSS custom properties for theming
-    └── global.css         # Global styles and animations
+    ├── colors.css         # colour palette
+    └── global.css         # needs to be more organised
 ```
 
 ## 📝 Usage
