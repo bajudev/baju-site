@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: "My experience with #100DaysofSwift"
+title: "Building my website"
 pubDate: 03-11-2025
 description: "just another post"
 tags: ["astro", "learning", "webdev"]
