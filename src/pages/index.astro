@@ -8,7 +8,7 @@ const currentActivities = [
 ];
 
 const skills = [
-  { name: "Python", icon: "si-discord" },
+  { name: "Python", icon: "fab fa-python" },
 ];
 
 const socialLinks = [
@@ -42,7 +42,7 @@ const socialLinks = [
       <ul class="list-none flex gap-4 items-center text-[var(--color-text)]">
         {skills.map((skill) => (
           <li class="flex gap-2 items-center text-[var(--color-text)]">
-            <span class={`si ${skill.icon} text-lg`}></span>
+            <i class={`${skill.icon} text-lg`}></i>
             {skill.name}
           </li>
         ))}
