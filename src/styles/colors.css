@@ -1,8 +1,8 @@
 :root {
-  --color-bg: #000000;           /* white background */
-  --color-heading: #ffffff;      /* solid black for headings */
-  --color-text: #cccccc;         /* dark gray for body text */
-  --color-accent: #808080;       /* keep your violet-blue accent */
-  --color-border: #333333;       /* light gray for borders */
-  --color-primary: #808080;      /* keep vibrant blue for strong accents */
+  --color-bg: #000000;
+  --color-heading: #ffffff;
+  --color-text: #cccccc;
+  --color-accent: #808080;
+  --color-border: #333333;
+  --color-primary: #808080;
 }

@@ -4,7 +4,9 @@ import BlogPost from '../../components/BlogPost.astro';
 
 // Generate static paths and pass posts as props
 export async function getStaticPaths() {
-  const allPosts = Object.entries(import.meta.glob('../posts/*.md', { eager: true }))
+  const allPosts = Object.entries(
+    import.meta.glob('../posts/*.md', { eager: true }) as Record<string, { frontmatter: any }>
+  )
     .map(([path, post]) => ({
       url: path.replace('../', '/').replace('.md', ''),
       ...post.frontmatter

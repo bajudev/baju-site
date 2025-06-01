@@ -1,37 +1,107 @@
 ---
-import '../styles/global.css';
+import '../styles/links.css';
 
 const links = [
-  { url: "https://bsky.app/profile/setofr.bsky.social", name: "Bluesky", icon: "/bluesky.svg", type: "image" },
-  { url: "https://mastodon.social/@setofr", name: "Mastodon", icon: "/mastodon.svg", type: "image", rel: "me" },
-  { url: "https://github.com/setofr", name: "GitHub", icon: "fab fa-github", type: "fontawesome" },
-  { url: "https://setofr.me/blog", name: "Blog", icon: "fas fa-blog", type: "fontawesome" },
-  { url: "https://youtube.com/setofr", name: "Watch on YouTube", icon: "fab fa-youtube", type: "fontawesome" },
-  { url: "mailto:contact@setofr.me", name: "Contact Me", icon: "fas fa-envelope", type: "fontawesome" }
+  { 
+    url: "https://setofr.me", 
+    name: "My Website", 
+    icon: "fas fa-globe",
+    description: "Visit my personal website"
+  },
+  { 
+    url: "https://setofr.me/blog", 
+    name: "Blog", 
+    icon: "fas fa-pen-nib",
+    description: "Read my latest posts"
+  },
+  { 
+    url: "https://setofr.me/projects", 
+    name: "Projects", 
+    icon: "fas fa-code",
+    description: "Check out my work"
+  },
+  { 
+    url: "https://github.com/setofr", 
+    name: "GitHub", 
+    icon: "fab fa-github",
+    description: "Follow my code"
+  },
+  { 
+    url: "https://www.youtube.com/@setofR", 
+    name: "YouTube", 
+    icon: "fab fa-youtube",
+    description: "Watch my videos"
+  },
+  { 
+    url: "https://mastodon.social/@setofR", 
+    name: "Mastodon", 
+    icon: "fab fa-mastodon",
+    description: "Connect on Mastodon",
+    rel: "me"
+  },
+  { 
+    url: "https://bsky.app/profile/setofr.bsky.social", 
+    name: "Bluesky", 
+    icon: "fas fa-cloud",
+    description: "Follow me on Bluesky"
+  },
+  { 
+    url: "mailto:contact@setofr.me", 
+    name: "Contact", 
+    icon: "fas fa-envelope",
+    description: "Get in touch"
+  }
 ];
 ---
 
-<html title="setofr | links">
-  <head>
-    <meta charset="UTF-8" />
-    <title>setofr | links</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  </head>
-  <body class="links-page">
-    <img src="/set-of-R-profile-inverted.png" alt="Profile Image" class="profile-img" />
-    <h1 class="links-title">@setofR</h1>
-    <div class="links">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setofr | links</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="profile-section">
+      <img src="/set-of-R-profile-inverted.png" alt="setofr profile" class="profile-image">
+      <h1 class="profile-name">setofℝ</h1>
+      <p class="profile-bio">computer science student</p>
+      <div class="profile-location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>planet earth</span>
+      </div>
+    </div>
+
+    <div class="links-grid">
       {links.map((link) => (
-        <a href={link.url} {...(link.rel && { rel: link.rel })}>
-          {link.type === "image" ? (
-            <img src={link.icon} alt={link.name} style="width: 1.2em; vertical-align: middle; margin-right: 0.5rem;" />
-          ) : (
-            <i class={link.icon}></i>
-          )}
-          {link.name}
+        <a 
+          href={link.url} 
+          class="link-card"
+          target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
+          rel={link.rel || 'noopener noreferrer'}
+        >
+          <div class="link-content">
+            <div class="link-icon">
+              <i class={link.icon}></i>
+            </div>
+            <div class="link-text">
+              <div class="link-title">{link.name}</div>
+              <div class="link-description">{link.description}</div>
+            </div>
+            <div class="link-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
         </a>
       ))}
     </div>
-  </body>
+
+    <div class="footer">
+      <p>© {new Date().getFullYear()} setofr • Made with ❤️</p>
+    </div>
+  </div>
+</body>
 </html>
