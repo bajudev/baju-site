@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import BlogPost from '../components/BlogPost.astro';
 import '../styles/global.css';
 
 const allPosts = Object.entries(import.meta.glob('./posts/*.md', { eager: true }))
@@ -15,19 +14,21 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
 
 <Layout title="setofr | blog">
   <section class="space-y-10">
-    <h1 class="text-3xl font-bold">Blog</h1>
-    <p class="text-lg text-[var(--color-text)]">
-      This is where I share things that I'm working on, find interesting, 
-      want to learn more about, or whatever else I feel like writing.
-    </p>
+    <div>
+      <h1 class="text-3xl font-bold">Blog</h1>
+      <p class="text-lg text-[var(--color-text)] mt-4">
+        This is where I share things that I'm working on, find interesting, 
+        want to learn more about, or whatever else I feel like writing.
+      </p>
+    </div>
 
     <section>
       <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Latest Posts</h2>
       <ul class="space-y-8">
         {allPosts.map((post) => (
-          <li class="transform transition-transform duration-300 ease-in-out hover:scale-105">
+          <li class="transform transition-all duration-300 hover:scale-[1.02]">
             <a href={post.url} class="block">
-              <article class="bg-[var(--color-border)] border border-[var(--color-accent)] rounded-lg p-6 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+              <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-accent)] transition-all duration-300">
                 <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-[var(--color-accent)]">
                   {post.title}
                 </h3>
@@ -41,19 +42,17 @@ const uniqueTags = [...new Set(allPosts.flatMap(post => post.tags))];
     </section>
 
     <section>
-      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Tags</h2>
-      <ul class="flex flex-wrap gap-4">
+      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Browse by Tag</h2>
+      <div class="flex flex-wrap gap-3">
         {uniqueTags.map((tag) => (
-          <li>
-            <a 
-              href={`/tags/${tag}`} 
-              class="px-5 py-2 rounded-full bg-gradient-to-r from-[var(--color-border)] to-[var(--color-accent)] text-[var(--color-text)] font-semibold transition-all duration-300 hover:from-[var(--color-accent)] hover:to-[var(--color-primary)] hover:scale-105"
-            >
-              #{tag}
-            </a>
-          </li>
+          <a 
+            href={`/tags/${tag}`} 
+            class="px-4 py-2 rounded-full bg-[var(--color-border)] text-[var(--color-text)] font-medium transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:scale-105"
+          >
+            #{tag}
+          </a>
         ))}
-      </ul>
+      </div>
     </section>
   </section>
 </Layout>

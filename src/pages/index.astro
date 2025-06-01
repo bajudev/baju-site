@@ -21,7 +21,7 @@ const socialLinks = [
 ---
 
 <Layout title="setofr | home">
-  <div class="relative flex items-center justify-center select-none text-7xl font-stix text-white mb-6">
+  <div class="relative flex items-center justify-center select-none text-7xl font-stix text-white mb-12">
     <span class="bracket-left inline-block z-10">[</span>
     <span class="portfolio-text absolute left-1/2 transform -translate-x-1/2 opacity-0 font-normal">setofℝ</span>
     <span class="bracket-right inline-block z-10">]</span>
@@ -29,8 +29,8 @@ const socialLinks = [
   
   <section class="space-y-12">
     <section>
-      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Currently</h2>
-      <ul class="list-disc list-inside text-lg space-y-1 text-[var(--color-text)]">
+      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">Currently</h2>
+      <ul class="list-disc list-inside text-lg space-y-2 text-[var(--color-text)] pl-4">
         {currentActivities.map((activity) => (
           <li>{activity}</li>
         ))}
@@ -38,10 +38,10 @@ const socialLinks = [
     </section>
     
     <section>
-      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Skills</h2>
+      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">Skills</h2>
       <ul class="list-none flex gap-4 items-center text-[var(--color-text)]">
         {skills.map((skill) => (
-          <li class="flex gap-2 items-center text-[var(--color-text)]">
+          <li class="flex gap-2 items-center text-[var(--color-text)] bg-[var(--color-border)] px-4 py-2 rounded-full">
             <i class={`${skill.icon} text-lg`}></i>
             {skill.name}
           </li>
@@ -50,8 +50,8 @@ const socialLinks = [
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-3">Contact</h2>
-      <ul class="flex flex-col space-y-2 text-[var(--color-text)]">
+      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">Contact</h2>
+      <ul class="flex flex-col space-y-3 text-[var(--color-text)]">
         {socialLinks.map((link) => (
           <li>
             <a href={link.url} class={`${link.class} hover:text-[var(--color-accent)]`} target="_blank">

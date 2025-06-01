@@ -9,14 +9,14 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString();
 <Layout title={frontmatter.title}>
   <article class="prose prose-lg dark:prose-invert max-w-none">
     <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
-    <p class="text-sm text-gray-400 mb-4">Posted on {formattedDate}</p>
+    <p class="text-sm text-gray-400 mb-6">Posted on {formattedDate}</p>
 
     {frontmatter.tags && (
-      <div class="flex flex-wrap gap-2 mb-4">
+      <div class="flex flex-wrap gap-2 mb-8">
         {frontmatter.tags.map((tag: unknown) => (
           <a 
             href={`/tags/${tag}`} 
-            class="inline-block bg-gradient-to-r from-[var(--color-border)] to-[var(--color-accent)] text-[var(--color-text)] hover:from-[var(--color-accent)] hover:to-[var(--color-primary)] rounded-full px-3 py-1 text-sm font-semibold transition-all duration-300 hover:scale-105"
+            class="inline-block bg-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-accent)] hover:text-white rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105"
           >
             #{tag}
           </a>

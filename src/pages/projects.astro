@@ -11,17 +11,17 @@ const sections = [
 ---
 
 <Layout title="setofr | projects">
-  <section class="space-y-16">
+  <section class="space-y-12">
     <div>
       <h1 class="text-3xl font-bold text-[var(--color-heading)] mb-4">Projects</h1>
-      <p class="text-lg text-[var(--color-text)] mb-8">Here are some of the projects I've been working on.</p>
+      <p class="text-lg text-[var(--color-text)]">Here are some of the projects I've been working on.</p>
     </div>
 
     {sections.map(({ title, items }) => (
       items.length > 0 && (
         <section>
           <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">{title}</h2>
-          <div class="flex flex-col space-y-10">
+          <div class="grid gap-6">
             {items.map((project) => (
               <ProjectCard {...project} />
             ))}
