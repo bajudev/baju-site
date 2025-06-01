@@ -4,7 +4,9 @@ const formattedDate = new Date(pubDate).toLocaleDateString();
 ---
 
 <li class="mb-6 border-b pb-4 border-[var(--color-border)]">
-  <a href={url} class="text-xl font-semibold hover:text-[var(--color-accent)]">{title}</a>
+  <a href={url} class="text-xl font-semibold hover:text-[var(--color-accent)]"
+    >{title}</a
+  >
   <p class="text-[var(--color-text)]">{description}</p>
   <time class="text-sm text-gray-500 dark:text-gray-400">{formattedDate}</time>
 </li>

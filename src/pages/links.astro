@@ -1,109 +1,121 @@
 ---
-import '../styles/links.css';
+import "../styles/links.css";
 
 const links = [
-  { 
-    url: "https://setofr.me", 
-    name: "My Website", 
+  {
+    url: "https://setofr.me",
+    name: "My Website",
     icon: "fas fa-globe",
-    description: "Visit my personal site"
+    description: "Visit my personal site",
   },
-  { 
-    url: "https://setofr.me/blog", 
-    name: "Blog", 
+  {
+    url: "https://setofr.me/blog",
+    name: "Blog",
     icon: "fas fa-pen-nib",
-    description: "Read my latest posts"
+    description: "Read my latest posts",
   },
-  { 
-    url: "https://setofr.me/projects", 
-    name: "Projects", 
+  {
+    url: "https://setofr.me/projects",
+    name: "Projects",
     icon: "fas fa-code",
-    description: "Check out my work"
+    description: "Check out my work",
   },
-  { 
-    url: "https://github.com/setofr", 
-    name: "GitHub", 
+  {
+    url: "https://github.com/setofr",
+    name: "GitHub",
     icon: "fab fa-github",
-    description: "Follow my code"
+    description: "Follow my code",
   },
-  { 
-    url: "https://www.youtube.com/@setofR", 
-    name: "YouTube", 
+  {
+    url: "https://www.youtube.com/@setofR",
+    name: "YouTube",
     icon: "fab fa-youtube",
-    description: "Watch my videos"
+    description: "Watch my videos",
   },
-  { 
-    url: "https://mastodon.social/@setofR", 
-    name: "Mastodon", 
+  {
+    url: "https://mastodon.social/@setofR",
+    name: "Mastodon",
     icon: "fab fa-mastodon",
     description: "Connect on Mastodon",
-    rel: "me"
+    rel: "me",
   },
-  { 
-    url: "https://bsky.app/profile/setofr.bsky.social", 
-    name: "Bluesky", 
+  {
+    url: "https://bsky.app/profile/setofr.bsky.social",
+    name: "Bluesky",
     icon: "fas fa-cloud",
-    description: "Follow me on Bluesky"
+    description: "Follow me on Bluesky",
   },
-  { 
-    url: "mailto:contact@setofr.me", 
-    name: "Contact", 
+  {
+    url: "mailto:contact@setofr.me",
+    name: "Contact",
     icon: "fas fa-envelope",
-    description: "Get in touch"
-  }
+    description: "Get in touch",
+  },
 ];
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>setofr | links</title>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/links.css">
-</head>
-<body>
-  <div class="container">
-    <div class="profile-section">
-      <img src="/set-of-R-profile-inverted.png" alt="setofr profile" class="profile-image">
-      <h1 class="profile-name">setofℝ</h1>
-      <p class="profile-bio">computer science student</p>
-      <div class="profile-location">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>planet earth</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setofr | links</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/links.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile-section">
+        <img
+          src="/set-of-R-profile-inverted.png"
+          alt="setofr profile"
+          class="profile-image"
+        />
+        <h1 class="profile-name">setofℝ</h1>
+        <p class="profile-bio">computer science student</p>
+        <div class="profile-location">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>planet earth</span>
+        </div>
+      </div>
+
+      <div class="links-grid">
+        {
+          links.map((link) => (
+            <a
+              href={link.url}
+              class="link-card"
+              target={link.url.startsWith("mailto:") ? "_self" : "_blank"}
+              rel={link.rel || "noopener noreferrer"}
+            >
+              <div class="link-content">
+                <div class="link-icon">
+                  <i class={link.icon} />
+                </div>
+                <div class="link-text">
+                  <div class="link-title">{link.name}</div>
+                  <div class="link-description">{link.description}</div>
+                </div>
+                <div class="link-arrow">
+                  <i class="fas fa-arrow-right" />
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="footer">
+        <p>© {new Date().getFullYear()} setofr • Made with ❤️</p>
       </div>
     </div>
-
-    <div class="links-grid">
-      {links.map((link) => (
-        <a 
-          href={link.url} 
-          class="link-card"
-          target={link.url.startsWith('mailto:') ? '_self' : '_blank'}
-          rel={link.rel || 'noopener noreferrer'}
-        >
-          <div class="link-content">
-            <div class="link-icon">
-              <i class={link.icon}></i>
-            </div>
-            <div class="link-text">
-              <div class="link-title">{link.name}</div>
-              <div class="link-description">{link.description}</div>
-            </div>
-            <div class="link-arrow">
-              <i class="fas fa-arrow-right"></i>
-            </div>
-          </div>
-        </a>
-      ))}
-    </div>
-
-    <div class="footer">
-      <p>© {new Date().getFullYear()} setofr • Made with ❤️</p>
-    </div>
-  </div>
-</body>
+  </body>
 </html>

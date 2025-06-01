@@ -1,6 +1,6 @@
 ---
-import Layout from './Layout.astro';
-import '../styles/global.css';
+import Layout from "./Layout.astro";
+import "../styles/global.css";
 
 const { frontmatter } = Astro.props;
 const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString();
@@ -11,18 +11,20 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString();
     <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
     <p class="text-sm text-gray-400 mb-6">Posted on {formattedDate}</p>
 
-    {frontmatter.tags && (
-      <div class="flex flex-wrap gap-2 mb-8">
-        {frontmatter.tags.map((tag: unknown) => (
-          <a 
-            href={`/tags/${tag}`} 
-            class="inline-block bg-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-accent)] hover:text-white rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105"
-          >
-            #{tag}
-          </a>
-        ))}
-      </div>
-    )}
+    {
+      frontmatter.tags && (
+        <div class="flex flex-wrap gap-2 mb-8">
+          {frontmatter.tags.map((tag: unknown) => (
+            <a
+              href={`/tags/${tag}`}
+              class="inline-block bg-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-accent)] hover:text-white rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105"
+            >
+              #{tag}
+            </a>
+          ))}
+        </div>
+      )
+    }
 
     <slot />
   </article>

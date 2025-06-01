@@ -1,0 +1,28 @@
+h1 {
+  @apply text-4xl font-bold;
+  color: var(--color-heading);
+}
+
+h2 {
+  @apply text-2xl font-semibold;
+  color: var(--color-heading);
+}
+
+h3 {
+  @apply text-xl font-medium;
+  color: var(--color-heading);
+}
+
+h4 {
+  @apply text-lg font-medium;
+  color: var(--color-text);
+}
+
+p {
+  @apply text-base;
+  line-height: 1.7;
+}
+
+.font-stix {
+  font-family: "STIX Two Math", serif;
+}

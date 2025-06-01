@@ -1,4 +1,4 @@
-# [ setofℝ ] 
+# [ setofℝ ]
 
 My attempt at a personal website. Built with Astro and Tailwind CSS.
 
@@ -21,18 +21,18 @@ My attempt at a personal website. Built with Astro and Tailwind CSS.
 ```
 /
 ├── components/
-│   ├── BlogPost.astro       
-│   └── Project.astro        
+│   ├── BlogPost.astro
+│   └── Project.astro
 ├── data/
-│   └── projects.js          
+│   └── projects.js
 ├── layouts/
 │   ├── Layout.astro         # base layout
 │   └── PostLayout.astro
 ├── pages/
-│   ├── blog.astro          
+│   ├── blog.astro
 │   ├── index.astro         # home page
 │   ├── links.astro         # basically a linktree
-│   ├── projects.astro      
+│   ├── projects.astro
 │   ├── posts/             # post using md file
 │   └── tags/              # tag pages
 └── styles/
@@ -60,7 +60,7 @@ post stuff here...
 
 ### Project Format
 
-Edit `data/projects.js` to add a new project 
+Edit `data/projects.js` to add a new project
 
 ```javascript
 {
@@ -80,12 +80,12 @@ Edit `styles/colors.css`
 
 ```css
 :root {
-  --color-bg: #000000;           /* Background color */
-  --color-heading: #ffffff;      /* Heading text color */
-  --color-text: #cccccc;         /* Body text color */
-  --color-accent: #808080;       /* Accent color */
-  --color-border: #333333;       /* Border color */
-  --color-primary: #808080;      /* Primary action color */
+  --color-bg: #000000; /* Background color */
+  --color-heading: #ffffff; /* Heading text color */
+  --color-text: #cccccc; /* Body text color */
+  --color-accent: #808080; /* Accent color */
+  --color-border: #333333; /* Border color */
+  --color-primary: #808080; /* Primary action color */
 }
 ```
 
