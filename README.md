@@ -27,7 +27,7 @@ My attempt at a personal website. Built with Astro and Tailwind CSS.
 │   └── projects.js          
 ├── layouts/
 │   ├── Layout.astro         # base layout
-│   └── MarkdownPostLayout.astro
+│   └── PostLayout.astro
 ├── pages/
 │   ├── blog.astro          
 │   ├── index.astro         # home page
@@ -48,7 +48,7 @@ Create a new markdown file in `pages/posts/` directory with the following frontm
 
 ```markdown
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
+layout: ../../layouts/PostLayout.astro
 title: "Your Post Title"
 pubDate: MM-DD-YYYY
 description: "Brief description of your post"
