@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 
-const currentActivities = [
+const currently = [
   "starguard",
   "to be updated",
 ];
@@ -30,9 +30,9 @@ const socialLinks = [
   <section class="space-y-12">
     <section>
       <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">Currently</h2>
-      <ul class="list-disc list-inside text-lg space-y-2 text-[var(--color-text)] pl-4">
-        {currentActivities.map((activity) => (
-          <li>{activity}</li>
+      <ul class="list-disc text-lg space-y-2 text-[var(--color-text)] pl-4">
+        {currently.map((thing) => (
+          <li>{thing}</li>
         ))}
       </ul>
     </section>
