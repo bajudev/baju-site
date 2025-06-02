@@ -15,11 +15,7 @@ const { title, description, url, technologies, image, status } = Astro.props;
     </h3>
     {
       status && (
-        <span
-          class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-accent)]"
-          role="status"
-          aria-label={`Project status: ${status}`}
-        >
+        <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-accent)]" role="status" aria-label={`Project status: ${status}`}>
           {status}
         </span>
       )
@@ -41,16 +37,9 @@ const { title, description, url, technologies, image, status } = Astro.props;
 
   {
     technologies && (
-      <div
-        class="mb-4 flex flex-wrap gap-2"
-        role="list"
-        aria-label="Technologies used"
-      >
+      <div class="mb-4 flex flex-wrap gap-2" role="list" aria-label="Technologies used">
         {technologies.map((tech: unknown) => (
-          <span
-            class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-primary)]"
-            role="listitem"
-          >
+          <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-primary)]" role="listitem">
             {tech}
           </span>
         ))}

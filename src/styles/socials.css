@@ -31,16 +31,3 @@
 .email-link::after {
   content: " ⌘";
 }
-
-.rss-link {
-  text-decoration: none;
-  color: gray;
-}
-
-.rss-link:hover {
-  text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--color-accent);
-  color: var(--color-accent);
-  text-decoration-skip-ink: none;
-}
