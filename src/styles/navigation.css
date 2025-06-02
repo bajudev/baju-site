@@ -22,3 +22,11 @@
 .nav-link:hover {
   color: var(--color-accent);
 }
+
+.nav-link.active {
+  color: var(--color-accent);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}

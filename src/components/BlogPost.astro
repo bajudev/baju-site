@@ -4,9 +4,13 @@ const formattedDate = new Date(pubDate).toLocaleDateString();
 ---
 
 <li class="mb-6 border-b pb-4 border-[var(--color-border)]">
-  <a href={url} class="text-xl font-semibold hover:text-[var(--color-accent)]"
-    >{title}</a
-  >
-  <p class="text-[var(--color-text)]">{description}</p>
-  <time class="text-sm text-gray-500 dark:text-gray-400">{formattedDate}</time>
+  <article role="article" aria-label={`Blog post: ${title}`}>
+    <a href={url} class="text-xl font-semibold hover:text-[var(--color-accent)]" aria-label={`Read more about ${title}`}>
+      {title}
+    </a>
+    <p class="text-[var(--color-text)]">{description}</p>
+    <time class="text-sm text-gray-500 dark:text-gray-400" datetime={new Date(pubDate).toISOString()}>
+      {formattedDate}
+    </time>
+  </article>
 </li>

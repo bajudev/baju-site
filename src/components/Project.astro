@@ -4,6 +4,8 @@ const { title, description, url, technologies, image, status } = Astro.props;
 
 <article
   class="p-6 border rounded-lg bg-[var(--color-bg)] border-[var(--color-border)] transition-all duration-300 hover:border-[var(--color-accent)] hover:scale-[1.02]"
+  role="article"
+  aria-label={`Project: ${title}`}
 >
   <div class="mb-4 flex items-start justify-between">
     <h3
@@ -13,7 +15,7 @@ const { title, description, url, technologies, image, status } = Astro.props;
     </h3>
     {
       status && (
-        <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-accent)]">
+        <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-accent)]" role="status" aria-label={`Project status: ${status}`}>
           {status}
         </span>
       )
@@ -26,6 +28,7 @@ const { title, description, url, technologies, image, status } = Astro.props;
         src={image}
         alt={`${title} preview`}
         class="mb-4 w-full h-40 object-cover rounded-md"
+        loading="lazy"
       />
     )
   }
@@ -34,9 +37,9 @@ const { title, description, url, technologies, image, status } = Astro.props;
 
   {
     technologies && (
-      <div class="mb-4 flex flex-wrap gap-2">
+      <div class="mb-4 flex flex-wrap gap-2" role="list" aria-label="Technologies used">
         {technologies.map((tech: unknown) => (
-          <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-primary)]">
+          <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-primary)]" role="listitem">
             {tech}
           </span>
         ))}
@@ -47,8 +50,10 @@ const { title, description, url, technologies, image, status } = Astro.props;
   <a
     href={url}
     target="_blank"
+    rel="noopener noreferrer"
     class="inline-flex items-center font-medium text-[var(--color-accent)] transition-colors hover:text-[var(--color-primary)]"
+    aria-label={`View ${title} project on external site`}
   >
-    View Project<span class="ml-1">↗</span>
+    View Project<span class="ml-1" aria-hidden="true">↗</span>
   </a>
 </article>

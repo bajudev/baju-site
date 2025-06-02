@@ -24,17 +24,20 @@ const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags))];
         This is where I share things that I'm working on, find interesting, want
         to learn more about, or whatever else I feel like writing.
       </p>
+      <p class="text-[var(--color-text)] mt-2">
+        You can access my <a href="/rss.xml" class="text-[var(--color-accent)] hover:text-[var(--color-primary)] hover:underline" aria-label="Subscribe to RSS feed">RSS feed</a> to stay updated.
+      </p>
     </div>
 
-    <section>
-      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
+    <section aria-labelledby="latest-posts">
+      <h2 id="latest-posts" class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
         Latest Posts
       </h2>
-      <ul class="space-y-8">
+      <ul class="space-y-8" role="list">
         {
           allPosts.map((post) => (
             <li class="transform transition-all duration-300 hover:scale-[1.02]">
-              <a href={post.url} class="block">
+              <a href={post.url} class="block" aria-label={`Read blog post: ${post.title}`}>
                 <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-accent)] transition-all duration-300">
                   <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-[var(--color-accent)]">
                     {post.title}
@@ -42,7 +45,7 @@ const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags))];
                   <p class="text-[var(--color-text)] mb-4">
                     {post.description}
                   </p>
-                  <time class="text-sm text-gray-400">
+                  <time class="text-sm text-gray-400" datetime={new Date(post.pubDate).toISOString()}>
                     {new Date(post.pubDate).toLocaleDateString()}
                   </time>
                 </article>
@@ -53,16 +56,18 @@ const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags))];
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
+    <section aria-labelledby="browse-tags">
+      <h2 id="browse-tags" class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
         Browse by Tag
       </h2>
-      <div class="flex flex-wrap gap-3">
+      <div class="flex flex-wrap gap-3" role="list" aria-label="Blog post tags">
         {
           uniqueTags.map((tag) => (
             <a
               href={`/tags/${tag}`}
               class="px-4 py-2 rounded-full bg-[var(--color-border)] text-[var(--color-text)] font-medium transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:scale-105"
+              role="listitem"
+              aria-label={`View posts tagged with ${tag}`}
             >
               #{tag}
             </a>

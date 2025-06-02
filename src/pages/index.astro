@@ -34,46 +34,48 @@ const socialLinks = [
 <Layout title="setofr | home">
   <div
     class="relative flex items-center justify-center select-none text-7xl font-stix text-white mb-12"
+    role="banner"
+    aria-label="setofr logo"
   >
-    <span class="bracket-left inline-block z-10">[</span>
+    <span class="bracket-left inline-block z-10" aria-hidden="true">[</span>
     <span
       class="portfolio-text absolute left-1/2 transform -translate-x-1/2 opacity-0 font-normal"
       >setofℝ</span
     >
-    <span class="bracket-right inline-block z-10">]</span>
+    <span class="bracket-right inline-block z-10" aria-hidden="true">]</span>
   </div>
 
   <section class="space-y-12">
-    <section>
-      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">
+    <section aria-labelledby="currently-heading">
+      <h2 id="currently-heading" class="text-xl font-semibold text-[var(--color-heading)] mb-4">
         Currently
       </h2>
-      <ul class="list-disc text-lg space-y-2 text-[var(--color-text)] pl-4">
+      <ul class="list-disc text-lg space-y-2 text-[var(--color-text)] pl-4" role="list">
         {currently.map((thing) => <li>{thing}</li>)}
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">
+    <section aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="text-xl font-semibold text-[var(--color-heading)] mb-4">
         Skills
       </h2>
-      <ul class="list-none flex gap-4 items-center text-[var(--color-text)]">
+      <ul class="list-none flex gap-4 items-center text-[var(--color-text)]" role="list" aria-label="Technical skills">
         {
           skills.map((skill) => (
             <li class="flex gap-2 items-center text-[var(--color-text)] bg-[var(--color-border)] px-4 py-2 rounded-full">
-              <i class={`${skill.icon} text-lg`} />
-              {skill.name}
+              <i class={`${skill.icon} text-lg`} aria-hidden="true" />
+              <span>{skill.name}</span>
             </li>
           ))
         }
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="text-xl font-semibold text-[var(--color-heading)] mb-4">
         Contact
       </h2>
-      <ul class="flex flex-col space-y-3 text-[var(--color-text)]">
+      <ul class="flex flex-col space-y-3 text-[var(--color-text)]" role="list" aria-label="Contact links">
         {
           socialLinks.map((link) => (
             <li>
@@ -81,6 +83,8 @@ const socialLinks = [
                 href={link.url}
                 class={`${link.class} hover:text-[var(--color-accent)]`}
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit my ${link.name}`}
               >
                 {link.name}
               </a>
