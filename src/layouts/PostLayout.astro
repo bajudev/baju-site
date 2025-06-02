@@ -3,25 +3,21 @@ import Layout from "./Layout.astro";
 import "../styles/global.css";
 
 const { frontmatter } = Astro.props;
-const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-});
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString();
 ---
 
 <Layout title={frontmatter.title}>
-  <article class="glassmorphism rounded-2xl p-8 md:p-12">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gradient">{frontmatter.title}</h1>
-    <p class="text-sm text-[var(--color-text)] opacity-60 mb-8">Posted on {formattedDate}</p>
+  <article class="prose prose-lg dark:prose-invert max-w-none">
+    <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
+    <p class="text-sm text-gray-400 mb-6">Posted on {formattedDate}</p>
 
     {
       frontmatter.tags && (
-        <div class="flex flex-wrap gap-2 mb-10">
+        <div class="flex flex-wrap gap-2 mb-8">
           {frontmatter.tags.map((tag: unknown) => (
             <a
               href={`/tags/${tag}`}
-              class="inline-block glassmorphism text-[var(--color-text)] hover:text-[var(--color-heading)] rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 hover:scale-105 shine"
+              class="inline-block bg-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-accent)] hover:text-white rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105"
             >
               #{tag}
             </a>
@@ -30,8 +26,6 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
       )
     }
 
-    <div class="prose prose-lg prose-invert max-w-none">
-      <slot />
-    </div>
+    <slot />
   </article>
 </Layout>

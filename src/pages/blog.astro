@@ -15,37 +15,31 @@ const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags))];
 ---
 
 <Layout title="setofr | blog">
-  <section class="space-y-12 stagger-animation">
-    <div class="glassmorphism rounded-2xl p-8">
-      <h1 class="text-4xl font-bold text-gradient mb-4">Blog</h1>
-      <p class="text-lg text-[var(--color-text)] mb-4">
+  <section class="space-y-10">
+    <div>
+      <h1 class="text-3xl font-bold">Blog</h1>
+      <p class="text-lg text-[var(--color-text)] mt-4">
         This is where I share things that I'm working on, find interesting, want
         to learn more about, or whatever else I feel like writing.
       </p>
-      <p class="text-[var(--color-text)]">
-        You can access my <a href="/rss.xml" class="rss-link font-medium">RSS feed</a> to stay updated.
+      <p class="text-[var(--color-text)] mt-2">
+        You can access my <a href="/rss.xml" class="rss-link">RSS feed</a> to stay updated.
       </p>
     </div>
 
     <section>
-      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-8 flex items-center gap-3">
-        <span class="text-gradient">◈</span> Latest Posts
-      </h2>
-      <ul class="space-y-6">
+      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Latest Posts</h2>
+      <ul class="space-y-8">
         {allPosts.map((post) => (
-          <li class="transform transition-all duration-300 hover:scale-[1.01]">
+          <li class="transform transition-all duration-300 hover:scale-[1.02]">
             <a href={post.url} class="block">
-              <article class="glassmorphism rounded-2xl p-8 hover:border-[var(--color-accent)] transition-all duration-300 card-hover shine">
-                <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-gradient transition-all">
+              <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-accent)] transition-all duration-300">
+                <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-[var(--color-accent)]">
                   {post.title}
                 </h3>
-                <p class="text-[var(--color-text)] mb-4 text-lg">{post.description}</p>
-                <time class="text-sm text-[var(--color-text)] opacity-60">
-                  {new Date(post.pubDate).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
+                <p class="text-[var(--color-text)] mb-4">{post.description}</p>
+                <time class="text-sm text-gray-400">
+                  {new Date(post.pubDate).toLocaleDateString()}
                 </time>
               </article>
             </a>
@@ -55,12 +49,10 @@ const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags))];
     </section>
 
     <section>
-      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-8 flex items-center gap-3">
-        <span class="text-gradient">◈</span> Browse by Tag
-      </h2>
+      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">Browse by Tag</h2>
       <div class="flex flex-wrap gap-3">
         {uniqueTags.map((tag) => (
-          <a href={`/tags/${tag}`} class="px-5 py-2.5 rounded-full glassmorphism text-[var(--color-text)] font-medium transition-all duration-300 hover:scale-105 hover:text-[var(--color-heading)] shine">
+          <a href={`/tags/${tag}`} class="px-4 py-2 rounded-full bg-[var(--color-border)] text-[var(--color-text)] font-medium transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:scale-105">
             #{tag}
           </a>
         ))}
