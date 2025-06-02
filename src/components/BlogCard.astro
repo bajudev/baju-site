@@ -1,0 +1,34 @@
+---
+import Card from "./Card.astro";
+const { title, url, description, pubDate, tags } = Astro.props;
+const formattedDate = new Date(pubDate).toLocaleDateString('en-US', { 
+  year: 'numeric', 
+  month: 'short', 
+  day: 'numeric' 
+});
+---
+
+<article>
+  <a href={url} class="block">
+    <Card class="hover:border-[var(--color-accent)]">
+      <div class="flex items-start justify-between mb-2">
+        <h3 class="text-xl font-semibold text-[var(--color-heading)] group-hover:text-[var(--color-accent)] transition-colors">
+          {title}
+        </h3>
+        <time class="text-sm text-[var(--color-text)] whitespace-nowrap ml-4">
+          {formattedDate}
+        </time>
+      </div>
+      <p class="text-[var(--color-text)] mb-3">{description}</p>
+      {tags && (
+        <div class="flex flex-wrap gap-2">
+          {tags.map((tag: string) => (
+            <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </Card>
+  </a>
+</article>

@@ -1,8 +1,8 @@
 :root {
-  --color-bg: #000000;
-  --color-heading: #ffffff;
-  --color-text: #cccccc;
-  --color-accent: #808080;
-  --color-border: #333333;
-  --color-primary: #808080;
+  --color-bg: #0a0a0a;
+  --color-heading: #fafafa;
+  --color-text: #a1a1aa;
+  --color-accent: #3b82f6;
+  --color-border: #27272a;
+  --color-primary: #2563eb;
 }

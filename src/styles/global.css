@@ -4,3 +4,8 @@
 @import "./navigation.css";
 @import "./socials.css";
 @import "./animations.css";
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}

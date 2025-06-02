@@ -2,115 +2,61 @@
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 
-const currently = ["starguard", "to be updated"];
+const currently = ["Learning Swift with #100DaysOfSwift", "Building web applications with Astro"];
 
-const skills = [{ name: "Python", icon: "fab fa-python" }];
+const skills = [
+  { name: "Python", icon: "fab fa-python" },
+  { name: "JavaScript", icon: "fab fa-js" },
+  { name: "Swift", icon: "fab fa-swift" },
+  { name: "Git", icon: "fab fa-git-alt" }
+];
 
 const socialLinks = [
   { url: "https://github.com/setofr", name: "GitHub", class: "social-link" },
-  {
-    url: "https://www.youtube.com/@setofR",
-    name: "YouTube",
-    class: "social-link",
-  },
-  {
-    url: "https://mastodon.social/@setofR",
-    name: "Mastodon",
-    class: "social-link",
-  },
-  {
-    url: "https://bsky.app/profile/setofr.bsky.social",
-    name: "Bluesky",
-    class: "social-link",
-  },
-  {
-    url: "mailto:contact@setofr.me",
-    name: "contact@setofr.me",
-    class: "email-link",
-  },
+  { url: "https://www.youtube.com/@setofR", name: "YouTube", class: "social-link" },
+  { url: "https://mastodon.social/@setofR", name: "Mastodon", class: "social-link" },
+  { url: "https://bsky.app/profile/setofr.bsky.social", name: "Bluesky", class: "social-link" },
+  { url: "mailto:contact@setofr.me", name: "contact@setofr.me", class: "email-link" }
 ];
 ---
 
 <Layout title="setofr | home">
-  <div
-    class="relative flex items-center justify-center select-none text-7xl font-stix text-white mb-12"
-    role="banner"
-    aria-label="setofr logo"
-  >
-    <span class="bracket-left inline-block z-10" aria-hidden="true">[</span>
-    <span
-      class="portfolio-text absolute left-1/2 transform -translate-x-1/2 opacity-0 font-normal"
-      >setofℝ</span
-    >
-    <span class="bracket-right inline-block z-10" aria-hidden="true">]</span>
+  <div class="relative flex items-center justify-center select-none text-7xl font-stix text-white mb-12">
+    <span class="bracket-left inline-block z-10">[</span>
+    <span class="portfolio-text absolute left-1/2 transform -translate-x-1/2 opacity-0 font-normal">setofℝ</span>
+    <span class="bracket-right inline-block z-10">]</span>
   </div>
 
   <section class="space-y-12">
-    <section aria-labelledby="currently-heading">
-      <h2
-        id="currently-heading"
-        class="text-xl font-semibold text-[var(--color-heading)] mb-4"
-      >
-        Currently
-      </h2>
-      <ul
-        class="list-disc text-lg space-y-2 text-[var(--color-text)] pl-4"
-        role="list"
-      >
+    <section>
+      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">Currently</h2>
+      <ul class="list-disc text-lg space-y-2 text-[var(--color-text)] pl-4">
         {currently.map((thing) => <li>{thing}</li>)}
       </ul>
     </section>
 
-    <section aria-labelledby="skills-heading">
-      <h2
-        id="skills-heading"
-        class="text-xl font-semibold text-[var(--color-heading)] mb-4"
-      >
-        Skills
-      </h2>
-      <ul
-        class="list-none flex gap-4 items-center text-[var(--color-text)]"
-        role="list"
-        aria-label="Technical skills"
-      >
-        {
-          skills.map((skill) => (
-            <li class="flex gap-2 items-center text-[var(--color-text)] bg-[var(--color-border)] px-4 py-2 rounded-full">
-              <i class={`${skill.icon} text-lg`} aria-hidden="true" />
-              <span>{skill.name}</span>
-            </li>
-          ))
-        }
+    <section>
+      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">Skills</h2>
+      <ul class="list-none flex gap-4 items-center flex-wrap">
+        {skills.map((skill) => (
+          <li class="flex gap-2 items-center text-[var(--color-text)] bg-[var(--color-border)] px-4 py-2 rounded-full">
+            <i class={`${skill.icon} text-lg`} />
+            <span>{skill.name}</span>
+          </li>
+        ))}
       </ul>
     </section>
 
-    <section aria-labelledby="contact-heading">
-      <h2
-        id="contact-heading"
-        class="text-xl font-semibold text-[var(--color-heading)] mb-4"
-      >
-        Contact
-      </h2>
-      <ul
-        class="flex flex-col space-y-3 text-[var(--color-text)]"
-        role="list"
-        aria-label="Contact links"
-      >
-        {
-          socialLinks.map((link) => (
-            <li>
-              <a
-                href={link.url}
-                class={`${link.class}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit my ${link.name}`}
-              >
-                {link.name}
-              </a>
-            </li>
-          ))
-        }
+    <section>
+      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">Contact</h2>
+      <ul class="flex flex-col space-y-3 text-[var(--color-text)]">
+        {socialLinks.map((link) => (
+          <li>
+            <a href={link.url} class={`${link.class}`} target="_blank" rel="noopener noreferrer">
+              {link.name}
+            </a>
+          </li>
+        ))}
       </ul>
     </section>
   </section>
