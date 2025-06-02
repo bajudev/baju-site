@@ -2,35 +2,35 @@
 const { title, description, url, technologies, image, status } = Astro.props;
 ---
 
-<article class="p-6 border rounded-lg bg-[var(--color-bg)] border-[var(--color-border)] transition-all duration-300 hover:border-[var(--color-accent)] hover:scale-[1.02]">
+<article class="glassmorphism rounded-2xl p-8 transition-all duration-300 card-hover shine">
   <div class="mb-4 flex items-start justify-between">
-    <h3 class="text-xl font-semibold text-[var(--color-heading)] transition-colors hover:text-[var(--color-accent)]">
+    <h3 class="text-2xl font-semibold text-[var(--color-heading)] transition-all hover:text-gradient">
       {title}
     </h3>
     {status && (
-      <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-accent)]">
+      <span class="px-4 py-1.5 text-xs font-medium text-white rounded-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-secondary)]">
         {status}
       </span>
     )}
   </div>
 
   {image && (
-    <img src={image} alt={`${title} preview`} class="mb-4 w-full h-40 object-cover rounded-md" loading="lazy" />
+    <img src={image} alt={`${title} preview`} class="mb-6 w-full h-48 object-cover rounded-xl" loading="lazy" />
   )}
 
-  <p class="mb-4 text-[var(--color-text)]">{description}</p>
+  <p class="mb-6 text-[var(--color-text)] text-lg">{description}</p>
 
   {technologies && (
-    <div class="mb-4 flex flex-wrap gap-2">
+    <div class="mb-6 flex flex-wrap gap-2">
       {technologies.map((tech: unknown) => (
-        <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-primary)]">
+        <span class="px-4 py-1.5 text-sm font-medium rounded-full glassmorphism text-[var(--color-text)]">
           {tech}
         </span>
       ))}
     </div>
   )}
 
-  <a href={url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-[var(--color-accent)] transition-colors hover:text-[var(--color-primary)]">
-    View Project<span class="ml-1">↗</span>
+  <a href={url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-medium text-[var(--color-accent)] transition-all hover:gap-3 hover:text-[var(--color-primary)]">
+    View Project <span>→</span>
   </a>
 </article>

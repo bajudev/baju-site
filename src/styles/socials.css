@@ -1,46 +1,72 @@
 .social-link {
   text-decoration: none;
   color: var(--color-text);
+  transition: all 0.2s ease;
+  position: relative;
+  display: inline-block;
 }
 
 .social-link:hover {
-  text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--color-accent);
   color: var(--color-accent);
-  text-decoration-skip-ink: none;
+  transform: translateX(4px);
+}
+
+.social-link::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gradient-primary);
+  transition: width 0.3s ease;
+}
+
+.social-link:hover::before {
+  width: calc(100% - 12px);
 }
 
 .social-link::after {
   content: " ↗";
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.social-link:hover::after {
+  opacity: 1;
 }
 
 .email-link {
   text-decoration: none;
   color: var(--color-text);
+  transition: all 0.2s ease;
+  position: relative;
+  display: inline-block;
 }
 
 .email-link:hover {
-  text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--color-accent);
   color: var(--color-accent);
-  text-decoration-skip-ink: none;
+  transform: translateX(4px);
 }
 
 .email-link::after {
   content: " ⌘";
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.email-link:hover::after {
+  opacity: 1;
 }
 
 .rss-link {
   text-decoration: none;
-  color: gray;
+  color: var(--color-text);
+  opacity: 0.6;
+  transition: all 0.2s ease;
 }
 
 .rss-link:hover {
-  text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--color-accent);
-  color: var(--color-accent);
-  text-decoration-skip-ink: none;
+  opacity: 1;
+  color: var(--color-warning);
 }
