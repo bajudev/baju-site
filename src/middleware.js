@@ -1,4 +1,4 @@
-export function onRequest(context, next) {
+export async function onRequest(context, next) {
     const response = await next();
     
     // Remove server identification headers
