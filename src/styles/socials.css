@@ -12,7 +12,10 @@
 }
 
 .social-link::after {
-  content: " ↗";
+  content: "↗";
+  margin-left: 0.25rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.875em;
 }
 
 .email-link {
