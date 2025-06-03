@@ -14,7 +14,7 @@ const skills = [
 const socialLinks = [
   { url: "https://github.com/setofr", name: "GitHub", class: "social-link" },
   { url: "https://www.youtube.com/@setofR", name: "YouTube", class: "social-link" },
-  { url: "https://mastodon.social/@setofR", name: "Mastodon", class: "social-link" },
+  { url: "https://mastodon.social/@setofR", name: "Mastodon", class: "social-link", rel: "me" },
   { url: "https://bsky.app/profile/setofr.bsky.social", name: "Bluesky", class: "social-link" },
   { url: "mailto:contact@setofr.me", name: "contact@setofr.me", class: "email-link" }
 ];
@@ -52,7 +52,12 @@ const socialLinks = [
       <ul class="flex flex-col space-y-3 text-[var(--color-text)]">
         {socialLinks.map((link) => (
           <li>
-            <a href={link.url} class={`${link.class}`} target="_blank" rel="noopener noreferrer">
+            <a 
+              href={link.url} 
+              class={`${link.class}`} 
+              target={link.url.startsWith("mailto:") ? "_self" : "_blank"} 
+              rel={link.rel || "noopener noreferrer nofollow"}
+            >
               {link.name}
             </a>
           </li>

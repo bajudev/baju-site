@@ -14,12 +14,31 @@ const currentPath = Astro.url.pathname;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Computer science student exploring algorithms, web development, and technology" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content="Computer science student exploring algorithms, web development, and technology" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://setofr.me${currentPath}`} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content="Computer science student exploring algorithms, web development, and technology" />
     <title>{pageTitle}</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="setofr RSS Feed" href="/rss.xml" />
     <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&family=STIX+Two+Math&display=swap" rel="stylesheet" />
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&family=STIX+Two+Math&display=swap" 
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
     <script>
       const theme = localStorage.getItem('theme') || 'color';
       document.documentElement.setAttribute('data-theme', theme);
@@ -29,7 +48,7 @@ const currentPath = Astro.url.pathname;
     <AnimatedBackground />
     <div class="container mx-auto max-w-2xl px-4 py-8 relative">
       <header class="flex justify-between items-center py-6 backdrop-blur-sm">
-        <a href="/" class="logo-link">
+        <a href="/" class="logo-link" aria-label="Home">
         </a>
         <nav class="flex space-x-6" role="navigation" aria-label="Main navigation">
           <a href="/" class={`nav-link ${currentPath === "/" ? "active" : ""}`}>home</a>

@@ -64,6 +64,8 @@ const links = [
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
     />
     <link
       href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap"
@@ -94,7 +96,7 @@ const links = [
               href={link.url}
               class="link-card"
               target={link.url.startsWith("mailto:") ? "_self" : "_blank"}
-              rel={link.rel || "noopener noreferrer"}
+              rel={link.rel || "noopener noreferrer nofollow"}
             >
               <div class="link-content">
                 <div class="link-icon">
