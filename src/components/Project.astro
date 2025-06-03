@@ -2,35 +2,55 @@
 const { title, description, url, technologies, image, status } = Astro.props;
 ---
 
-<article class="p-6 border rounded-lg bg-[var(--color-bg)] border-[var(--color-border)] transition-all duration-300 hover:border-[var(--color-accent)] hover:scale-[1.02]">
+<article
+  class="p-6 border rounded-lg bg-[var(--color-bg)] border-[var(--color-border)] transition-all duration-300 hover:border-[var(--color-accent)] hover:scale-[1.02]"
+>
   <div class="mb-4 flex items-start justify-between">
-    <h3 class="text-xl font-semibold text-[var(--color-heading)] transition-colors hover:text-[var(--color-accent)]">
+    <h3
+      class="text-xl font-semibold text-[var(--color-heading)] transition-colors hover:text-[var(--color-accent)]"
+    >
       {title}
     </h3>
-    {status && (
-      <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-accent)]">
-        {status}
-      </span>
-    )}
+    {
+      status && (
+        <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-accent)]">
+          {status}
+        </span>
+      )
+    }
   </div>
 
-  {image && (
-    <img src={image} alt={`${title} preview`} class="mb-4 w-full h-40 object-cover rounded-md" loading="lazy" />
-  )}
+  {
+    image && (
+      <img
+        src={image}
+        alt={`${title} preview`}
+        class="mb-4 w-full h-40 object-cover rounded-md"
+        loading="lazy"
+      />
+    )
+  }
 
   <p class="mb-4 text-[var(--color-text)]">{description}</p>
 
-  {technologies && (
-    <div class="mb-4 flex flex-wrap gap-2">
-      {technologies.map((tech: unknown) => (
-        <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-primary)]">
-          {tech}
-        </span>
-      ))}
-    </div>
-  )}
+  {
+    technologies && (
+      <div class="mb-4 flex flex-wrap gap-2">
+        {technologies.map((tech: unknown) => (
+          <span class="px-3 py-1 text-xs text-white rounded-full bg-[var(--color-primary)]">
+            {tech}
+          </span>
+        ))}
+      </div>
+    )
+  }
 
-  <a href={url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-[var(--color-accent)] transition-colors hover:text-[var(--color-primary)]">
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-flex items-center font-medium text-[var(--color-accent)] transition-colors hover:text-[var(--color-primary)]"
+  >
     View Project<span class="ml-1">↗</span>
   </a>
 </article>

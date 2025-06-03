@@ -10,11 +10,10 @@ export const projects = [
   },
   {
     title: "StarGuard",
-    description:
-      "A retro-ish style tower defense game built with Python.",
+    description: "A retro-ish style tower defense game built with Python.",
     url: "https://github.com/setofr/tower-defense",
     technologies: ["Python", "Pygame"],
     status: "WIP",
     featured: false,
-  }
+  },
 ];
