@@ -6,3 +6,12 @@
   --color-border: #27272a;
   --color-primary: #2563eb;
 }
+
+:root[data-theme="monochrome"] {
+  --color-bg: #000000;
+  --color-heading: #ffffff;
+  --color-text: #cccccc;
+  --color-accent: #808080;
+  --color-border: #333333;
+  --color-primary: #808080;
+}

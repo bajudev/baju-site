@@ -1,0 +1,27 @@
+<button
+  id="theme-toggle"
+  class="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-[var(--color-border)] border border-[var(--color-accent)] transition-all duration-300 hover:bg-[var(--color-accent)] hover:scale-110"
+  aria-label="Toggle theme"
+>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M12 2v20"/>
+    <path d="M12 2a10 10 0 0 1 0 20" fill="currentColor" opacity="0.3"/>
+  </svg>
+</button>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+  
+  const theme = localStorage.getItem('theme') || 'color';
+  root.setAttribute('data-theme', theme);
+  
+  toggle?.addEventListener('click', () => {
+    const currentTheme = root.getAttribute('data-theme');
+    const newTheme = currentTheme === 'monochrome' ? 'color' : 'monochrome';
+    
+    root.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+</script>

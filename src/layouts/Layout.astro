@@ -1,5 +1,6 @@
 ---
 import AnimatedBackground from "../components/Background.astro";
+import ThemeToggle from "../components/Theme.astro";
 const { title } = Astro.props;
 const pageTitle = title || "setofr";
 const currentYear = new Date().getFullYear();
@@ -19,6 +20,10 @@ const currentPath = Astro.url.pathname;
     <link rel="stylesheet" href="/styles/global.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&family=STIX+Two+Math&display=swap" rel="stylesheet" />
+    <script>
+      const theme = localStorage.getItem('theme') || 'color';
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
   </head>
   <body class="antialiased font-['Inter']">
     <AnimatedBackground />
@@ -39,6 +44,7 @@ const currentPath = Astro.url.pathname;
         <p class="text-sm text-[var(--color-text)]">© {currentYear} setofr</p>
       </footer>
     </div>
+    <ThemeToggle />
   </body>
 </html>
 
