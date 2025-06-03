@@ -4,7 +4,7 @@ export const projects = [
     description:
       "A portfolio website built with Astro and Tailwind CSS. Includes blog and project pages.",
     url: "https://github.com/setofr/setofr-site",
-    technologies: ["Astro", "Tailwind CSS", "JavaScript"],
+    technologies: ["Astro", "Tailwind CSS"],
     status: "Live",
     featured: true,
   },
