@@ -51,7 +51,7 @@ const pastConcerts = pieces.watched.filter(
                       <span class="text-[var(--color-text)]">{perf.piece}</span>
                       {perf.performer && (
                         <span class="text-[var(--color-accent)]">
-                          ({perf.performer})
+                          performed by {perf.performer}
                         </span>
                       )}
                       {perf.type === "encore" && (
@@ -100,7 +100,7 @@ const pastConcerts = pieces.watched.filter(
                       <span class="text-[var(--color-text)]">{perf.piece}</span>
                       {perf.performer && (
                         <span class="text-[var(--color-accent)]">
-                          ({perf.performer})
+                          perfomed by {perf.performer}
                         </span>
                       )}
                       {perf.type === "encore" && (
