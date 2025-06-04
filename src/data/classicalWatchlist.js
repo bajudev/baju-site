@@ -51,50 +51,6 @@ export const pieces = {
         },
       ],
     },
-    {
-      date: "2025-03-29",
-      venue: "Birmingham Symphony Hall",
-      performances: [
-        {
-          composer: "Tchaikovsky",
-          piece: "Fantasy Overture, Romeo and Juliet",
-        },
-        {
-          composer: "Bruch",
-          piece: "Violin Concerto No. 1",
-          performer: "Esther Yoo",
-          type: "violin",
-        },
-        {
-          composer: "Prokofiev",
-          piece: "Symphony No. 5",
-        },
-      ],
-    },
-    {
-      date: "2025-04-03",
-      venue: "Birmingham Symphony Hall",
-      performances: [
-        {
-          composer: "Arvo Pärt",
-          piece: "Our Garden",
-        },
-        {
-          composer: "Sibelius",
-          piece: "Violin Concerto",
-          performer: "Alina Ibragimova",
-          type: "violin",
-        },
-        {
-          composer: "Sibelius",
-          piece: "Finlandia",
-        },
-        {
-          composer: "Dvořák",
-          piece: "Symphony No.8",
-        },
-      ],
-    },
   ],
   wishlist: [
     {
