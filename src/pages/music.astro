@@ -87,7 +87,9 @@ const pastConcerts = pieces.watched.filter(
                       day: "numeric",
                     })}
                   </time>
-                  <span class="text-[var(--color-text)]">{concert.venue}</span>
+                  <span class="text-[var(--color-heading)]">
+                    {concert.venue}
+                  </span>
                 </div>
                 <ul class="space-y-2">
                   {concert.performances.map((perf) => (
