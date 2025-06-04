@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { pieces } from "../data/classicalWatchlist.js";
+import "../styles/global.css";
+
+const upcomingConcerts = pieces.watched.filter(
+  (concert) => new Date(concert.date) > new Date()
+);
+const pastConcerts = pieces.watched.filter(
+  (concert) => new Date(concert.date) <= new Date()
+);
+---
+
+<Layout title="setofr | music">
+  <section class="space-y-12">
+    <div>
+      <h1 class="text-3xl font-bold text-[var(--color-heading)] mb-4">
+        Pieces Watchlist 🎻
+      </h1>
+      <p class="text-lg text-[var(--color-text)]">
+        Concerts that I've attended.
+      </p>
+    </div>
+
+    {
+      upcomingConcerts.length > 0 && (
+        <section>
+          <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
+            Upcoming Concerts
+          </h2>
+          <div class="space-y-6">
+            {upcomingConcerts.map((concert) => (
+              <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6">
+                <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                  <time class="text-[var(--color-accent)] font-medium">
+                    {new Date(concert.date).toLocaleDateString("en-US", {
+                      weekday: "long",
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span class="text-[var(--color-text)]">{concert.venue}</span>
+                </div>
+                <ul class="space-y-2">
+                  {concert.performances.map((perf) => (
+                    <li class="flex flex-wrap items-baseline gap-2">
+                      <span class="font-semibold text-[var(--color-heading)]">
+                        {perf.composer}
+                      </span>
+                      <span class="text-[var(--color-text)]">{perf.piece}</span>
+                      {perf.performer && (
+                        <span class="text-[var(--color-accent)]">
+                          ({perf.performer})
+                        </span>
+                      )}
+                      {perf.type === "encore" && (
+                        <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-accent)]/20 text-[var(--color-accent)]">
+                          Encore
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    {
+      pastConcerts.length > 0 && (
+        <section>
+          <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
+            Past Concerts
+          </h2>
+          <div class="space-y-6">
+            {pastConcerts.map((concert) => (
+              <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6 opacity-80">
+                <div class="flex flex-wrap items-baseline gap-4 mb-4">
+                  <time class="text-[var(--color-text)]">
+                    {new Date(concert.date).toLocaleDateString("en-US", {
+                      weekday: "long",
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <span class="text-[var(--color-text)]">{concert.venue}</span>
+                </div>
+                <ul class="space-y-2">
+                  {concert.performances.map((perf) => (
+                    <li class="flex flex-wrap items-baseline gap-2">
+                      <span class="font-semibold text-[var(--color-heading)]">
+                        {perf.composer}
+                      </span>
+                      <span class="text-[var(--color-text)]">{perf.piece}</span>
+                      {perf.performer && (
+                        <span class="text-[var(--color-accent)]">
+                          ({perf.performer})
+                        </span>
+                      )}
+                      {perf.type === "encore" && (
+                        <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-accent)]/20 text-[var(--color-accent)]">
+                          Encore
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <section>
+      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
+        Watch Wishlist
+      </h2>
+      <div class="grid gap-3 md:grid-cols-2">
+        {
+          pieces.wishlist.map((piece) => (
+            <div class="flex items-baseline gap-2 p-3 bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg hover:border-[var(--color-accent)] transition-colors">
+              <span class="font-semibold text-[var(--color-heading)]">
+                {piece.composer}
+              </span>
+              <span class="text-[var(--color-text)]">{piece.piece}</span>
+              {piece.type === "violin" && (
+                <span class="text-[var(--color-accent)]">🎻</span>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </section>
+</Layout>
