@@ -18,7 +18,7 @@ const pastConcerts = pieces.watched.filter(
         Pieces Watchlist 🎻
       </h1>
       <p class="text-lg text-[var(--color-text)]">
-        Concerts that I've attended.
+        Concerts that I've attended and pieces I want to see performed.
       </p>
     </div>
 
@@ -40,7 +40,9 @@ const pastConcerts = pieces.watched.filter(
                       day: "numeric",
                     })}
                   </time>
-                  <span class="text-[var(--color-text)]">{concert.venue}</span>
+                  <span class="text-[var(--color-heading)]">
+                    {concert.venue}
+                  </span>
                 </div>
                 <ul class="space-y-2">
                   {concert.performances.map((perf) => (
@@ -77,7 +79,7 @@ const pastConcerts = pieces.watched.filter(
           </h2>
           <div class="space-y-6">
             {pastConcerts.map((concert) => (
-              <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6 opacity-80">
+              <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6">
                 <div class="flex flex-wrap items-baseline gap-4 mb-4">
                   <time class="text-[var(--color-text)]">
                     {new Date(concert.date).toLocaleDateString("en-US", {
@@ -100,7 +102,7 @@ const pastConcerts = pieces.watched.filter(
                       <span class="text-[var(--color-text)]">{perf.piece}</span>
                       {perf.performer && (
                         <span class="text-[var(--color-accent)]">
-                          perfomed by {perf.performer}
+                          performed by {perf.performer}
                         </span>
                       )}
                       {perf.type === "encore" && (
@@ -122,18 +124,20 @@ const pastConcerts = pieces.watched.filter(
       <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
         Watch Wishlist
       </h2>
-      <div class="grid gap-3 md:grid-cols-2">
+      <div class="space-y-3">
         {
           pieces.wishlist.map((piece) => (
-            <div class="flex items-baseline gap-2 p-3 bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg hover:border-[var(--color-accent)] transition-colors">
-              <span class="font-semibold text-[var(--color-heading)]">
-                {piece.composer}
-              </span>
-              <span class="text-[var(--color-text)]">{piece.piece}</span>
-              {piece.type === "violin" && (
-                <span class="text-[var(--color-accent)]">🎻</span>
-              )}
-            </div>
+            <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-4 hover:border-[var(--color-accent)] transition-colors">
+              <div class="flex flex-wrap items-baseline gap-2">
+                <span class="font-semibold text-[var(--color-heading)]">
+                  {piece.composer}
+                </span>
+                <span class="text-[var(--color-text)]">{piece.piece}</span>
+                {piece.type === "violin" && (
+                  <span class="text-[var(--color-accent)]">🎻</span>
+                )}
+              </div>
+            </article>
           ))
         }
       </div>
