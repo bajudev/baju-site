@@ -2,7 +2,7 @@
 import AnimatedBackground from "../components/Background.astro";
 import ThemeToggle from "../components/Theme.astro";
 const { title } = Astro.props;
-const pageTitle = title || "bajudev";
+const pageTitle = title || "baju";
 const currentYear = new Date().getFullYear();
 const currentPath = Astro.url.pathname;
 
@@ -41,7 +41,7 @@ const isProjectsPage = currentPath === "/projects";
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="bajudev RSS Feed"
+      title="baju RSS Feed"
       href="/rss.xml"
     />
     <link rel="stylesheet" href="/styles/global.css" />
@@ -84,7 +84,7 @@ const isProjectsPage = currentPath === "/projects";
         class="text-center py-4 border-t border-[var(--color-border)] backdrop-blur-sm"
         role="contentinfo"
       >
-        <p class="text-sm text-[var(--color-text)]">© {currentYear} bajudev</p>
+        <p class="text-sm text-[var(--color-text)]">© {currentYear} baju</p>
       </footer>
     </div>
     <ThemeToggle />
