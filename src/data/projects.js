@@ -8,7 +8,7 @@ export const projects = [
     status: "Live",
     featured: true,
   },
-  {ç
+  {
     title: "StarGuard",
     description: "A retro-ish style tower defense game built with Python.",
     url: "https://github.com/bajudev/starguard",
