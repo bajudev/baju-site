@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import { SITE } from "../config";
 
 const currently = [
   "Learning Swift with #100DaysOfSwift",
@@ -14,28 +15,11 @@ const skills = [
 ];
 
 const socialLinks = [
-  { url: "https://github.com/bajudev", name: "GitHub", class: "social-link" },
-  {
-    url: "https://www.youtube.com/@baju-dev",
-    name: "YouTube",
-    class: "social-link",
-  },
-  {
-    url: "https://mastodon.social/@bajudev",
-    name: "Mastodon",
-    class: "social-link",
-    rel: "me",
-  },
-  {
-    url: "https://bsky.app/profile/bajudev.bsky.social",
-    name: "Bluesky",
-    class: "social-link",
-  },
-  {
-    url: "mailto:contact@setofr.me",
-    name: "contact@setofr.me",
-    class: "email-link",
-  },
+  { url: SITE.social.github, name: "GitHub", class: "social-link" },
+  { url: SITE.social.youtube, name: "YouTube", class: "social-link" },
+  { url: SITE.social.mastodon, name: "Mastodon", class: "social-link", rel: "me" },
+  { url: SITE.social.bluesky, name: "Bluesky", class: "social-link" },
+  { url: `mailto:${SITE.email}`, name: SITE.email, class: "email-link" },
 ];
 ---
 
