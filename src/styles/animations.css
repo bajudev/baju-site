@@ -54,10 +54,7 @@
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   cursor: pointer;
   position: relative;
-  background: linear-gradient(135deg, var(--color-heading) 0%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-heading);
 }
 
 .name-letter:hover {
@@ -74,8 +71,6 @@
   animation: scrambleShake 0.1s ease-in-out infinite;
   color: var(--color-accent);
   text-shadow: 0 0 10px currentColor;
-  -webkit-text-fill-color: var(--color-accent);
-  background: none;
 }
 
 @keyframes scrambleShake {
