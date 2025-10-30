@@ -55,7 +55,7 @@ function formatDate(dateString: string | number | Date) {
       <ul class="space-y-6">
         {
           allPosts.map((post) => (
-            <li>
+            <li class="fade-in-item">
               <a href={post.url} class="block">
                 <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-accent)] transition-colors">
                   <div class="flex items-start justify-between mb-3">
@@ -83,12 +83,12 @@ function formatDate(dateString: string | number | Date) {
                     {post.tags && (
                       <div class="flex gap-2">
                         {post.tags.slice(0, 2).map((tag: unknown) => (
-                          <span class="px-2 py-1 text-xs rounded-full bg-[var(--color-border)] text-[var(--color-text)] transition-colors">
+                          <span class="tag-badge px-2 py-1 text-xs rounded-full bg-[var(--color-border)] text-[var(--color-text)] transition-all">
                             #{tag}
                           </span>
                         ))}
                         {post.tags.length > 2 && (
-                          <span class="px-2 py-1 text-xs rounded-full bg-[var(--color-border)] text-[var(--color-text)]">
+                          <span class="tag-badge px-2 py-1 text-xs rounded-full bg-[var(--color-border)] text-[var(--color-text)] transition-all">
                             +{post.tags.length - 2}
                           </span>
                         )}
@@ -114,7 +114,7 @@ function formatDate(dateString: string | number | Date) {
             return (
               <a
                 href={`/tags/${tag}`}
-                class="px-4 py-2 rounded-full bg-[var(--color-border)] text-[var(--color-text)] font-medium transition-colors hover:bg-[var(--color-accent)] hover:text-white flex items-center gap-2"
+                class="tag-link px-4 py-2 rounded-full bg-[var(--color-border)] text-[var(--color-text)] font-medium transition-all hover:bg-[var(--color-accent)] hover:text-white flex items-center gap-2"
               >
                 <span>#{tag}</span>
                 <span class="text-xs opacity-70">
