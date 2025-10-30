@@ -2,6 +2,8 @@
   color: var(--color-heading);
   position: relative;
   transition: color 0.2s ease;
+  border-radius: 0.25rem;
+  outline-offset: 4px;
 }
 
 .nav-link::after {
@@ -15,12 +17,20 @@
   transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link:focus::after {
   width: 100%;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:focus {
   color: var(--color-accent);
+  outline: none;
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
 }
 
 .nav-link.active {

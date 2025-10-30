@@ -1,0 +1,61 @@
+---
+import { SITE } from "../config";
+
+interface Props {
+  type?: "website" | "person" | "blogPost";
+  title?: string;
+  description?: string;
+  url?: string;
+  publishDate?: string;
+  tags?: string[];
+}
+
+const { type = "website", title, description, url, publishDate, tags } = Astro.props;
+
+const getStructuredData = () => {
+  const baseUrl = SITE.url;
+
+  if (type === "person") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: SITE.author,
+      url: baseUrl,
+      email: SITE.email,
+      sameAs: Object.values(SITE.social),
+    };
+  }
+
+  if (type === "blogPost") {
+    return {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: title,
+      description: description,
+      url: url || baseUrl,
+      datePublished: publishDate,
+      author: {
+        "@type": "Person",
+        name: SITE.author,
+        url: baseUrl,
+      },
+      keywords: tags?.join(", "),
+    };
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.title,
+    description: SITE.description,
+    url: baseUrl,
+    author: {
+      "@type": "Person",
+      name: SITE.author,
+      url: baseUrl,
+    },
+  };
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(getStructuredData())} />

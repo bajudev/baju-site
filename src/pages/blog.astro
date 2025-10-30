@@ -1,14 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import { getReadingTime, formatReadingTime } from "../utils/reading-time";
 
 const allPosts = Object.entries(
   import.meta.glob("./posts/*.md", { eager: true })
 )
-  .map(([path, post]) => ({
-    url: path.replace("./", "/").replace(".md", ""),
-    ...(post as any).frontmatter,
-  }))
+  .map(([path, post]) => {
+    const content = (post as any).compiledContent?.() || '';
+    return {
+      url: path.replace("./", "/").replace(".md", ""),
+      ...(post as any).frontmatter,
+      readingTime: getReadingTime(content),
+    };
+  })
   .sort(
     (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
   );
@@ -17,7 +22,7 @@ const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags))];
 
 function formatDate(dateString: string | number | Date) {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', { 
+  return date.toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
@@ -69,6 +74,10 @@ function formatDate(dateString: string | number | Date) {
                         <i class="far fa-calendar-alt text-xs"></i>
                         {formatDate(post.pubDate)}
                       </time>
+                      <span class="flex items-center gap-1">
+                        <i class="far fa-clock text-xs"></i>
+                        {formatReadingTime(post.readingTime)}
+                      </span>
                     </div>
                     
                     {post.tags && (
