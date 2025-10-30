@@ -25,7 +25,7 @@ const socialLinks = [
 
 <Layout title="baju | home">
   <div
-    class="relative flex items-center justify-center select-none text-7xl font-stix text-white mb-12"
+    class="relative flex items-center justify-center select-none text-7xl font-stix mb-12 hero-container"
   >
     <span class="bracket-left inline-block z-10">[</span>
     <span
@@ -52,7 +52,7 @@ const socialLinks = [
       <ul class="list-none flex gap-4 items-center flex-wrap">
         {
           skills.map((skill) => (
-            <li class="flex gap-2 items-center text-[var(--color-text)] bg-[var(--color-border)] px-4 py-2 rounded-full">
+            <li class="skill-pill flex gap-2 items-center text-[var(--color-text)] bg-[var(--color-border)] px-4 py-2 rounded-full">
               <i class={`${skill.icon} text-lg`} />
               <span>{skill.name}</span>
             </li>
