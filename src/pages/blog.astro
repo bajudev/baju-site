@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import BlogCard from "../components/BlogCard.astro";
+import RecipeCard from "../components/RecipeCard.astro";
 import "../styles/global.css";
 import { getReadingTime, formatReadingTime } from "../utils/reading-time";
 
@@ -19,6 +21,11 @@ const allPosts = Object.entries(
   );
 
 const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags))];
+
+// Helper function to check if a post is a recipe
+function isRecipe(post: any) {
+  return post.tags?.includes('recipe') || post.ingredients || post.instructions;
+}
 
 function formatDate(dateString: string | number | Date) {
   const date = new Date(dateString);
@@ -52,55 +59,35 @@ function formatDate(dateString: string | number | Date) {
       <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
         Latest Posts
       </h2>
-      <ul class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {
           allPosts.map((post) => (
-            <li class="fade-in-item">
-              <a href={post.url} class="block">
-                <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-accent)] transition-colors">
-                  <div class="flex items-start justify-between mb-3">
-                    <h3 class="text-2xl font-bold text-[var(--color-heading)] hover:text-[var(--color-accent)] transition-colors">
-                      {post.title}
-                    </h3>
-                  </div>
-                  
-                  <p class="text-[var(--color-text)] mb-4 leading-relaxed">
-                    {post.description}
-                  </p>
-                  
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-4 text-sm text-[var(--color-text)]">
-                      <time class="flex items-center gap-1">
-                        <i class="far fa-calendar-alt text-xs"></i>
-                        {formatDate(post.pubDate)}
-                      </time>
-                      <span class="flex items-center gap-1">
-                        <i class="far fa-clock text-xs"></i>
-                        {formatReadingTime(post.readingTime)}
-                      </span>
-                    </div>
-                    
-                    {post.tags && (
-                      <div class="flex gap-2">
-                        {post.tags.slice(0, 2).map((tag: unknown) => (
-                          <span class="tag-badge px-2 py-1 text-xs rounded-full bg-[var(--color-border)] text-[var(--color-text)] transition-all">
-                            #{tag}
-                          </span>
-                        ))}
-                        {post.tags.length > 2 && (
-                          <span class="tag-badge px-2 py-1 text-xs rounded-full bg-[var(--color-border)] text-[var(--color-text)] transition-all">
-                            +{post.tags.length - 2}
-                          </span>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </article>
-              </a>
-            </li>
+            <div class="fade-in-item">
+              {isRecipe(post) ? (
+                <RecipeCard
+                  title={post.title}
+                  url={post.url}
+                  description={post.description}
+                  pubDate={post.pubDate}
+                  tags={post.tags}
+                  prepTime={post.prepTime}
+                  cookTime={post.cookTime}
+                  servings={post.servings}
+                  difficulty={post.difficulty}
+                />
+              ) : (
+                <BlogCard
+                  title={post.title}
+                  url={post.url}
+                  description={post.description}
+                  pubDate={post.pubDate}
+                  tags={post.tags}
+                />
+              )}
+            </div>
           ))
         }
-      </ul>
+      </div>
     </section>
 
     <section>
