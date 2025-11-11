@@ -41,3 +41,97 @@
   animation-delay: 1s;
   pointer-events: none;
 }
+
+.hero-container .bracket-left,
+.hero-container .bracket-right {
+  color: var(--color-heading);
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+}
+
+/* Interactive name letters */
+.name-letter {
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
+  position: relative;
+  color: var(--color-heading);
+}
+
+.name-letter:hover {
+  transform: translateY(-8px) scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 5px 15px rgba(59, 130, 246, 0.6));
+}
+
+.name-letter:active {
+  transform: translateY(2px) scale(0.95);
+}
+
+/* Scrambling animation */
+.name-letter.scrambling {
+  animation: scrambleShake 0.1s ease-in-out infinite;
+  color: var(--color-accent);
+  text-shadow: 0 0 10px currentColor;
+}
+
+@keyframes scrambleShake {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-2px) translateY(-2px);
+  }
+  75% {
+    transform: translateX(2px) translateY(2px);
+  }
+}
+
+/* Make the whole name clickable */
+#interactive-name {
+  cursor: pointer;
+  pointer-events: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bracket-left,
+  .bracket-right,
+  .portfolio-text {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .name-letter:hover,
+  .name-letter:active,
+  .name-letter.scrambling {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Staggered fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-item {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-in-item:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-item:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-item:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-item:nth-child(4) { animation-delay: 0.4s; }
+.fade-in-item:nth-child(5) { animation-delay: 0.5s; }
+.fade-in-item:nth-child(6) { animation-delay: 0.6s; }
+.fade-in-item:nth-child(7) { animation-delay: 0.7s; }
+.fade-in-item:nth-child(8) { animation-delay: 0.8s; }
+.fade-in-item:nth-child(9) { animation-delay: 0.9s; }
+.fade-in-item:nth-child(10) { animation-delay: 1s; }

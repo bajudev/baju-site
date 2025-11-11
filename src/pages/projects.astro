@@ -31,7 +31,9 @@ const sections = [
               </h2>
               <div class="grid gap-6">
                 {items.map((project) => (
-                  <ProjectCard {...project} />
+                  <div class="fade-in-item">
+                    <ProjectCard {...project} />
+                  </div>
                 ))}
               </div>
             </section>

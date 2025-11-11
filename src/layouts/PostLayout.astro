@@ -1,15 +1,49 @@
 ---
 import Layout from "./Layout.astro";
 import "../styles/global.css";
+import { getReadingTime, formatReadingTime } from "../utils/reading-time";
+import { getRelatedPosts } from "../utils/related-posts";
 
 const { frontmatter } = Astro.props;
-const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString();
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const content = await Astro.slots.render('default');
+const readingTime = getReadingTime(content);
+
+const allPosts = Object.entries(
+  import.meta.glob("../pages/posts/*.md", { eager: true })
+).map(([path, post]) => ({
+  url: path.replace("../pages/", "/").replace(".md", ""),
+  ...(post as any).frontmatter,
+}));
+
+const currentUrl = Astro.url.pathname;
+const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
 ---
 
-<Layout title={frontmatter.title}>
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  publishDate={frontmatter.pubDate}
+  tags={frontmatter.tags}
+>
   <article class="prose prose-lg dark:prose-invert max-w-none">
     <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
-    <p class="text-sm text-gray-400 mb-6">Posted on {formattedDate}</p>
+    <div class="flex items-center gap-4 text-sm text-[var(--color-text)] mb-6">
+      <time class="flex items-center gap-1">
+        <i class="far fa-calendar-alt text-xs"></i>
+        {formattedDate}
+      </time>
+      <span class="flex items-center gap-1">
+        <i class="far fa-clock text-xs"></i>
+        {formatReadingTime(readingTime)}
+      </span>
+    </div>
 
     {
       frontmatter.tags && (
@@ -28,4 +62,30 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString();
 
     <slot />
   </article>
+
+  {relatedPosts.length > 0 && (
+    <aside class="mt-12 pt-8 border-t border-[var(--color-border)]">
+      <h2 class="text-2xl font-bold mb-6 text-[var(--color-heading)]">Related Posts</h2>
+      <div class="space-y-4">
+        {relatedPosts.map(post => (
+          <a
+            href={post.url}
+            class="block p-4 border border-[var(--color-border)] rounded-lg hover:border-[var(--color-accent)] transition-colors"
+          >
+            <h3 class="text-lg font-semibold text-[var(--color-heading)] mb-2 hover:text-[var(--color-accent)] transition-colors">
+              {post.title}
+            </h3>
+            <p class="text-sm text-[var(--color-text)] mb-3">{post.description}</p>
+            <div class="flex items-center gap-2">
+              {post.tags?.slice(0, 3).map((tag: string) => (
+                <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-border)] text-[var(--color-text)]">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </aside>
+  )}
 </Layout>

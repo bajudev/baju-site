@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import { SITE } from "../config";
 
 const currently = [
   "Learning Swift with #100DaysOfSwift",
@@ -14,42 +15,71 @@ const skills = [
 ];
 
 const socialLinks = [
-  { url: "https://github.com/bajudev", name: "GitHub", class: "social-link" },
-  {
-    url: "https://www.youtube.com/@baju-dev",
-    name: "YouTube",
-    class: "social-link",
-  },
-  {
-    url: "https://mastodon.social/@bajudev",
-    name: "Mastodon",
-    class: "social-link",
-    rel: "me",
-  },
-  {
-    url: "https://bsky.app/profile/bajudev.bsky.social",
-    name: "Bluesky",
-    class: "social-link",
-  },
-  {
-    url: "mailto:contact@setofr.me",
-    name: "contact@setofr.me",
-    class: "email-link",
-  },
+  { url: SITE.social.github, name: "GitHub", class: "social-link" },
+  { url: SITE.social.youtube, name: "YouTube", class: "social-link" },
+  { url: SITE.social.mastodon, name: "Mastodon", class: "social-link", rel: "me" },
+  { url: SITE.social.bluesky, name: "Bluesky", class: "social-link" },
+  { url: `mailto:${SITE.email}`, name: SITE.email, class: "email-link" },
 ];
 ---
 
 <Layout title="baju | home">
   <div
-    class="relative flex items-center justify-center select-none text-7xl font-stix text-white mb-12"
+    class="relative flex items-center justify-center select-none text-7xl font-stix mb-12 hero-container"
   >
     <span class="bracket-left inline-block z-10">[</span>
     <span
       class="portfolio-text absolute left-1/2 transform -translate-x-1/2 opacity-0 font-normal"
-      >baju</span
+      id="interactive-name"
     >
+      <span class="name-letter" data-letter="b">b</span>
+      <span class="name-letter" data-letter="a">a</span>
+      <span class="name-letter" data-letter="j">j</span>
+      <span class="name-letter" data-letter="u">u</span>
+    </span>
     <span class="bracket-right inline-block z-10">]</span>
   </div>
+
+  <script>
+    const nameElement = document.getElementById('interactive-name');
+    const letters = document.querySelectorAll('.name-letter');
+    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+
+    let isScrambling = false;
+
+    // Click to scramble effect
+    nameElement?.addEventListener('click', () => {
+      if (isScrambling) return;
+      isScrambling = true;
+
+      const originalLetters = Array.from(letters).map(l => l.getAttribute('data-letter'));
+      let iterations = 0;
+      const maxIterations = 15;
+
+      const scrambleInterval = setInterval(() => {
+        letters.forEach((letter, index) => {
+          if (iterations < maxIterations) {
+            // Random character
+            letter.textContent = characters[Math.floor(Math.random() * characters.length)];
+            letter.classList.add('scrambling');
+          } else {
+            // Settle back to original
+            letter.textContent = originalLetters[index] || '';
+            letter.classList.remove('scrambling');
+          }
+        });
+
+        iterations++;
+
+        if (iterations > maxIterations + 2) {
+          clearInterval(scrambleInterval);
+          isScrambling = false;
+        }
+      }, 50);
+    });
+
+    // Optional: Add hover sound effect or additional interactions here
+  </script>
 
   <section class="space-y-12">
     <section>
@@ -68,7 +98,7 @@ const socialLinks = [
       <ul class="list-none flex gap-4 items-center flex-wrap">
         {
           skills.map((skill) => (
-            <li class="flex gap-2 items-center text-[var(--color-text)] bg-[var(--color-border)] px-4 py-2 rounded-full">
+            <li class="skill-pill flex gap-2 items-center text-[var(--color-text)] bg-[var(--color-border)] px-4 py-2 rounded-full">
               <i class={`${skill.icon} text-lg`} />
               <span>{skill.name}</span>
             </li>
