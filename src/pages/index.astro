@@ -30,56 +30,10 @@ const socialLinks = [
     <span class="bracket-left inline-block z-10">[</span>
     <span
       class="portfolio-text absolute left-1/2 transform -translate-x-1/2 opacity-0 font-normal"
-      id="interactive-name"
+      >baju</span
     >
-      <span class="name-letter" data-letter="b">b</span>
-      <span class="name-letter" data-letter="a">a</span>
-      <span class="name-letter" data-letter="j">j</span>
-      <span class="name-letter" data-letter="u">u</span>
-    </span>
     <span class="bracket-right inline-block z-10">]</span>
   </div>
-
-  <script>
-    const nameElement = document.getElementById('interactive-name');
-    const letters = document.querySelectorAll('.name-letter');
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
-
-    let isScrambling = false;
-
-    // Click to scramble effect
-    nameElement?.addEventListener('click', () => {
-      if (isScrambling) return;
-      isScrambling = true;
-
-      const originalLetters = Array.from(letters).map(l => l.getAttribute('data-letter'));
-      let iterations = 0;
-      const maxIterations = 15;
-
-      const scrambleInterval = setInterval(() => {
-        letters.forEach((letter, index) => {
-          if (iterations < maxIterations) {
-            // Random character
-            letter.textContent = characters[Math.floor(Math.random() * characters.length)];
-            letter.classList.add('scrambling');
-          } else {
-            // Settle back to original
-            letter.textContent = originalLetters[index] || '';
-            letter.classList.remove('scrambling');
-          }
-        });
-
-        iterations++;
-
-        if (iterations > maxIterations + 2) {
-          clearInterval(scrambleInterval);
-          isScrambling = false;
-        }
-      }, 50);
-    });
-
-    // Optional: Add hover sound effect or additional interactions here
-  </script>
 
   <section class="space-y-12">
     <section>
