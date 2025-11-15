@@ -40,6 +40,10 @@
   animation: fadeInText 1.5s ease forwards;
   animation-delay: 1s;
   pointer-events: none;
+  background: linear-gradient(135deg, var(--color-heading) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero-container .bracket-left,
@@ -48,62 +52,12 @@
   filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
 }
 
-/* Interactive name letters */
-.name-letter {
-  display: inline-block;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  cursor: pointer;
-  position: relative;
-  color: var(--color-heading);
-}
-
-.name-letter:hover {
-  transform: translateY(-8px) scale(1.15) rotate(5deg);
-  filter: drop-shadow(0 5px 15px rgba(59, 130, 246, 0.6));
-}
-
-.name-letter:active {
-  transform: translateY(2px) scale(0.95);
-}
-
-/* Scrambling animation */
-.name-letter.scrambling {
-  animation: scrambleShake 0.1s ease-in-out infinite;
-  color: var(--color-accent);
-  text-shadow: 0 0 10px currentColor;
-}
-
-@keyframes scrambleShake {
-  0%, 100% {
-    transform: translateX(0) translateY(0);
-  }
-  25% {
-    transform: translateX(-2px) translateY(-2px);
-  }
-  75% {
-    transform: translateX(2px) translateY(2px);
-  }
-}
-
-/* Make the whole name clickable */
-#interactive-name {
-  cursor: pointer;
-  pointer-events: auto !important;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .bracket-left,
   .bracket-right,
   .portfolio-text {
     animation: none !important;
     opacity: 1 !important;
-    transform: none !important;
-  }
-
-  .name-letter:hover,
-  .name-letter:active,
-  .name-letter.scrambling {
-    animation: none !important;
     transform: none !important;
   }
 }
