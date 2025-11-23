@@ -1,11 +1,11 @@
 :root {
   --color-bg: #3D5366;
-  --color-heading: #FFFFFF;
-  --color-text: #E8E8E8;
-  --color-accent: #D4A574;
-  --color-border: #4A7098;
-  --color-primary: #C4956D;
-  --color-secondary: #5A82AA;
+  --color-heading: #000000;
+  --color-text: #000000;
+  --color-accent: #FDFBD4;
+  --color-border: #000000;
+  --color-primary: #FDFBD4;
+  --color-secondary: #587792;
 }
 
 :root[data-theme="monochrome"] {
