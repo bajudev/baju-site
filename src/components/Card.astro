@@ -8,7 +8,7 @@ const { class: className = "" } = Astro.props;
 
 <style>
   .card {
-    background: var(--color-bg);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--color-border);
     border-radius: 2px;
     padding: 2rem;
@@ -18,6 +18,7 @@ const { class: className = "" } = Astro.props;
 
   .card:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   }
 </style>

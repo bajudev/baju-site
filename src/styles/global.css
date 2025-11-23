@@ -15,12 +15,12 @@
   position: relative;
   transition: all 0.2s ease;
   border: 1px solid var(--color-border);
-  background: var(--color-bg);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .skill-pill:hover {
   border-color: var(--color-accent);
-  background: rgba(139, 115, 85, 0.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .skill-pill:hover i {
@@ -38,7 +38,7 @@
 
 .tag-badge:hover {
   border-color: var(--color-accent);
-  background: rgba(139, 115, 85, 0.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Tag Links */
@@ -55,5 +55,5 @@
 
 .tag-link:hover {
   border-color: var(--color-accent);
-  background: rgba(139, 115, 85, 0.05);
+  background: rgba(255, 255, 255, 0.1);
 }
