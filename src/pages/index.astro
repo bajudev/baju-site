@@ -25,7 +25,7 @@ const socialLinks = [
 
 <Layout title="baju | home">
   <div
-    class="relative flex items-center justify-center select-none text-7xl font-stix mb-12 hero-container"
+    class="relative flex items-center justify-center select-none text-7xl font-bodoni mb-20 hero-container"
   >
     <span class="bracket-left inline-block z-10">[</span>
     <span
@@ -35,26 +35,26 @@ const socialLinks = [
     <span class="bracket-right inline-block z-10">]</span>
   </div>
 
-  <section class="space-y-12">
+  <section class="space-y-16">
     <section>
-      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">
+      <h2 class="text-2xl text-[var(--color-heading)] mb-6">
         Currently
       </h2>
-      <ul class="list-disc text-lg space-y-2 text-[var(--color-text)] pl-4">
+      <ul class="list-disc text-lg space-y-3 text-[var(--color-text)] pl-5 marker:text-[var(--color-accent)]">
         {currently.map((thing) => <li>{thing}</li>)}
       </ul>
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">
+      <h2 class="text-2xl text-[var(--color-heading)] mb-6">
         Skills
       </h2>
-      <ul class="list-none flex gap-4 items-center flex-wrap">
+      <ul class="list-none flex gap-3 items-center flex-wrap">
         {
           skills.map((skill) => (
-            <li class="skill-pill flex gap-2 items-center text-[var(--color-text)] bg-[var(--color-border)] px-4 py-2 rounded-full">
-              <i class={`${skill.icon} text-lg`} />
-              <span>{skill.name}</span>
+            <li class="skill-pill flex gap-2 items-center text-[var(--color-text)] px-4 py-2 rounded-full">
+              <i class={`${skill.icon} text-base`} />
+              <span class="text-sm font-['Bodoni_Moda']">{skill.name}</span>
             </li>
           ))
         }
@@ -62,10 +62,10 @@ const socialLinks = [
     </section>
 
     <section>
-      <h2 class="text-xl font-semibold text-[var(--color-heading)] mb-4">
+      <h2 class="text-2xl text-[var(--color-heading)] mb-6">
         Contact
       </h2>
-      <ul class="flex flex-col space-y-3 text-[var(--color-text)]">
+      <ul class="flex flex-col space-y-4 text-[var(--color-text)]">
         {
           socialLinks.map((link) => (
             <li>
