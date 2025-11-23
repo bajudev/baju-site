@@ -11,22 +11,22 @@ const formattedDate = new Date(pubDate).toLocaleDateString("en-US", {
 <article>
   <a href={url} class="block">
     <Card class="hover:border-[var(--color-accent)]">
-      <div class="flex items-start justify-between mb-2">
+      <div class="flex items-start justify-between mb-3">
         <h3
-          class="text-xl font-semibold text-[var(--color-heading)] group-hover:text-[var(--color-accent)] transition-colors"
+          class="text-xl text-[var(--color-heading)] transition-colors font-['Bodoni_Moda']"
         >
           {title}
         </h3>
-        <time class="text-sm text-[var(--color-text)] whitespace-nowrap ml-4">
+        <time class="text-sm text-[var(--color-text)] whitespace-nowrap ml-4 font-['Bodoni_Moda']">
           {formattedDate}
         </time>
       </div>
-      <p class="text-[var(--color-text)] mb-3">{description}</p>
+      <p class="text-[var(--color-text)] mb-4 leading-relaxed">{description}</p>
       {
         tags && (
           <div class="flex flex-wrap gap-2">
             {tags.map((tag: string) => (
-              <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
+              <span class="text-xs px-3 py-1 border border-[var(--color-border)] text-[var(--color-text)] font-['Bodoni_Moda']">
                 #{tag}
               </span>
             ))}

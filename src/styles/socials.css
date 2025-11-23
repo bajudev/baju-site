@@ -1,49 +1,57 @@
 .social-link {
   text-decoration: none;
   color: var(--color-text);
+  transition: color 0.2s ease;
+  font-family: "Libre Baskerville", serif;
 }
 
 .social-link:hover {
   text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--color-accent);
-  color: var(--color-accent);
-  text-decoration-skip-ink: none;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-heading);
+  color: var(--color-heading);
+  text-underline-offset: 3px;
 }
 
 .social-link::after {
   content: "↗";
-  margin-left: 0.25rem;
+  margin-left: 0.3rem;
   font-family: system-ui, -apple-system, sans-serif;
-  font-size: 0.875em;
+  font-size: 0.75em;
+  opacity: 0.6;
 }
 
 .email-link {
   text-decoration: none;
   color: var(--color-text);
+  transition: color 0.2s ease;
+  font-family: "Libre Baskerville", serif;
 }
 
 .email-link:hover {
   text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--color-accent);
-  color: var(--color-accent);
-  text-decoration-skip-ink: none;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-heading);
+  color: var(--color-heading);
+  text-underline-offset: 3px;
 }
 
 .email-link::after {
   content: " ⌘";
+  opacity: 0.6;
 }
 
 .rss-link {
   text-decoration: none;
-  color: gray;
+  color: var(--color-text);
+  transition: color 0.2s ease;
+  font-family: "Libre Baskerville", serif;
 }
 
 .rss-link:hover {
   text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: var(--color-accent);
-  color: var(--color-accent);
-  text-decoration-skip-ink: none;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-heading);
+  color: var(--color-heading);
+  text-underline-offset: 3px;
 }

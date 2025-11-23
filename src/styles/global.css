@@ -7,73 +7,45 @@
 
 ::selection {
   background: var(--color-accent);
-  color: white;
+  color: var(--color-bg);
 }
 
 /* Skill Pills */
 .skill-pill {
   position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid transparent;
-  backdrop-filter: blur(10px);
-}
-
-.skill-pill::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.2s ease;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
 }
 
 .skill-pill:hover {
-  background: rgba(59, 130, 246, 0.1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.2);
-}
-
-.skill-pill:hover::before {
-  opacity: 1;
+  border-color: var(--color-accent);
+  background: rgba(139, 115, 85, 0.05);
 }
 
 .skill-pill:hover i {
-  transform: scale(1.1);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
 }
 
 /* Tag Badges */
 .tag-badge {
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  border: 1px solid var(--color-border);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  font-family: "Bodoni Moda", serif;
 }
 
 .tag-badge:hover {
-  background: rgba(59, 130, 246, 0.15);
-  border-color: rgba(59, 130, 246, 0.3);
-  transform: scale(1.05);
+  border-color: var(--color-accent);
+  background: rgba(139, 115, 85, 0.05);
 }
 
 /* Tag Links */
 .tag-link {
   position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.tag-link::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease;
 }
 
 .tag-link span {
@@ -82,10 +54,6 @@
 }
 
 .tag-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.3);
-}
-
-.tag-link:hover::before {
-  opacity: 1;
+  border-color: var(--color-accent);
+  background: rgba(139, 115, 85, 0.05);
 }

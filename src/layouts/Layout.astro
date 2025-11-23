@@ -57,7 +57,7 @@ const isProjectsPage = currentPath === "/projects";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&family=STIX+Two+Math&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono&display=swap"
       rel="stylesheet"
       crossorigin="anonymous"
     />
@@ -76,14 +76,14 @@ const isProjectsPage = currentPath === "/projects";
       document.documentElement.setAttribute("data-theme", theme);
     </script>
   </head>
-  <body class="antialiased font-['Inter']">
+  <body class="antialiased font-['Libre_Baskerville']">
     <a href="#main-content" class="skip-to-content">Skip to content</a>
     <AnimatedBackground />
-    <div class="container mx-auto max-w-2xl px-4 py-8 relative">
-      <header class="flex justify-between items-center py-6 backdrop-blur-sm">
+    <div class="container mx-auto max-w-3xl px-6 py-12 relative">
+      <header class="flex justify-between items-center py-8 mb-12">
         <a href="/" class="logo-link" aria-label="Home"> </a>
         <nav
-          class="flex space-x-6"
+          class="flex space-x-8"
           role="navigation"
           aria-label="Main navigation"
         >
@@ -92,14 +92,14 @@ const isProjectsPage = currentPath === "/projects";
           <a href="/projects" class={`nav-link ${isProjectsPage ? "active" : ""}`}>projects</a>
         </nav>
       </header>
-      <main id="main-content" class="mb-8 min-h-[60vh]" role="main">
+      <main id="main-content" class="mb-16 min-h-[60vh]" role="main">
         <slot />
       </main>
       <footer
-        class="text-center py-4 border-t border-[var(--color-border)] backdrop-blur-sm"
+        class="text-center py-8 border-t border-[var(--color-border)]"
         role="contentinfo"
       >
-        <p class="text-sm text-[var(--color-text)]">© {currentYear} baju</p>
+        <p class="text-sm text-[var(--color-text)] font-['Bodoni_Moda']">© {currentYear} baju</p>
       </footer>
     </div>
     <ThemeToggle />
