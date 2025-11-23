@@ -14,13 +14,13 @@ const { title, description, url, technologies, image, status } = Astro.props;
   >
     <div class="mb-4 flex items-start justify-between">
       <h3
-        class="text-xl text-[var(--color-heading)] transition-colors font-['Bodoni_Moda']"
+        class="text-xl text-[var(--color-heading)] transition-colors font-['Bodoni_MT']"
       >
         {title}
       </h3>
       {
         status && (
-          <span class="px-3 py-1 text-xs border border-[var(--color-accent)] text-[var(--color-accent)] font-['Bodoni_Moda']">
+          <span class="px-3 py-1 text-xs border border-[var(--color-accent)] text-[var(--color-accent)] font-['Bodoni_MT']">
             {status}
           </span>
         )
@@ -44,7 +44,7 @@ const { title, description, url, technologies, image, status } = Astro.props;
       technologies && (
         <div class="mb-5 flex flex-wrap gap-2">
           {technologies.map((tech: unknown) => (
-            <span class="px-3 py-1 text-xs border border-[var(--color-border)] text-[var(--color-text)] font-['Bodoni_Moda']">
+            <span class="px-3 py-1 text-xs border border-[var(--color-border)] text-[var(--color-text)] font-['Bodoni_MT']">
               {tech}
             </span>
           ))}
@@ -52,7 +52,7 @@ const { title, description, url, technologies, image, status } = Astro.props;
       )
     }
 
-    <div class="inline-flex items-center text-[var(--color-text)] transition-colors hover:text-[var(--color-heading)] font-['Bodoni_Moda']">
+    <div class="inline-flex items-center text-[var(--color-text)] transition-colors hover:text-[var(--color-heading)] font-['Bodoni_MT']">
       View Project<span class="ml-2 font-sans text-xs">↗</span>
     </div>
   </article>

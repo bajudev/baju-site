@@ -33,7 +33,7 @@
   border: 1px solid var(--color-border);
   font-weight: 400;
   letter-spacing: 0.03em;
-  font-family: "Bodoni Moda", serif;
+  font-family: "Bodoni MT", "Bodoni", "Didot", "Times New Roman", serif;
 }
 
 .tag-badge:hover {
