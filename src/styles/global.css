@@ -4,55 +4,43 @@
 @import "./navigation.css";
 @import "./socials.css";
 @import "./animations.css";
-
 ::selection {
   background: var(--color-accent);
   color: var(--color-bg);
 }
-
-/* Skill Pills */
 .skill-pill {
   position: relative;
   transition: all 0.2s ease;
   border: 1px solid var(--color-border);
   background: rgba(255, 255, 255, 0.05);
 }
-
 .skill-pill:hover {
   border-color: var(--color-accent);
   background: rgba(255, 255, 255, 0.1);
 }
-
 .skill-pill:hover i {
   transform: scale(1.05);
   transition: transform 0.2s ease;
 }
-
-/* Tag Badges */
 .tag-badge {
   border: 1px solid var(--color-border);
   font-weight: 400;
   letter-spacing: 0.03em;
-  font-family: "Bodoni MT", "Bodoni", "Didot", "Times New Roman", serif;
+  font-family: "Bodoni MT", serif;
 }
-
 .tag-badge:hover {
   border-color: var(--color-accent);
   background: rgba(255, 255, 255, 0.1);
 }
-
-/* Tag Links */
 .tag-link {
   position: relative;
   border: 1px solid var(--color-border);
   transition: all 0.2s ease;
 }
-
 .tag-link span {
   position: relative;
   z-index: 1;
 }
-
 .tag-link:hover {
   border-color: var(--color-accent);
   background: rgba(255, 255, 255, 0.1);
