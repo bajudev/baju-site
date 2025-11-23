@@ -1,6 +1,6 @@
 .nav-link {
   color: var(--color-text);
-  font-family: "Bodoni Moda", serif;
+  font-family: "Bodoni MT", serif;
   position: relative;
   transition: color 0.2s ease;
   outline-offset: 4px;
@@ -9,7 +9,6 @@
   font-size: 0.95rem;
   letter-spacing: 0.03em;
 }
-
 .nav-link::after {
   content: "";
   position: absolute;
@@ -22,28 +21,23 @@
   transform-origin: left;
   transition: transform 0.25s ease;
 }
-
 .nav-link:hover::after,
 .nav-link:focus::after {
   transform: scaleX(1);
 }
-
 .nav-link:hover,
 .nav-link:focus {
   color: var(--color-heading);
   outline: none;
 }
-
 .nav-link:focus-visible {
   outline: 1px solid var(--color-heading);
   outline-offset: 4px;
 }
-
 .nav-link.active {
   color: var(--color-heading);
   font-weight: 500;
 }
-
 .nav-link.active::after {
   transform: scaleX(1);
 }
