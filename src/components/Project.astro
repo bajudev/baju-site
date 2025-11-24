@@ -10,7 +10,6 @@ const { title, description, url, technologies, image, status } = Astro.props;
 >
   <article
     class="p-8 border border-[var(--color-border)] transition-all duration-200 hover:border-[var(--color-accent)]"
-    style="background: rgba(255, 255, 255, 0.05);"
   >
     <div class="mb-4 flex items-start justify-between">
       <h3
@@ -20,7 +19,7 @@ const { title, description, url, technologies, image, status } = Astro.props;
       </h3>
       {
         status && (
-          <span class="px-3 py-1 text-xs border border-[var(--color-accent)] text-[var(--color-accent)] font-['Bodoni_MT']">
+          <span class="px-3 py-1 text-xs border border-[var(--color-text)] text-[var(--color-text)] font-['Bodoni_MT']">
             {status}
           </span>
         )
