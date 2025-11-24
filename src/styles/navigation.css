@@ -1,6 +1,6 @@
 .nav-link {
   color: var(--color-text);
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
   position: relative;
   transition: color 0.2s ease;
   outline-offset: 4px;
