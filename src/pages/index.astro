@@ -24,20 +24,20 @@ const socialLinks = [
 ---
 
 <Layout title="baju | home">
-  <div>
+  <div class="space=y=24">
     <h1 style="font-size:80px;">baju</h1>
   </div>
 
   <section class="space-y-16">
     <section>
-      <h2 class="mb-6">Currently</h2>
+      <h2 class="mb-6 font-bold">Currently</h2>
       <ul class="list-disc text-lg space-y-3 pl-5 marker:text-[var(--color-text)]">
         {currently.map((thing) => <li>{thing}</li>)}
       </ul>
     </section>
 
     <section>
-      <h2 class="mb-6">Skills</h2>
+      <h2 class="mb-6 font-bold">Skills</h2>
       <ul class="list-none flex gap-3 items-center flex-wrap">
         {skills.map((skill) => (
           <li class="skill-pill flex gap-2 items-center px-4 py-2 rounded-full">
@@ -49,7 +49,7 @@ const socialLinks = [
     </section>
 
     <section>
-      <h2 class="mb-6">Contact</h2>
+      <h2 class="mb-6 font-bold">Contact</h2>
       <ul class="flex flex-col space-y-4">
         {socialLinks.map((link) => (
           <li>
