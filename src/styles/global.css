@@ -26,7 +26,7 @@
   border: 1px solid var(--color-border);
   font-weight: 400;
   letter-spacing: 0.03em;
-  font-family: "Libre Bodoni", serif;
+  font-family: "Bauer Bodoni", serif;
 }
 .tag-badge:hover {
   border-color: var(--color-accent);
