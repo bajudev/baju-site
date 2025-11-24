@@ -35,12 +35,12 @@ function formatDate(dateString: string | number | Date) {
 <Layout title="baju | blog">
   <section class="space-y-10">
     <div class="mb-8">
-      <h1 style="font-size: 80px; margin-bottom: 1rem;">Blog</h1>
-      <p style="font-size: 16px; margin-bottom: 1rem;" class="text-[var(--color-text)]">
+      <h1 class="mb-4">Blog</h1>
+      <p class="text-[var(--color-text)] mb-3">
         This is where I share things that I'm working on, find interesting, want
         to learn more about, or whatever else I feel like writing.
       </p>
-      <div class="flex items-center gap-4" style="font-size: 16px;">
+      <div class="flex items-center gap-4">
         <span class="text-[var(--color-text)]">{allPosts.length} post{allPosts.length !== 1 ? 's' : ''}</span>
         <span class="text-[var(--color-text)]">•</span>
         <a href="/rss.xml" class="rss-link">RSS</a>

@@ -6,7 +6,7 @@
   outline-offset: 4px;
   padding: 0.25rem 0;
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   letter-spacing: 0.03em;
 }
 .nav-link::after {

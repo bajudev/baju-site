@@ -25,7 +25,7 @@ const socialLinks = [
 
 <Layout title="baju | home">
   <section class="mb-12">
-    <h1 style="font-size: 80px;">baju</h1>
+    <h1>baju</h1>
   </section>
 
   <section class="space-y-12">
@@ -41,8 +41,8 @@ const socialLinks = [
       <ul class="list-none flex gap-3 items-center flex-wrap">
         {skills.map((skill) => (
           <li class="skill-pill flex gap-2 items-center px-4 py-2 rounded-full">
-            <i class={`${skill.icon}`} style="font-size: 16px;" />
-            <span style="font-size: 16px;">{skill.name}</span>
+            <i class={skill.icon} />
+            <span>{skill.name}</span>
           </li>
         ))}
       </ul>
