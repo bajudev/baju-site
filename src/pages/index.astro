@@ -55,7 +55,7 @@ const socialLinks = [
       <ul class="flex flex-col space-y-3">
         {socialLinks.map((link) => (
           <li>
-            
+            <a
               href={link.url}
               class={link.class}
               target={link.url.startsWith("mailto:") ? "_self" : "_blank"}
