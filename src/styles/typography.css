@@ -36,6 +36,13 @@ p {
   line-height: 1.8;
   letter-spacing: 0.015em;
 }
+ul, ol {
+  font-family: "Bodoni MT", serif;
+  color: var(--color-text);
+}
+li {
+  font-family: "Bodoni MT", serif;
+}
 .font-stix {
   font-family: "Bodoni MT", serif;
 }
