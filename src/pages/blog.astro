@@ -34,20 +34,20 @@ function formatDate(dateString: string | number | Date) {
 
 <Layout title="baju | blog">
   <section class="space-y-10">
-    <div class="mb-12">
-      <h1 class="text-8xl font-bold mb-6">Blog</h1>
-      <p class="text-lg text-[var(--color-text)] mb-4">
+    <div class="mb-8">
+      <h1 style="font-size: 80px; margin-bottom: 1rem;">Blog</h1>
+      <p style="font-size: 16px; margin-bottom: 1rem;" class="text-[var(--color-text)]">
         This is where I share things that I'm working on, find interesting, want
         to learn more about, or whatever else I feel like writing.
       </p>
-      <div class="flex items-center gap-4 text-base text-[var(--color-text)]">
-        <span>{allPosts.length} post{allPosts.length !== 1 ? 's' : ''}</span>
-        <span>•</span>
+      <div class="flex items-center gap-4" style="font-size: 16px;">
+        <span class="text-[var(--color-text)]">{allPosts.length} post{allPosts.length !== 1 ? 's' : ''}</span>
+        <span class="text-[var(--color-text)]">•</span>
         <a href="/rss.xml" class="rss-link">RSS</a>
       </div>
     </div>
 
-    <div class="space-y-8">
+    <div class="space-y-6">
       {allPosts.map((post) => (
         <BlogCard
           url={post.url}
