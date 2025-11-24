@@ -32,7 +32,9 @@ const socialLinks = [
     <section>
       <h2 class="mb-4">Currently</h2>
       <ul class="list-disc space-y-2 pl-5 marker:text-[var(--color-text)]">
-        {currently.map((thing) => <li>{thing}</li>)}
+        {currently.map((thing) => (
+          <li>{thing}</li>
+        ))}
       </ul>
     </section>
 
@@ -41,7 +43,7 @@ const socialLinks = [
       <ul class="list-none flex gap-3 items-center flex-wrap">
         {skills.map((skill) => (
           <li class="skill-pill flex gap-2 items-center px-4 py-2 rounded-full">
-            <i class={skill.icon} />
+            <i class={skill.icon}></i>
             <span>{skill.name}</span>
           </li>
         ))}
@@ -57,8 +59,8 @@ const socialLinks = [
               href={link.url}
               class={link.class}
               target={link.url.startsWith("mailto:") ? "_self" : "_blank"}
-              rel={link.rel || "noopener noreferrer nofollow"}
-            <a>
+              rel={link.rel ? link.rel : "noopener noreferrer nofollow"}
+            >
               {link.name}
             </a>
           </li>
