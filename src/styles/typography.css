@@ -1,6 +1,6 @@
 h1 {
   @apply text-4xl;
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
   font-weight: 600;
   color: var(--color-heading);
   letter-spacing: 0.01em;
@@ -8,7 +8,7 @@ h1 {
 }
 h2 {
   @apply text-2xl;
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
   font-weight: 500;
   color: var(--color-heading);
   letter-spacing: 0.015em;
@@ -16,7 +16,7 @@ h2 {
 }
 h3 {
   @apply text-xl;
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
   font-weight: 500;
   color: var(--color-heading);
   letter-spacing: 0.02em;
@@ -24,28 +24,28 @@ h3 {
 }
 h4 {
   @apply text-lg;
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
   font-weight: 500;
   color: var(--color-text);
   line-height: 1.6;
 }
 p {
   @apply text-base;
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
   font-weight: 400;
   line-height: 1.8;
   letter-spacing: 0.015em;
 }
 ul, ol {
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
   color: var(--color-text);
 }
 li {
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
 }
 .font-stix {
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
 }
 .font-bodoni {
-  font-family: "Bodoni MT", serif;
+  font-family: "Libre Bodoni", serif;
 }
