@@ -51,7 +51,7 @@ const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
           {frontmatter.tags.map((tag: unknown) => (
             <a
               href={`/tags/${tag}`}
-              class="inline-block bg-[var(--color-bg)] text-[var(--color-text)] hover:border-[var(--color-accent)] rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105"
+              class="inline-block bg-[var(--color-bg)] text-[var(--color-text)] border-[var(--color-border)] hover:border-[var(--color-accent)] rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105"
             >
               #{tag}
             </a>
