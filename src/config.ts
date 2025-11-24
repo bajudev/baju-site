@@ -1,9 +1,9 @@
 export const SITE = {
   title: "baju",
   description: "Computer science student exploring algorithms, web development, and technology",
-  url: "https://setofr.me",
+  url: "https://baju.dev",
   author: "baju",
-  email: "contact@setofr.me",
+  email: "contact@baju.dev",
   social: {
     github: "https://github.com/bajudev",
     youtube: "https://www.youtube.com/@baju-dev",

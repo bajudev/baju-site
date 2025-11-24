@@ -9,16 +9,16 @@ export async function GET(context) {
   }));
 
   return rss({
-    title: "setofr | Blog",
+    title: "baju | Blog",
     description:
-      "Computer science student sharing thoughts on programming, algorithms, and technology",
-    site: context.site || "https://setofr.me",
+      "baju blog",
+    site: context.site || "https://baju.dev",
     items: posts.map((post) => ({
       title: post.title,
       pubDate: new Date(post.pubDate),
       description: post.description,
       link: post.link,
     })),
-    customData: `<language>en-us</language>`,
+    customData: `<language>en-gb</language>`,
   });
 }

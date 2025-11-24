@@ -16,4 +16,4 @@ Disallow: /
 User-agent: Claude-Web
 Disallow: /
 
-Sitemap: https://setofr.me/sitemap.xml
+Sitemap: https://baju.dev/sitemap.xml
