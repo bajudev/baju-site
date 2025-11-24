@@ -13,11 +13,11 @@ const formattedDate = new Date(pubDate).toLocaleDateString("en-US", {
     <Card class="hover:border-[var(--color-accent)]">
       <div class="flex items-start justify-between mb-3">
         <h3
-          class="text-xl text-[var(--color-heading)] transition-colors font-['Libre_Bodoni']"
+          class="text-xl text-[var(--color-heading)] transition-colors font-['Bauer_Bodoni']"
         >
           {title}
         </h3>
-        <time class="text-sm text-[var(--color-text)] whitespace-nowrap ml-4 font-['Libre_Bodoni']">
+        <time class="text-sm text-[var(--color-text)] whitespace-nowrap ml-4 font-['Bauer_Bodoni']">
           {formattedDate}
         </time>
       </div>
@@ -26,7 +26,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString("en-US", {
         tags && (
           <div class="flex flex-wrap gap-2">
             {tags.map((tag: string) => (
-              <span class="text-xs px-3 py-1 border border-[var(--color-border)] text-[var(--color-text)] font-['Libre_Bodoni']">
+              <span class="text-xs px-3 py-1 border border-[var(--color-border)] text-[var(--color-text)] font-['Bauer_Bodoni']">
                 #{tag}
               </span>
             ))}
