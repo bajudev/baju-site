@@ -46,7 +46,7 @@ const { posts } = Astro.props;
                   {post.title}
                 </h3>
                 <p class="text-[var(--color-text)] mb-4">{post.description}</p>
-                <time class="text-sm text-gray-400">
+                <time class="text-sm text-[var(--color-text)]">
                   {new Date(post.pubDate).toLocaleDateString()}
                 </time>
               </article>

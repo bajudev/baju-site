@@ -11,13 +11,10 @@ often they are concerti, even if I am just merely attempting them for pleasure r
 goal of being able to perform them. I also spend a lot of my time listening to them, as it is one of my
 favourite forms of music.
 
-
 This post contains a list of my favorite movements from various concerti. Most are for violin 
 since that's what I know best, but I've included others that I love just as much. 
 
-
 I'll keep adding to this list as I discover new favorites
-
 
 - Tchaikovsky Violin Concerto in D major
     - This has to be first on my list. It has been my favourite violin concerto and I never get bored of listening to it. For this reason, I would recommend listening to the whole piece.
