@@ -1,6 +1,5 @@
 ---
 import AnimatedBackground from "../components/Background.astro";
-import ThemeToggle from "../components/Theme.astro";
 import StructuredData from "../components/StructuredData.astro";
 import { SITE } from "../config";
 
@@ -71,10 +70,6 @@ const isProjectsPage = currentPath === "/projects";
       tags={isBlogPost ? tags : undefined}
     />
 
-    <script>
-      const theme = localStorage.getItem("theme") || "color";
-      document.documentElement.setAttribute("data-theme", theme);
-    </script>
   </head>
     <body class="antialiased font-['Bodoni_MT']">
     <a href="#main-content" class="skip-to-content">Skip to content</a>
@@ -102,7 +97,6 @@ const isProjectsPage = currentPath === "/projects";
         <p class="text-sm text-[var(--color-text)] font-['Bodoni_MT']">© {currentYear} baju</p>
       </footer>
     </div>
-    <ThemeToggle />
   </body>
 </html>
 

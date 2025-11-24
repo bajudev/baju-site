@@ -1,19 +1,9 @@
 :root {
-  --color-bg: #4E6A83;
+  --color-bg: #3D5366;
   --color-heading: #000000;
   --color-text: #000000;
   --color-accent: #FDFBD4;
   --color-border: #000000;
   --color-primary: #FDFBD4;
   --color-secondary: #587792;
-}
-
-:root[data-theme="monochrome"] {
-  --color-bg: #2A3F5A;
-  --color-heading: #FFFFFF;
-  --color-text: #DDDDDD;
-  --color-accent: #AAAAAA;
-  --color-border: #3F5A75;
-  --color-primary: #999999;
-  --color-secondary: #6A88AA;
 }

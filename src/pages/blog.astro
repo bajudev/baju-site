@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BlogCard from "../components/BlogCard.astro";
-import RecipeCard from "../components/RecipeCard.astro";
 import "../styles/global.css";
 import { getReadingTime, formatReadingTime } from "../utils/reading-time";
 
 const allPosts = Object.entries(
-  import.meta.glob("./posts/*.md", { eager: true })
+  (import.meta as any).glob("./posts/*.md", { eager: true })
 )
   .map(([path, post]) => {
     const content = (post as any).compiledContent?.() || '';
@@ -22,10 +21,6 @@ const allPosts = Object.entries(
 
 const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags))];
 
-// Helper function to check if a post is a recipe
-function isRecipe(post: any) {
-  return post.tags?.includes('recipe') || post.ingredients || post.instructions;
-}
 
 function formatDate(dateString: string | number | Date) {
   const date = new Date(dateString);
@@ -63,19 +58,6 @@ function formatDate(dateString: string | number | Date) {
         {
           allPosts.map((post) => (
             <div class="fade-in-item">
-              {isRecipe(post) ? (
-                <RecipeCard
-                  title={post.title}
-                  url={post.url}
-                  description={post.description}
-                  pubDate={post.pubDate}
-                  tags={post.tags}
-                  prepTime={post.prepTime}
-                  cookTime={post.cookTime}
-                  servings={post.servings}
-                  difficulty={post.difficulty}
-                />
-              ) : (
                 <BlogCard
                   title={post.title}
                   url={post.url}
@@ -83,7 +65,6 @@ function formatDate(dateString: string | number | Date) {
                   pubDate={post.pubDate}
                   tags={post.tags}
                 />
-              )}
             </div>
           ))
         }
