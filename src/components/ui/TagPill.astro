@@ -15,8 +15,8 @@ const { tag, href, variant = 'default', class: className = '' } = Astro.props;
 const baseClasses = "text-xs px-3 py-1 border border-[var(--color-border)] text-[var(--color-text)] font-['Bauer_Bodoni'] transition-all duration-200";
 const variantClasses = {
   default: '',
-  rounded: 'rounded-full bg-[var(--color-border)]',
-  interactive: 'rounded-full bg-[var(--color-border)] hover:bg-[var(--color-accent)] hover:text-white hover:scale-105 font-medium'
+  rounded: 'rounded-full',
+  interactive: 'rounded-full hover:border-[var(--color-accent)] hover:scale-105'
 };
 
 const classes = `${baseClasses} ${variantClasses[variant]} ${className}`.trim();
