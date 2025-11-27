@@ -1,26 +1,19 @@
 ---
 import Layout from "./Layout.astro";
+import TagPill from "../components/ui/TagPill.astro";
 import "../styles/global.css";
 import { getReadingTime, formatReadingTime } from "../utils/reading-time";
 import { getRelatedPosts } from "../utils/related-posts";
+import { getPosts } from "../utils/posts";
+import { formatDateLong } from "../utils/date";
 
 const { frontmatter } = Astro.props;
-const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-});
+const formattedDate = formatDateLong(frontmatter.pubDate);
 
 const content = await Astro.slots.render('default');
 const readingTime = getReadingTime(content);
 
-const allPosts = Object.entries(
-  import.meta.glob("../pages/posts/*.md", { eager: true })
-).map(([path, post]) => ({
-  url: path.replace("../pages/", "/").replace(".md", ""),
-  ...(post as any).frontmatter,
-}));
+const allPosts = getPosts();
 
 const currentUrl = Astro.url.pathname;
 const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
@@ -48,13 +41,8 @@ const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
     {
       frontmatter.tags && (
         <div class="flex flex-wrap gap-2 mb-8">
-          {frontmatter.tags.map((tag: unknown) => (
-            <a
-              href={`/tags/${tag}`}
-              class="inline-block bg-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-accent)] hover:text-white rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105"
-            >
-              #{tag}
-            </a>
+          {frontmatter.tags.map((tag: string) => (
+            <TagPill tag={tag} href={`/tags/${tag}`} variant="interactive" />
           ))}
         </div>
       )
@@ -78,9 +66,7 @@ const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
             <p class="text-sm text-[var(--color-text)] mb-3">{post.description}</p>
             <div class="flex items-center gap-2">
               {post.tags?.slice(0, 3).map((tag: string) => (
-                <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-border)] text-[var(--color-text)]">
-                  #{tag}
-                </span>
+                <TagPill tag={tag} variant="rounded" />
               ))}
             </div>
           </a>

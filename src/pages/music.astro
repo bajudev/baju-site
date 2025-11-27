@@ -1,14 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ConcertCard from "../components/ui/ConcertCard.astro";
 import { pieces } from "../data/classicalWatchlist.js";
+import { isFutureDate } from "../utils/date";
 import "../styles/global.css";
 
-const upcomingConcerts = pieces.watched.filter(
-  (concert) => new Date(concert.date) > new Date()
-);
-const pastConcerts = pieces.watched.filter(
-  (concert) => new Date(concert.date) <= new Date()
-);
+const upcomingConcerts = pieces.watched.filter((concert) => isFutureDate(concert.date));
+const pastConcerts = pieces.watched.filter((concert) => !isFutureDate(concert.date));
 ---
 
 <Layout title="baju | music">
@@ -30,41 +28,12 @@ const pastConcerts = pieces.watched.filter(
           </h2>
           <div class="space-y-6">
             {upcomingConcerts.map((concert) => (
-              <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6">
-                <div class="flex flex-wrap items-baseline gap-4 mb-4">
-                  <time class="text-[var(--color-accent)] font-medium">
-                    {new Date(concert.date).toLocaleDateString("en-US", {
-                      weekday: "long",
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </time>
-                  <span class="text-[var(--color-heading)]">
-                    {concert.venue}
-                  </span>
-                </div>
-                <ul class="space-y-2">
-                  {concert.performances.map((perf) => (
-                    <li class="flex flex-wrap items-baseline gap-2">
-                      <span class="font-semibold text-[var(--color-heading)]">
-                        {perf.composer}
-                      </span>
-                      <span class="text-[var(--color-text)]">{perf.piece}</span>
-                      {perf.performer && (
-                        <span class="text-[var(--color-accent)]">
-                          performed by {perf.performer}
-                        </span>
-                      )}
-                      {perf.type === "encore" && (
-                        <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-accent)]/20 text-[var(--color-accent)]">
-                          Encore
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+              <ConcertCard
+                date={concert.date}
+                venue={concert.venue}
+                performances={concert.performances}
+                isPast={false}
+              />
             ))}
           </div>
         </section>
@@ -79,41 +48,12 @@ const pastConcerts = pieces.watched.filter(
           </h2>
           <div class="space-y-6">
             {pastConcerts.map((concert) => (
-              <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6">
-                <div class="flex flex-wrap items-baseline gap-4 mb-4">
-                  <time class="text-[var(--color-text)]">
-                    {new Date(concert.date).toLocaleDateString("en-US", {
-                      weekday: "long",
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </time>
-                  <span class="text-[var(--color-heading)]">
-                    {concert.venue}
-                  </span>
-                </div>
-                <ul class="space-y-2">
-                  {concert.performances.map((perf) => (
-                    <li class="flex flex-wrap items-baseline gap-2">
-                      <span class="font-semibold text-[var(--color-heading)]">
-                        {perf.composer}
-                      </span>
-                      <span class="text-[var(--color-text)]">{perf.piece}</span>
-                      {perf.performer && (
-                        <span class="text-[var(--color-accent)]">
-                          performed by {perf.performer}
-                        </span>
-                      )}
-                      {perf.type === "encore" && (
-                        <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-accent)]/20 text-[var(--color-accent)]">
-                          Encore
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+              <ConcertCard
+                date={concert.date}
+                venue={concert.venue}
+                performances={concert.performances}
+                isPast={true}
+              />
             ))}
           </div>
         </section>

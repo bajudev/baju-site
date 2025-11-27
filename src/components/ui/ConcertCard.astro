@@ -1,0 +1,59 @@
+---
+/**
+ * ConcertCard - Reusable card for displaying concert information
+ * Used in the music page for both upcoming and past concerts
+ */
+interface Performance {
+  composer: string;
+  piece: string;
+  performer?: string;
+  type?: 'encore' | 'regular';
+}
+
+interface Props {
+  date: string;
+  venue: string;
+  performances: Performance[];
+  isPast?: boolean;
+}
+
+const { date, venue, performances, isPast = false } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString("en-US", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6">
+  <div class="flex flex-wrap items-baseline gap-4 mb-4">
+    <time class={isPast ? "text-[var(--color-text)]" : "text-[var(--color-accent)] font-medium"}>
+      {formattedDate}
+    </time>
+    <span class="text-[var(--color-heading)]">
+      {venue}
+    </span>
+  </div>
+  <ul class="space-y-2">
+    {performances.map((perf) => (
+      <li class="flex flex-wrap items-baseline gap-2">
+        <span class="font-semibold text-[var(--color-heading)]">
+          {perf.composer}
+        </span>
+        <span class="text-[var(--color-text)]">{perf.piece}</span>
+        {perf.performer && (
+          <span class="text-[var(--color-accent)]">
+            performed by {perf.performer}
+          </span>
+        )}
+        {perf.type === "encore" && (
+          <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-accent)]/20 text-[var(--color-accent)]">
+            Encore
+          </span>
+        )}
+      </li>
+    ))}
+  </ul>
+</article>

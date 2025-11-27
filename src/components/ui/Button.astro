@@ -1,0 +1,41 @@
+---
+/**
+ * Button - Reusable button/link component
+ * Provides consistent styling for interactive elements
+ */
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+}
+
+const { href, variant = 'primary', size = 'md', type = 'button', class: className = '' } = Astro.props;
+
+const baseClasses = "inline-block font-['Bauer_Bodoni'] transition-all duration-200 border text-center";
+
+const variantClasses = {
+  primary: 'bg-[var(--color-accent)] text-[var(--color-bg)] border-[var(--color-accent)] hover:bg-[var(--color-heading)] hover:border-[var(--color-heading)]',
+  secondary: 'bg-transparent text-[var(--color-text)] border-[var(--color-border)] hover:border-[var(--color-accent)] hover:text-[var(--color-heading)]',
+  ghost: 'bg-transparent text-[var(--color-text)] border-transparent hover:border-[var(--color-border)] hover:text-[var(--color-heading)]'
+};
+
+const sizeClasses = {
+  sm: 'px-3 py-1 text-sm',
+  md: 'px-4 py-2 text-base',
+  lg: 'px-6 py-3 text-lg'
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.trim();
+---
+
+{href ? (
+  <a href={href} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes}>
+    <slot />
+  </button>
+)}
