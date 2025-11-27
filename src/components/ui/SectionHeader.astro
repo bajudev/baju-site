@@ -1,0 +1,25 @@
+---
+/**
+ * SectionHeader - Consistent section header component
+ * For h2 headers within pages
+ */
+interface Props {
+  title: string;
+  class?: string;
+}
+
+const { title, class: className = '' } = Astro.props;
+---
+
+<h2 class={`section-header ${className}`.trim()}>
+  {title}
+</h2>
+
+<style>
+  .section-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: 1.5rem;
+  }
+</style>
