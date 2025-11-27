@@ -32,7 +32,7 @@ const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
   publishDate={frontmatter.pubDate}
   tags={frontmatter.tags}
 >
-  <article class="prose prose-lg dark:prose-invert max-w-none">
+  <article class="blog-post max-w-none">
     <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
     <div class="flex items-center gap-4 text-sm text-[var(--color-text)] mb-6">
       <time class="flex items-center gap-1">
@@ -51,7 +51,7 @@ const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
           {frontmatter.tags.map((tag: unknown) => (
             <a
               href={`/tags/${tag}`}
-              class="inline-block bg-[var(--color-bg)] text-[var(--color-text)] border-[var(--color-border)] hover:border-[var(--color-accent)] rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105"
+              class="inline-block bg-[var(--color-border)] text-[var(--color-text)] hover:bg-[var(--color-accent)] hover:text-white rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105"
             >
               #{tag}
             </a>
@@ -78,7 +78,7 @@ const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
             <p class="text-sm text-[var(--color-text)] mb-3">{post.description}</p>
             <div class="flex items-center gap-2">
               {post.tags?.slice(0, 3).map((tag: string) => (
-                <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-bg)] text-[var(--color-text)]">
+                <span class="text-xs px-2 py-1 rounded-full bg-[var(--color-border)] text-[var(--color-text)]">
                   #{tag}
                 </span>
               ))}
