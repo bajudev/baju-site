@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
 import "../styles/global.css";
 import { SITE } from "../config";
 
@@ -26,14 +28,12 @@ const socialLinks = [
 ---
 
 <Layout title="baju | home">
-  <section class="mb-12 pb-8 border-b border-[var(--color-border)]">
-    <h1>Rohan</h1>
-  </section>
+  <PageHeader title="Rohan" />
 
   <section class="space-y-12">
     <section>
-      <h2 class="mb-4">Currently</h2>
-      <ul class="list-disc space-y-2 pl-5 marker:text-[var(--color-text)]">
+      <SectionHeader title="Currently" />
+      <ul class="list-disc space-y-2 pl-5 marker:text-muted">
         {currently.map((thing) => (
           <li>{thing}</li>
         ))}
@@ -41,7 +41,7 @@ const socialLinks = [
     </section>
 
     <section>
-      <h2 class="mb-4">Skills</h2>
+      <SectionHeader title="Skills" />
       <ul class="list-none flex gap-3 items-center flex-wrap">
         {skills.map((skill) => (
           <li class="skill-pill flex gap-2 items-center px-4 py-2 rounded-full">
@@ -53,7 +53,7 @@ const socialLinks = [
     </section>
 
     <section>
-      <h2 class="mb-4">Contact</h2>
+      <SectionHeader title="Contact" />
       TBA
       <!-- 
       <ul class="flex flex-col space-y-3">

@@ -27,7 +27,7 @@ const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
 >
   <article class="blog-post max-w-none">
     <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
-    <div class="flex items-center gap-4 text-sm text-[var(--color-text)] mb-6">
+    <div class="flex items-center gap-4 text-sm text-muted mb-6">
       <time class="flex items-center gap-1">
         <i class="far fa-calendar-alt text-xs"></i>
         {formattedDate}
@@ -52,18 +52,15 @@ const relatedPosts = getRelatedPosts(currentUrl, frontmatter.tags, allPosts);
   </article>
 
   {relatedPosts.length > 0 && (
-    <aside class="mt-12 pt-8 border-t border-[var(--color-border)]">
-      <h2 class="text-2xl font-bold mb-6 text-[var(--color-heading)]">Related Posts</h2>
+    <aside class="mt-12 pt-8 border-t border-default">
+      <h2 class="text-2xl font-bold mb-6 text-heading">Related Posts</h2>
       <div class="space-y-4">
         {relatedPosts.map(post => (
-          <a
-            href={post.url}
-            class="block p-4 border border-[var(--color-border)] rounded-lg hover:border-[var(--color-accent)] transition-colors"
-          >
-            <h3 class="text-lg font-semibold text-[var(--color-heading)] mb-2 hover:text-[var(--color-accent)] transition-colors">
+          <a href={post.url} class="card card-hover block p-4">
+            <h3 class="text-lg font-semibold text-heading mb-2 hover:text-accent transition-colors">
               {post.title}
             </h3>
-            <p class="text-sm text-[var(--color-text)] mb-3">{post.description}</p>
+            <p class="text-sm text-muted mb-3">{post.description}</p>
             <div class="flex items-center gap-2">
               {post.tags?.slice(0, 3).map((tag: string) => (
                 <TagPill tag={tag} variant="rounded" />

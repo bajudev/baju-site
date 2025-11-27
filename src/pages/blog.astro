@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import BlogCard from "../components/BlogCard.astro";
 import BaseLink from "../components/ui/BaseLink.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import "../styles/global.css";
 import { formatReadingTime } from "../utils/reading-time";
 import { getPosts, getAllTags } from "../utils/posts";
@@ -12,20 +13,15 @@ const uniqueTags = getAllTags(allPosts);
 ---
 
 <Layout title="baju | blog">
-  <section class="space-y-10">
-    <div class="mb-8">
-      <h1 class="mb-4">Blog</h1>
-      <p class="text-[var(--color-text)] mb-3">
-        This is where I share things that I'm working on, find interesting, want
-        to learn more about, or whatever else I feel like writing.
-      </p>
-      <div class="flex items-center gap-4">
-        <span class="text-[var(--color-text)]">{allPosts.length} post{allPosts.length !== 1 ? 's' : ''}</span>
-        <span class="text-[var(--color-text)]">•</span>
-        <BaseLink href="/rss.xml" variant="rss">RSS</BaseLink>
-      </div>
+  <PageHeader title="Blog" subtitle="This is where I share things that I'm working on, find interesting, want to learn more about, or whatever else I feel like writing.">
+    <div class="flex items-center gap-4 mt-4">
+      <span class="text-muted">{allPosts.length} post{allPosts.length !== 1 ? 's' : ''}</span>
+      <span class="text-muted">•</span>
+      <BaseLink href="/rss.xml" variant="rss">RSS</BaseLink>
     </div>
+  </PageHeader>
 
+  <section class="space-y-10">
     <div class="space-y-6">
       {allPosts.map((post) => (
         <BlogCard

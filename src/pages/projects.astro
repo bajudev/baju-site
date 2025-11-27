@@ -1,15 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
 import "../styles/global.css";
 ---
 <Layout title="baju | projects">
-  <section class="space-y-12">
-    <div>
-      <h1 style="font-size:80px;" class="font-bold">Projects</h1>
-        <p class="text-xl text-[var(--color-text)] font-['Bauer_Bodoni'] mb-2">WIP</p>
-        <p class="text-[var(--color-text)]">This page is under maintanence.</p>
-    </div>
-  </section>
+  <PageHeader title="Projects" subtitle="This page is under maintenance.">
+    <p class="text-xl text-muted font-['Bauer_Bodoni'] mt-2">WIP</p>
+  </PageHeader>
 </Layout>
 <!-- 
 ---

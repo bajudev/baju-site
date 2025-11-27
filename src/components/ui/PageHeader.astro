@@ -1,0 +1,38 @@
+---
+/**
+ * PageHeader - Consistent page header component
+ * Provides uniform styling for page titles across the site
+ */
+interface Props {
+  title: string;
+  subtitle?: string;
+  showBorder?: boolean;
+  class?: string;
+}
+
+const { title, subtitle, showBorder = true, class: className = '' } = Astro.props;
+---
+
+<header class={`page-header ${showBorder ? 'page-header--bordered' : ''} ${className}`.trim()}>
+  <h1>{title}</h1>
+  {subtitle && <p class="page-header__subtitle">{subtitle}</p>}
+  <slot />
+</header>
+
+<style>
+  .page-header {
+    margin-bottom: 3rem;
+  }
+
+  .page-header--bordered {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-header__subtitle {
+    color: var(--color-text);
+    font-size: 1.125rem;
+    margin-top: 1rem;
+    line-height: 1.75;
+  }
+</style>

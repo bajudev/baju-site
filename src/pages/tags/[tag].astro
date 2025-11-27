@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import BlogCard from "../../components/BlogCard.astro";
+import PageHeader from "../../components/ui/PageHeader.astro";
 import { getPosts, getPostsByTag, getAllTags } from "../../utils/posts";
 import { formatBlogDate } from "../../utils/date";
 
@@ -21,15 +22,14 @@ const { posts } = Astro.props;
 ---
 
 <Layout title={`Posts tagged "${tag}"`}>
-  <section class="space-y-10">
-    <div>
-      <h1 class="text-3xl font-bold">Posts tagged "{tag}"</h1>
-      <p class="text-lg text-[var(--color-text)] mt-4">
-        {posts.length}
-        {posts.length === 1 ? "post" : "posts"} found
-      </p>
-    </div>
+  <PageHeader title={`Posts tagged "${tag}"`}>
+    <p class="text-lg text-muted mt-4">
+      {posts.length}
+      {posts.length === 1 ? "post" : "posts"} found
+    </p>
+  </PageHeader>
 
+  <section class="space-y-10">
     <div class="space-y-6">
       {posts.map((post) => (
         <BlogCard

@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ConcertCard from "../components/ui/ConcertCard.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
+import SectionHeader from "../components/ui/SectionHeader.astro";
 import { pieces } from "../data/classicalWatchlist.js";
 import { isFutureDate } from "../utils/date";
 import "../styles/global.css";
@@ -10,22 +12,13 @@ const pastConcerts = pieces.watched.filter((concert) => !isFutureDate(concert.da
 ---
 
 <Layout title="baju | music">
-  <section class="space-y-12">
-    <div>
-      <h1 class="text-3xl font-bold text-[var(--color-heading)] mb-4">
-        Pieces Watchlist 🎻
-      </h1>
-      <p class="text-lg text-[var(--color-text)]">
-        Concerts that I've attended and pieces I want to see performed.
-      </p>
-    </div>
+  <PageHeader title="Pieces Watchlist 🎻" subtitle="Concerts that I've attended and pieces I want to see performed." />
 
+  <section class="space-y-12">
     {
       upcomingConcerts.length > 0 && (
         <section>
-          <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
-            Upcoming Concerts
-          </h2>
+          <SectionHeader title="Upcoming Concerts" />
           <div class="space-y-6">
             {upcomingConcerts.map((concert) => (
               <ConcertCard
@@ -43,9 +36,7 @@ const pastConcerts = pieces.watched.filter((concert) => !isFutureDate(concert.da
     {
       pastConcerts.length > 0 && (
         <section>
-          <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
-            Past Concerts
-          </h2>
+          <SectionHeader title="Past Concerts" />
           <div class="space-y-6">
             {pastConcerts.map((concert) => (
               <ConcertCard
@@ -61,18 +52,16 @@ const pastConcerts = pieces.watched.filter((concert) => !isFutureDate(concert.da
     }
 
     <section>
-      <h2 class="text-2xl font-semibold text-[var(--color-heading)] mb-6">
-        Watch Wishlist
-      </h2>
+      <SectionHeader title="Watch Wishlist" />
       <div class="space-y-3">
         {
           pieces.wishlist.map((piece) => (
-            <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-4 hover:border-[var(--color-accent)] transition-colors">
+            <article class="card card-hover p-4">
               <div class="flex flex-wrap items-baseline gap-2">
-                <span class="font-semibold text-[var(--color-heading)]">
+                <span class="font-semibold text-heading">
                   {piece.composer}
                 </span>
-                <span class="text-[var(--color-text)]">{piece.piece}</span>
+                <span class="text-muted">{piece.piece}</span>
               </div>
             </article>
           ))

@@ -4,10 +4,47 @@
 @import "./navigation.css";
 @import "./socials.css";
 @import "./animations.css";
+
+/* Selection styling */
 ::selection {
   background: var(--color-accent);
   color: var(--color-bg);
 }
+
+/* Utility classes for common patterns */
+.text-muted {
+  color: var(--color-text);
+}
+
+.text-heading {
+  color: var(--color-heading);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.border-default {
+  border: 1px solid var(--color-border);
+}
+
+/* Card patterns */
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.card-hover {
+  transition: border-color 0.2s ease;
+}
+
+.card-hover:hover {
+  border-color: var(--color-accent);
+}
+
+/* Component-specific styles */
 .skill-pill {
   position: relative;
   transition: all 0.2s ease;
@@ -22,25 +59,30 @@
   transform: scale(1.05);
   transition: transform 0.2s ease;
 }
+/* Legacy tag classes - prefer TagPill component */
 .tag-badge {
   border: 1px solid var(--color-border);
   font-weight: 400;
   letter-spacing: 0.03em;
   font-family: "Bauer Bodoni", serif;
 }
+
 .tag-badge:hover {
   border-color: var(--color-accent);
   background: rgba(255, 255, 255, 0.1);
 }
+
 .tag-link {
   position: relative;
   border: 1px solid var(--color-border);
   transition: all 0.2s ease;
 }
+
 .tag-link span {
   position: relative;
   z-index: 1;
 }
+
 .tag-link:hover {
   border-color: var(--color-accent);
   background: rgba(255, 255, 255, 0.1);
