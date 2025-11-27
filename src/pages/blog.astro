@@ -1,35 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BlogCard from "../components/BlogCard.astro";
+import BaseLink from "../components/ui/BaseLink.astro";
 import "../styles/global.css";
-import { getReadingTime, formatReadingTime } from "../utils/reading-time";
+import { formatReadingTime } from "../utils/reading-time";
+import { getPosts, getAllTags } from "../utils/posts";
+import { formatBlogDate } from "../utils/date";
 
-const allPosts = Object.entries(
-  (import.meta as any).glob("./posts/*.md", { eager: true })
-)
-  .map(([path, post]) => {
-    const content = (post as any).compiledContent?.() || '';
-    return {
-      url: path.replace("./", "/").replace(".md", ""),
-      ...(post as any).frontmatter,
-      readingTime: getReadingTime(content),
-    };
-  })
-  .sort(
-    (a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
-  );
-
-const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags))];
-
-function formatDate(dateString: string | number | Date) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-}
+const allPosts = getPosts(true);
+const uniqueTags = getAllTags(allPosts);
 ---
 
 <Layout title="baju | blog">
@@ -43,7 +22,7 @@ function formatDate(dateString: string | number | Date) {
       <div class="flex items-center gap-4">
         <span class="text-[var(--color-text)]">{allPosts.length} post{allPosts.length !== 1 ? 's' : ''}</span>
         <span class="text-[var(--color-text)]">•</span>
-        <a href="/rss.xml" class="rss-link">RSS</a>
+        <BaseLink href="/rss.xml" variant="rss">RSS</BaseLink>
       </div>
     </div>
 
@@ -53,9 +32,9 @@ function formatDate(dateString: string | number | Date) {
           url={post.url}
           title={post.title}
           description={post.description}
-          pubDate={formatDate(post.pubDate)}
+          pubDate={formatBlogDate(post.pubDate)}
           tags={post.tags}
-          readingTime={formatReadingTime(post.readingTime)}
+          readingTime={post.readingTime && formatReadingTime(post.readingTime)}
         />
       ))}
     </div>

@@ -1,0 +1,55 @@
+---
+/**
+ * BaseLink - Reusable link component with consistent styling
+ * Consolidates social-link, email-link, and rss-link styles
+ */
+interface Props {
+  href: string;
+  variant?: 'social' | 'email' | 'rss' | 'default';
+  class?: string;
+  target?: string;
+  rel?: string;
+}
+
+const { href, variant = 'default', class: className = '', ...attrs } = Astro.props;
+
+const suffixes = {
+  social: '↗',
+  email: ' ⌘',
+  rss: '',
+  default: ''
+};
+---
+
+<a
+  href={href}
+  class={`base-link ${className}`.trim()}
+  {...attrs}
+>
+  <slot />{variant !== 'default' && variant !== 'rss' && <span class="suffix">{suffixes[variant]}</span>}
+</a>
+
+<style>
+  .base-link {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: color 0.2s ease;
+    font-family: "Bauer Bodoni", serif;
+    font-size: var(--font-size-base);
+  }
+
+  .base-link:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--color-heading);
+    color: var(--color-heading);
+    text-underline-offset: 3px;
+  }
+
+  .suffix {
+    margin-left: 0.3rem;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.75em;
+    opacity: 0.6;
+  }
+</style>

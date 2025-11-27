@@ -1,0 +1,33 @@
+---
+/**
+ * TagPill - Reusable tag badge component
+ * Used for displaying tags consistently across the site
+ */
+interface Props {
+  tag: string;
+  href?: string;
+  variant?: 'default' | 'rounded' | 'interactive';
+  class?: string;
+}
+
+const { tag, href, variant = 'default', class: className = '' } = Astro.props;
+
+const baseClasses = "text-xs px-3 py-1 border border-[var(--color-border)] text-[var(--color-text)] font-['Bauer_Bodoni'] transition-all duration-200";
+const variantClasses = {
+  default: '',
+  rounded: 'rounded-full bg-[var(--color-border)]',
+  interactive: 'rounded-full bg-[var(--color-border)] hover:bg-[var(--color-accent)] hover:text-white hover:scale-105 font-medium'
+};
+
+const classes = `${baseClasses} ${variantClasses[variant]} ${className}`.trim();
+---
+
+{href ? (
+  <a href={href} class={`inline-block ${classes}`}>
+    #{tag}
+  </a>
+) : (
+  <span class={`inline-block ${classes}`}>
+    #{tag}
+  </span>
+)}

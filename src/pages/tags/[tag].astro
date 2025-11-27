@@ -1,23 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { getPosts, getPostsByTag, getAllTags } from "../../utils/posts";
+import { formatBlogDate } from "../../utils/date";
 
 export async function getStaticPaths() {
-  const allPosts = Object.entries(
-    import.meta.glob("../posts/*.md", { eager: true }) as Record<
-      string,
-      { frontmatter: any }
-    >
-  ).map(([path, post]) => ({
-    url: path.replace("../", "/").replace(".md", ""),
-    ...post.frontmatter,
-  }));
-
-  const uniqueTags = [...new Set(allPosts.flatMap((post) => post.tags || []))];
+  const allPosts = getPosts();
+  const uniqueTags = getAllTags(allPosts);
 
   return uniqueTags.map((tag) => ({
     params: { tag },
     props: {
-      posts: allPosts.filter((post) => post.tags.includes(tag)),
+      posts: getPostsByTag(allPosts, tag),
     },
   }));
 }
@@ -36,24 +30,16 @@ const { posts } = Astro.props;
       </p>
     </div>
 
-    <ul class="space-y-8">
-      {
-        posts.map((post) => (
-          <li class="transition-all duration-300">
-            <a href={post.url} class="block">
-              <article class="bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg p-6 hover:border-[var(--color-accent)] transition-all duration-300">
-                <h3 class="text-2xl font-bold text-[var(--color-heading)] mb-4 hover:text-[var(--color-accent)]">
-                  {post.title}
-                </h3>
-                <p class="text-[var(--color-text)] mb-4">{post.description}</p>
-                <time class="text-sm text-[var(--color-text)]">
-                  {new Date(post.pubDate).toLocaleDateString()}
-                </time>
-              </article>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <div class="space-y-6">
+      {posts.map((post) => (
+        <BlogCard
+          url={post.url}
+          title={post.title}
+          description={post.description}
+          pubDate={formatBlogDate(post.pubDate)}
+          tags={post.tags}
+        />
+      ))}
+    </div>
   </section>
 </Layout>
