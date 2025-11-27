@@ -1,5 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+---
+<Layout title="baju | projects">
+  <section class="space-y-12">
+    <div>
+      <h1 style="font-size:80px;" class="font-bold">Projects</h1>
+      <div class="mt-12 p-8 border border-[var(--color-border)]">
+        <p class="text-xl text-[var(--color-accent)] font-['Bauer_Bodoni'] mb-2">Under Maintenance</p>
+        <p class="text-[var(--color-text)]">This section is currently being updated. Check back soon!</p>
+      </div>
+    </div>
+  </section>
+</Layout>
+<!-- 
+---
+import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/Project.astro";
 import { projects } from "../data/projects.js";
 import "../styles/global.css";
@@ -50,3 +66,4 @@ const sections = [
     }
   </section>
 </Layout>
+-->
